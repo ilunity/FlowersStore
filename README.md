@@ -1,1 +1,1 @@
-# FlowersStore
+# Flowers Store
