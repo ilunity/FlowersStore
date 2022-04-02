@@ -19,6 +19,10 @@ class APIError extends Error {
         return new APIError(403, message);
     }
 
+    static unauthorized() {
+        return new APIError(401, "User unauthorized");
+    }
+
     static noParameters() {
         return APIError.badRequest("Not all parameters are entered");
     }
