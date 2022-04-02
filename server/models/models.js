@@ -1,8 +1,8 @@
-const sequalize = require('../db');
+const sequelize = require('../db');
 const {DataTypes} = require('sequelize');
 
 
-const User = sequalize.define('user', {
+const User = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type: DataTypes.STRING, unique: true},
     password: {type: DataTypes.STRING},
@@ -11,11 +11,11 @@ const User = sequalize.define('user', {
     surname: {type: DataTypes.STRING},
 });
 
-const Basket = sequalize.define('basket', {
+const Basket = sequelize.define('basket', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 });
 
-const Item = sequalize.define('item', {
+const Item = sequelize.define('item', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
@@ -23,23 +23,28 @@ const Item = sequalize.define('item', {
     img: {type: DataTypes.STRING, allowNull: false},
 });
 
-const Category = sequalize.define('category', {
+const Category = sequelize.define('category', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
 });
 
-const ItemInfo = sequalize.define('item_info', {
+const CategoryGroup = sequelize.define('category_group', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+});
+
+const ItemInfo = sequelize.define('item_info', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: false},
 });
 
-const BasketItem = sequalize.define('basket_item', {
+const BasketItem = sequelize.define('basket_item', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     count: {type: DataTypes.INTEGER, allowNull: false},
 });
 
-const CategoryItem = sequalize.define('category_item', {
+const CategoryItem = sequelize.define('category_item', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 });
 
@@ -53,6 +58,9 @@ BasketItem.belongsTo(Basket);
 Category.hasMany(CategoryItem);
 CategoryItem.belongsTo(Category);
 
+CategoryGroup.hasMany(Category);
+Category.belongsTo(CategoryGroup);
+
 Item.hasMany(BasketItem);
 BasketItem.belongsTo(Item);
 
@@ -63,4 +71,4 @@ Item.hasMany(ItemInfo);
 ItemInfo.belongsTo(Item);
 
 
-module.exports = {User, Basket, Item, Category, ItemInfo, BasketItem, CategoryItem};
+module.exports = {User, Basket, Item, Category, CategoryGroup, ItemInfo, BasketItem, CategoryItem};
