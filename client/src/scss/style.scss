@@ -1,1 +1,34 @@
 @import "../scss/normalize.css";
+@import "_variables.scss";
+body {
+  background: #E5E5E5;
+}
+.InteractionBtn {
+  min-height: 63px;
+  width: 220px;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 7px;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+.CommunicationBtn {
+  border-radius: 50%;
+  width: 53px;
+  height: 53px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #956D84;
+  color: #FFFFFF;
+  transition: all 3ms ease-in-out;
+}
+.btn:hover {
+  filter: brightness(105%);
+}
+.btn:active {
+  filter: brightness(125%);
+}
