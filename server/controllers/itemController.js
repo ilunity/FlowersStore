@@ -3,19 +3,42 @@ const path = require('path');
 const {Item, CategoryItem, Category, ItemInfo} = require('../models/models');
 const APIError = require('../error/APIError');
 
+
 const itemController = {
     async create(req, res, next) {
         try {
-            const {name, price, count, info: infoJSON} = req.body;
+            const {name, price, count, category: categoriesJSON, info: infoJSON} = req.body;
             const {img} = req.files;
-            if (!name || !price || !count) next(APIError.noParameters());
+
+            const isAllNecessaryParametersSet = !name || !price || !count;
+            if (isAllNecessaryParametersSet) next(APIError.noParameters());
+
+            const isCategorySet = Boolean(categoriesJSON);
+            let categoryIds = [];
+            if (isCategorySet) {
+                const categoryNames = JSON.parse(categoriesJSON);
+
+                for (const categoryName of categoryNames) {
+                    const category = await Category.findOne({where: {name: categoryName}});
+                    if (category === null) next(APIError.badRequest(`There is no such category: ${categoryName}.`));
+
+                    categoryIds.push(category.id);
+                }
+            }
+
+            const isInfoSet = Boolean(infoJSON);
+            if (isInfoSet) {
+                // todo проверка на правильность свойств объектов
+            }
+
 
             const fileName = uuid.v4() + '.jpg';
             await img.mv(path.resolve(__dirname, "..", "static", fileName));
 
             const item = await Item.create({name, price, count, img: fileName});
 
-            if (infoJSON) {
+
+            if (isInfoSet) {
                 const info = JSON.parse(infoJSON);
 
                 info.forEach((infoItem) => {
@@ -25,6 +48,13 @@ const itemController = {
                         itemId: item.id,
                     });
                 });
+            }
+
+
+            if (isCategorySet) {
+                for (const categoryId of categoryIds) {
+                    await CategoryItem.create({itemId: item.id, categoryId});
+                }
             }
 
             return res.json(item);
@@ -79,6 +109,18 @@ const itemController = {
         });
 
         return res.json(item);
+    },
+    async setCategory(req, res, next) {
+        const {itemId, category: categoryName} = req.body;
+
+        const category = await Category.findOne({where: {name: categoryName}});
+        if (category === null) next(APIError.badRequest("There is no such category"));
+
+
+        const categoryId = category.id;
+        const categoryItem = await CategoryItem.create({itemId, categoryId});
+
+        return res.json(categoryItem);
     },
 };
 

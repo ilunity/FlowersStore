@@ -4,7 +4,6 @@ const categoryRouter = require('./categoryRouter');
 const categoryGroupRouter = require('./categoryGroupRouter');
 const userRouter = require('./userRouter');
 const basketRouter = require('./basketRouter');
-
 const router = new Router();
 
 

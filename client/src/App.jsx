@@ -1,10 +1,10 @@
-import './App.css';
+import './scss/style.scss';
 
 function App() {
 
-  return (
-    <div></div>
-  );
+    return (
+        <div></div>
+    );
 }
 
 export default App;

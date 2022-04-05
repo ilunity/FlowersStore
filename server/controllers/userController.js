@@ -19,6 +19,7 @@ const userController = {
         const candidate = await User.findOne({where: {email}});
         if (candidate) return next(APIError.badRequest("A user with this email already exists"));
 
+
         const hashPassword = await bcrypt.hash(password, 5);
 
         const user = await User.create({email, role, password: hashPassword});
