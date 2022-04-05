@@ -1,9 +1,15 @@
+import {BrowserRouter} from "react-router-dom";
 import './scss/style.scss';
+import {RouterComponent} from "./components/routerComponent";
 
 function App() {
 
     return (
-        <div></div>
+        <div>
+            <BrowserRouter>
+                <RouterComponent/>
+            </BrowserRouter>
+        </div>
     );
 }
 
