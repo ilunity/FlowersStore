@@ -1,8 +1,8 @@
 import React from 'react'
 
-const InteractionButton = ({content = 'Заказать', extraСlass = ''}) => {
+const InteractionButton = ({content = '', parentClass = ''}) => {
   return (
-    <button className={'InteractionBtn btn' + extraСlass}>{content}</button>
+    <button className={parentClass + ' ' + 'interactionBtn btn'}>{content}</button>
   )
 }
 
