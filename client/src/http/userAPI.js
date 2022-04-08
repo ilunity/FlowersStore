@@ -1,86 +1,60 @@
 import {USER_URL} from "./consts";
-import {getToken, setToken} from "../utils/cookiesAPI";
-import {HttpError} from "./httpError";
+import {setToken} from "../utils/cookiesAPI";
+import {REQUEST_METHODS, sendRequest} from "./requestsAPI";
 
+const onSuccess = (result) => {
+    setToken(result.token);
+    return true;
+};
+
+const onError = (error) => {
+    console.log(error.message);
+    return false;
+};
 
 const registerUser = async ({email, password, name, surname}) => {
-    try {
-        const url = USER_URL + "registration/";
+    const url = USER_URL + "/registration";
 
-        const bodyJSON = JSON.stringify({
-            email,
-            password,
-            name,
-            surname,
-        });
+    const body = {
+        email,
+        password,
+        name,
+        surname,
+    };
 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-            },
-            body: bodyJSON,
-        });
+    const requestResult = await sendRequest(url, {
+        method: REQUEST_METHODS.POST,
+        body,
+        onSuccess,
+        onError,
+    });
 
-        if (!response.ok) throw HttpError.badStatusError(response);
-
-        const result = await response.json();
-        setToken(result.token);
-    } catch (error) {
-        console.log(error.message);
-    }
+    return requestResult;
 };
 
 const loginUser = async ({email, password}) => {
-    try {
-        const url = USER_URL + "login/";
+    const url = USER_URL + "/login";
 
-        const bodyJSON = JSON.stringify({
-            email,
-            password,
-        });
+    const body = {
+        email,
+        password,
+    };
 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-            },
-            body: bodyJSON,
-        });
+    const requestResult = await sendRequest(url, {
+        method: REQUEST_METHODS.POST,
+        body,
+        onSuccess,
+        onError,
+    });
 
-        if (!response.ok) throw HttpError.badStatusError(response);
-
-        const result = await response.json();
-        setToken(result.token);
-    } catch (error) {
-        console.log(error.message);
-    }
+    return requestResult;
 };
 
 const checkAuth = async () => {
-    const url = USER_URL + "auth/";
-    const token = getToken();
+    const url = USER_URL + "/auth";
 
-    try {
-        const response = await fetch(url, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-
-        if (!response.ok) {
-            throw HttpError.badStatusError(response);
-        }
-
-        const result = await response.json();
-        setToken(result.token);
-
-        return true;
-    } catch (error) {
-        console.log(error.message);
-        return false;
-    }
-};
-
+    const requestResult = await sendRequest(url, {onSuccess, onError});
+    return requestResult;
+}
 
 export {registerUser, loginUser, checkAuth};
