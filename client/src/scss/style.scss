@@ -15,7 +15,6 @@ body {
   flex-direction: column;
 }
 .container {
-  width: 100%;
   max-width: 1421px;
   margin: 0 auto;
   padding: 0px 15px;
@@ -27,7 +26,6 @@ body {
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.15);
   border-radius: 7px;
   font-size: 16px;
-  font-family: 'Roboto';
   font-weight: 700;
   letter-spacing: 0em;
 }
@@ -70,7 +68,7 @@ body {
 }
 
 .contacts {
-  position: relative;
+  
   &__icon {
     position: absolute;
     left: 0;
@@ -91,6 +89,22 @@ body {
   &__phone {
     color: inherit;
   }
+  &__basket {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+  }
+  &__basket img:hover{
+    cursor: pointer;
+  }
+  &__sum {
+    margin-left: 15px;
+    color: #828282;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 10px;
+  }
 }
 
 
@@ -102,41 +116,36 @@ body {
   z-index: 100;
   display: flex;
   flex-direction: column;
-  &__contacts-purchases {}
-
-  &__lower-menu {
-    display: flex;
-  }
-
-  &__upper-menu {
-    background: $black;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 28px;
-  }
 }
 
 .lower-menu {
-  &__logo {
-    margin-right: 121px;
-  }
-
-  &__navigation {
-    display: flex;
-    flex-direction: column;
-    max-width: 824px;
-    width: 100%;
-    margin-right: 214px;
-  }
   &__body {
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+  }
+  &__logo {
+    max-width: 117px;
+  }
+  &__column {
+    padding-left: 180px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__navigation {
+    box-sizing: content-box;
+    margin-left: -90px;
+    max-width: 824px;
+    padding: 0px 20px;
+    
+  }
+  &__contacts-purchases {
+    max-width: 145px;
   }
 }
 
 .shipping-payment {
-  position: relative;
   &__icon {
     position: absolute;
     left: 0;
@@ -154,25 +163,29 @@ body {
 }
 
 .upper-menu {
-  &__authorization {
-    margin-left: 230px;
-  }
-
+  width: 100%;
+  background: $black;
+  margin-bottom: 28px;
   &__contacts {
+    position: relative;
+    margin-left: 63px;
+  }
+  &__authorization {
+    margin-left: 229px;
+  }
+  &__shipping-payment {
+    position: relative;
   }
   &__body {
-    justify-content: end;
     display: flex;
-    height: 100%;
+    min-height: 50px;
+    align-items: center;
+    justify-content: end;
   }
   &__body *{
     display: flex;
     cursor: pointer;
     user-select: none;
-  }
-
-  &__shipping-payment {
-    margin-right: 81px
   }
 }
 .categories {
@@ -194,7 +207,7 @@ body {
     background: inherit;
     position: absolute;
     right: 5px;
-    top: 3px;
+    top: 0;
   }
   &__btn:hover {
     filter:brightness(125%);
@@ -206,11 +219,10 @@ body {
     padding-right: 25px;
     border-bottom:1px solid #956D84;
     background: inherit;
-    width: calc(100% - 21px);
+    width: 100%;
   }
 }
 .search {
-  width: 100%;
   margin-bottom: 47px;
   display: flex;
   &__categories {
@@ -222,11 +234,13 @@ body {
   }
 }
 .nav-bar {
+  
   &__list {
     justify-content: space-between;
     display: flex;
   }
   &__item {
+    color: black;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
@@ -238,15 +252,20 @@ body {
   &__item:hover {
     color: $lilac;
   }
+  
+  &__item.active {
+    color: $lilac;
+  }
   &__item_catalog > :not(:last-child){
     margin-right:8px;
   }
-
-  &__item_info {}
+  &__item_catalog{
+    position: relative;
+  }
+  
   &__item_info > :not(:last-child){
     margin-right:8px;
   }
-  &__link {}
 }
 .socialmedia {
   display: flex;
@@ -258,5 +277,36 @@ body {
   }
   &__item:not(:last-child) {
     margin-right: 13px;
+  }
+}
+.dropdown {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  // transition: all 3s ease-in-out;
+  &__list {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid #956D84;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  &__item {
+    color: black;
+    padding: 0px 14px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 38px;
+  }
+  &__item:hover {
+    background: $lilac;
+    color: #FFFFFF;
+  }
+  &__icon {
+    position: absolute;
+    right: 15px;
+    top: 10px;
   }
 }

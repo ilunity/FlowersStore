@@ -38,10 +38,13 @@ const Header = () => {
           <div className="lower-menu__container container">
             <div className="lower-menu__body">
               <a href="" className='lower-menu__logo'><img src={logo} alt="logo" /></a>
-              <div className="lower-menu__navigation">
-                <SearchBar/>
-                <Navbar/>
+              <div className='lower-menu__column'>
+                <div className="lower-menu__navigation">
+                  <SearchBar/>
+                  <Navbar/>
+                </div>
               </div>
+              
               <div className="header__contacts-purchases contacts-purchases">
                 <div className="contacts-purchases__socialmedia socialmedia">
                   <CommunicationButton parentClass='socialmedia__item' iconURL={whatsApp}/>
@@ -53,7 +56,6 @@ const Header = () => {
                 <BasketButton/>
               </div>
             </div>
-            
           </div>
         </div>
     </header>
