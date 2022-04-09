@@ -3,42 +3,17 @@ import arrowRight from '../../../img/header/icons/arrowRight.svg'
 const Dropdown = () => {
   const MenuItems = [
     {
-      title: 'Букеты',
+      title: 'О нас',
       path: '',
       cName: 'dropdown__link'
     },
     {
-      title: 'Розы',
+      title: 'Доставка и оплата',
       path: '',
       cName: 'dropdown__link'
     },
     {
-      title: 'Цветы в коробке',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Композиции',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Подарки',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Подарочные корзины',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Букеты невесты',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Вкусные букеты',
+      title: 'Контакты',
       path: '',
       cName: 'dropdown__link'
     },
