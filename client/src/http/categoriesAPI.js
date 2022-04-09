@@ -9,13 +9,13 @@ const getAll = async () => {
 };
 
 const getByName = async (name) => {
-    const url = setParametersToUrl(`${url}/getByName`, {name});
+    const url = setParametersToUrl(`${url}/get_by_name`, {name});
     const category = await sendRequest(url);
     return category;
 };
 
 const getById = async (id) => {
-    const url = setParametersToUrl(`${url}/getById`, {id});
+    const url = setParametersToUrl(`${url}/get_by_id`, {id});
     const category = await sendRequest(url);
     return category;
 };
