@@ -3,7 +3,7 @@ import {BASKET_URL} from "./consts";
 
 //todo Обработка ошибок
 const addToBasket = async (itemId) => {
-    const url = BASKET_URL + '/addItem';
+    const url = BASKET_URL + '/add_item';
 
     const bodyJSON = JSON.stringify({itemId});
     await sendRequest(url, {
@@ -14,7 +14,7 @@ const addToBasket = async (itemId) => {
 };
 
 const getAll = async () => {
-    const url = BASKET_URL + '/getAll';
+    const url = BASKET_URL + '/get_all';
     const items = await sendRequest(url);
     return items;
 };
