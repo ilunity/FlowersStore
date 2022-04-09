@@ -4,6 +4,11 @@ import {RouterComponent} from "./components/routerComponent";
 import Header from "./components/common/Header";
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAuthStatus());
+    }, []);
 
     return (
         <div className="wrapper">
