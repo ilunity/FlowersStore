@@ -33,10 +33,7 @@ export {store};
 //             }
 //         ],
 //     },
-//     filters: [
-//         "Розы",
-//         "Ирисы"
-//     ],
+//     filters: [2, 5, 8],
 //     idAuth: false,
 //     user: {},
 // }

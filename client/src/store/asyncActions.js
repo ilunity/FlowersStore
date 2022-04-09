@@ -1,12 +1,15 @@
-import {setAuth} from "./actions";
+import {setAuth, setItems} from "./actions";
 import {checkAuth} from "../http/userAPI";
 import {setToken} from "../utils/cookiesAPI";
+import {getItems} from "../http/itemsAPI";
 
 const FETCH_ITEMS = "FETCH_ITEMS";
 
-const fetchItems = () => {
+const fetchItems = (limit, page, filters) => {
     return async (dispatch) => {
-
+        dispatch({type: FETCH_ITEMS});
+        const items = await getItems(limit, page, filters);
+        dispatch(setItems(items));
     };
 };
 
