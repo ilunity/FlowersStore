@@ -1,5 +1,5 @@
 import React from 'react';
-import arrowRight from '../../img/header/icons/arrowRight.svg'
+import arrowRight from '../../../img/header/icons/arrowRight.svg'
 const Dropdown = () => {
   const MenuItems = [
     {
@@ -52,7 +52,6 @@ const Dropdown = () => {
               <a className={item.cName}>
                 {item.title}
               </a>
-              <img src={arrowRight} className = 'dropdown__icon' alt="arrowRight" /> 
             </li>
           );
         })}

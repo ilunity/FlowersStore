@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchIcon from '../../img/header/icons/ToFindIcon.svg';
+import SearchIcon from '../../../img/header/icons/ToFindIcon.svg';
 const SearchBar = () => {
   return (
     <div className="lower-menu__search search">

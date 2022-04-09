@@ -1,5 +1,5 @@
 import React from 'react';
-import backet from '../../img/header/icons/shopping-basket.svg';
+import backet from '../../../img/header/icons/shopping-basket.svg';
 const BasketButton = ({sum = 0}) => {
   return (
     <div className="contacts-purchases__basket">
