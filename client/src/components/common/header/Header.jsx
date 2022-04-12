@@ -1,16 +1,16 @@
 import React from 'react';
-import logo from '../../img/header/logo.svg';
-import facebook from '../../img/header/icons/facebook.svg';
-import instagram from '../../img/header/icons/instagram.svg';
-import telegram from '../../img/header/icons/telegram.svg';
-import whatsApp from '../../img/header/icons/whatsApp.svg';
+import logo from '../../../img/header/logo.svg';
+import facebook from '../../../img/header/icons/facebook.svg';
+import instagram from '../../../img/header/icons/instagram.svg';
+import telegram from '../../../img/header/icons/telegram.svg';
+import whatsApp from '../../../img/header/icons/whatsApp.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
-import CommunicationButton from './CommunicationButton';
+import CommunicationButton from '../buttonTemplates/CommunicationButton';
+import lorry from '../../../img/header/icons/lorry.svg';
+import phone from '../../../img/header/icons/phone.svg';
+import user from '../../../img/header/icons/user.svg';
 import BasketButton from './BasketButton';
-import lorry from '../../img/header/icons/lorry.svg';
-import phone from '../../img/header/icons/phone.svg';
-import user from '../../img/header/icons/user.svg';
 
 const Header = () => {
   return (
@@ -38,11 +38,9 @@ const Header = () => {
           <div className="lower-menu__container container">
             <div className="lower-menu__body">
               <a href="" className='lower-menu__logo'><img src={logo} alt="logo" /></a>
-              <div className='lower-menu__column'>
-                <div className="lower-menu__navigation">
-                  <SearchBar/>
-                  <Navbar/>
-                </div>
+              <div className="lower-menu__navigation">
+                <SearchBar/>
+                <Navbar/>
               </div>
               
               <div className="header__contacts-purchases contacts-purchases">

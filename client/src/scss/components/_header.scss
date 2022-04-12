@@ -1,53 +1,4 @@
-@import "../scss/normalize.css";
-@import "../scss/_variables.scss";
-body {
-  background: #E5E5E5;
-  height: 100%;
-  line-height: 1;
-  font-size: 16px;
-  color: black;
-  font-family: 'Roboto';
-}
-.wrapper {
-  min-height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.container {
-  max-width: 1421px;
-  margin: 0 auto;
-  padding: 0px 15px;
-  box-sizing: content-box;
-}
-.interaction-btn {
-  min-height: 63px;
-  width: 220px;
-  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.15);
-  border-radius: 7px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0em;
-}
-.communication-btn {
-  border-radius: 50%;
-  width: 53px;
-  height: 53px;
-}
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #956D84;
-  color: #FFFFFF;
-  transition: all 3ms ease-in-out;
-}
-.btn:hover {
-  filter: brightness(105%);
-}
-.btn:active {
-  filter: brightness(125%);
-}
+@import '../variables';
 .authorization {
   &__login {
     color: #FFFFFF;
@@ -127,15 +78,11 @@ body {
   &__logo {
     max-width: 117px;
   }
-  &__column {
-    padding-left: 180px;
+  &__navigation {
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-  &__navigation {
     box-sizing: content-box;
-    margin-left: -90px;
     max-width: 824px;
     padding: 0px 20px;
     
@@ -171,7 +118,8 @@ body {
     margin-left: 63px;
   }
   &__authorization {
-    margin-left: 229px;
+    margin-left: 290px;
+    
   }
   &__shipping-payment {
     position: relative;
@@ -194,7 +142,7 @@ body {
   &__input {
     min-height: 26px;
     background: inherit;
-    border-bottom:1px solid #956D84;
+    border-bottom:1px solid $lilac;
     padding-bottom: 8px;
     padding-right: 25px;
   }
@@ -217,7 +165,7 @@ body {
     min-height: 26px;
     padding-bottom: 8px;
     padding-right: 25px;
-    border-bottom:1px solid #956D84;
+    border-bottom:1px solid $lilac;
     background: inherit;
     width: 100%;
   }
@@ -234,12 +182,12 @@ body {
   }
 }
 .nav-bar {
-  
   &__list {
     justify-content: space-between;
     display: flex;
   }
   &__item {
+    flex: 1 1 16.66%;
     color: black;
     font-weight: 700;
     font-size: 16px;
@@ -248,23 +196,24 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-  }
-  &__item:hover {
-    color: $lilac;
-  }
-  
-  &__item.active {
-    color: $lilac;
-  }
-  &__item_catalog > :not(:last-child){
-    margin-right:8px;
-  }
-  &__item_catalog{
-    position: relative;
-  }
-  
-  &__item_info > :not(:last-child){
-    margin-right:8px;
+    &:first-child {
+      flex: 1 1 25%;
+    }
+    &:not(:last-child) {
+      padding-right: 15px;
+    }
+    &:hover {
+      color: $lilac;
+    }
+    &_info {
+      position: relative;
+      &.active {
+        color: $lilac;
+      }
+    }
+    &_info > :not(:last-child){
+      margin-right:8px;
+    }
   }
 }
 .socialmedia {
@@ -281,9 +230,8 @@ body {
 }
 .dropdown {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 45px;
-  // transition: all 3s ease-in-out;
   &__list {
     width: 240px;
     display: flex;
@@ -303,10 +251,5 @@ body {
   &__item:hover {
     background: $lilac;
     color: #FFFFFF;
-  }
-  &__icon {
-    position: absolute;
-    right: 15px;
-    top: 10px;
   }
 }
