@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import '../../scss/style.scss';
+import '../../scss/components/input-frame.scss';
 
 function InputFrame({type, value, placeholder, setValue, className}) {
     const onChange = (event) => {
