@@ -58,13 +58,12 @@ const Header = () => {
                             <SearchBar/>
                             <Navbar/>
                         </div>
-
                         <div className="header__contacts-purchases contacts-purchases">
                             <div className="contacts-purchases__socialmedia socialmedia">
-                                <CommunicationButton parentClass='socialmedia__item' iconURL={whatsApp}/>
-                                <CommunicationButton parentClass='socialmedia__item' iconURL={instagram}/>
-                                <CommunicationButton parentClass='socialmedia__item' iconURL={telegram}/>
-                                <CommunicationButton parentClass='socialmedia__item' iconURL={facebook}/>
+                                <CommunicationButton className='socialmedia__item' iconURL={whatsApp}/>
+                                <CommunicationButton className='socialmedia__item' iconURL={instagram}/>
+                                <CommunicationButton className='socialmedia__item' iconURL={telegram}/>
+                                <CommunicationButton className='socialmedia__item' iconURL={facebook}/>
                             </div>
                             <a href="tel:380678293030" className="contacts-purchases__phone">+38 (067) 829 30 30</a>
                             <BasketButton/>
