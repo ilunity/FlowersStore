@@ -1,10 +1,12 @@
 @import '../variables';
+
 .authorization {
   &__login {
     color: #FFFFFF;
     margin-left: 10px;
     transition: all 3ms ease-in-out;
   }
+
   &__login:hover {
     color: $lilac;
   }
@@ -13,13 +15,14 @@
     color: #FFFFFF;
     transition: all 3ms ease-in-out;
   }
+
   &__registration:hover {
     color: $lilac;
   }
 }
 
 .contacts {
-  
+
   &__icon {
     position: absolute;
     left: 0;
@@ -31,6 +34,7 @@
     color: #FFFFFF;
     transition: all 3ms ease-in-out;
   }
+
   &__text:hover {
     color: $lilac;
   }
@@ -40,14 +44,17 @@
   &__phone {
     color: inherit;
   }
+
   &__basket {
     margin-top: 22px;
     display: flex;
     align-items: center;
   }
-  &__basket img:hover{
+
+  &__basket img:hover {
     cursor: pointer;
   }
+
   &__sum {
     margin-left: 15px;
     color: #828282;
@@ -57,7 +64,6 @@
     line-height: 10px;
   }
 }
-
 
 .header {
   width: 100%;
@@ -80,22 +86,26 @@
     align-items: flex-end;
     justify-content: space-between;
   }
+
   &__logo {
     max-width: 117px;
   }
+
   &__column {
     padding-left: 180px;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
+
   &__navigation {
     box-sizing: content-box;
     margin-left: -90px;
     max-width: 824px;
     padding: 0px 20px;
-    
+
   }
+
   &__contacts-purchases {
     max-width: 145px;
   }
@@ -113,6 +123,7 @@
     padding-left: 30px;
     transition: all 3ms ease-in-out;
   }
+
   &__text:hover {
     color: $lilac;
   }
@@ -122,35 +133,42 @@
   width: 100%;
   background: $black;
   margin-bottom: 28px;
+
   &__contacts {
     position: relative;
     margin-left: 63px;
   }
+
   &__authorization {
     margin-left: 229px;
   }
+
   &__shipping-payment {
     position: relative;
   }
+
   &__body {
     display: flex;
     min-height: 50px;
     align-items: center;
     justify-content: end;
   }
-  &__body *{
+
+  &__body * {
     display: flex;
     cursor: pointer;
     user-select: none;
   }
 }
+
 .categories {
-  margin-right:21px;
+  margin-right: 21px;
   width: 219px;
+
   &__input {
     min-height: 26px;
     background: inherit;
-    border-bottom:1px solid $lilac;
+    border-bottom: 1px solid $lilac;
     padding-bottom: 8px;
     padding-right: 25px;
   }
@@ -159,28 +177,32 @@
 .goods {
   position: relative;
   flex: 1;
+
   &__btn {
     background: inherit;
     position: absolute;
     right: 5px;
     top: 0;
   }
+
   &__btn:hover {
-    filter:brightness(125%);
+    filter: brightness(125%);
   }
 
   &__input {
     min-height: 26px;
     padding-bottom: 8px;
     padding-right: 25px;
-    border-bottom:1px solid $lilac;
+    border-bottom: 1px solid $lilac;
     background: inherit;
     width: 100%;
   }
 }
+
 .search {
   margin-bottom: 47px;
   display: flex;
+
   &__categories {
     background: inherit;
   }
@@ -189,12 +211,14 @@
     background: inherit;
   }
 }
+
 .nav-bar {
-  
+
   &__list {
     justify-content: space-between;
     display: flex;
   }
+
   &__item {
     flex: 1 1 16.66%;
     color: black;
@@ -205,38 +229,48 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+
     &:first-child {
       flex: 1 1 25%;
     }
+
     &:not(:last-child) {
       padding-right: 15px;
     }
+
     &:hover {
       color: $lilac;
     }
+
     &_info {
       position: relative;
+
       &.active {
         color: $lilac;
       }
     }
-    &_info > :not(:last-child){
-      margin-right:8px;
+
+    &_info > :not(:last-child) {
+      margin-right: 8px;
     }
   }
 }
+
 .socialmedia {
   display: flex;
   margin-bottom: 19px;
+
   &__item {
     width: 27px;
     height: 27px;
     transition: all 3ms ease-in-out;
   }
+
   &__item:not(:last-child) {
     margin-right: 13px;
   }
 }
+
 .dropdown {
   position: absolute;
   right: 0;
@@ -250,6 +284,7 @@
     border: 1px solid #956D84;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   }
+
   &__item {
     color: black;
     padding: 0px 14px;
@@ -258,10 +293,12 @@
     position: relative;
     min-height: 38px;
   }
+
   &__item:hover {
     background: $lilac;
     color: #FFFFFF;
   }
+
   &__icon {
     position: absolute;
     right: 15px;
