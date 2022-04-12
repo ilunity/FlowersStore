@@ -1,8 +1,14 @@
 import React from 'react';
 
-const InteractionButton = ({content = '', parentClass = ''}) => {
+const InteractionButton = ({type= 'button', value, className,  onClick}) => {
   return (
-    <button className={parentClass + ' ' + 'interaction-btn btn'}>{content}</button>
+    <button
+        type={type}
+        className={`interaction-btn btn ${className}`}
+        onClick={onClick}
+    >
+      {value}
+    </button>
   )
 }
 
