@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../scss/style.scss';
+import '../../../scss/components/modal/modal.scss';
 import {Modal} from "../Modal";
 import {useDispatch, useSelector} from "react-redux";
 import {setLoginModalStatus} from "../../../store/actions";
