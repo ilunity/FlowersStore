@@ -6,7 +6,7 @@ export class HttpError extends Error {
         this.message = message;
     };
 
-    static badStatusError(response) {
-        return new HttpError(response.status, response.statusText);
+    static badStatusError(response, result) {
+        return new HttpError(response.status, result.message);
     };
 }

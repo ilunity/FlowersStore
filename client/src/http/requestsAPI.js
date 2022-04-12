@@ -36,7 +36,7 @@ const sendRequest = async ( url,
     {
         method = REQUEST_METHODS.GET,
         body,
-        isAttachToken = true,
+        isAttachToken = false,
         onSuccess,
         onError = console.log,
     }
@@ -47,9 +47,9 @@ const sendRequest = async ( url,
         const requestOptions = getRequestOptionsObject({method, body, isAttachToken});
         const response = await fetch(url, requestOptions);
 
-        if (!response.ok) throw HttpError.badStatusError(response);
-
         const result = await response.json();
+
+        if (!response.ok) throw HttpError.badStatusError(response, result);
 
         if (onSuccess) return onSuccess(result);
 
