@@ -1,0 +1,32 @@
+@import '../variables';
+
+.input-frame {
+  position: relative;
+  background-color: $white;
+
+  &__input {
+    width: 360px;
+    height: 55px;
+    padding: 10px;
+
+    border: 1px solid $grey;
+    background-color: inherit;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 50px $white inset;
+      -webkit-text-fill-color: $black;
+    }
+  }
+
+  &__label {
+    padding: 0 5px;
+
+    position: absolute;
+    top: -8px;
+    left: 30px;
+
+    color: $dark-grey;
+    font-weight: 300;
+    background-color: inherit;
+  }
+}
