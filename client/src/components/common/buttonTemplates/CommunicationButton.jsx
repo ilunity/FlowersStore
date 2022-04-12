@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../../scss/components/buttonTemplates.scss';
 const CommunicationButton = ({className, iconURL}) => {
   return (
     <button className={`communication-btn ${className}`}>
