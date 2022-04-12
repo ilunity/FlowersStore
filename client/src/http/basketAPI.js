@@ -15,7 +15,9 @@ const addToBasket = async (itemId) => {
 
 const getAll = async () => {
     const url = BASKET_URL + '/get_all';
-    const items = await sendRequest(url);
+    const items = await sendRequest(url, {
+        isAttachToken: true,
+    });
     return items;
 };
 

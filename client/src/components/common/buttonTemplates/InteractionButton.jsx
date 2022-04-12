@@ -1,9 +1,15 @@
 import React from 'react';
-import styles from './buttonTtemplates.module.scss'
-const InteractionButton = ({content = '', parentClass = ''}) => {
-  return (
-    <button className={parentClass + ' ' + styles['interaction-btn btn']}>{content}</button>
-  )
+import '../../../scss/components/buttons.scss'
+
+const InteractionButton = ({value, className, onClick}) => {
+    return (
+        <button
+            className={`interaction-btn btn ${className}`}
+            onClick={onClick}
+        >
+            {value}
+        </button>
+    )
 }
 
 export default InteractionButton;

@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './buttonTtemplates.module.scss'
-const CommunicationButton = ({iconURL, parentClass = ''}) => {
+import '../../../scss/components/buttons.scss'
+
+const CommunicationButton = ({className, iconURL}) => {
   console.log();
   return (
-    <button className={parentClass + ' ' + styles['communication-btn']}>
+    <button className={`communication-btn ${className}`}>
       {iconURL ? <img src={iconURL} alt="contact" /> : ''}
     </button>
   )
