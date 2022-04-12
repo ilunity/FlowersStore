@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import '../../../scss/style.scss';
+import '../../../scss/components/modal/modal.scss';
 import {InputFrame} from "../../common/InputFrame";
-import InteractionButton from "../../common/InteractionButton";
+import InteractionButton from "../../common/buttonTemplates/InteractionButton";
 import {registerUser} from "../../../http/userAPI";
 import {useDispatch} from "react-redux";
 import {getAuthStatus} from "../../../store/asyncActions";

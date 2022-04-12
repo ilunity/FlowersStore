@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../scss/style.scss';
+import '../../../scss/components/modal/modal.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {Modal} from "../Modal";
 import {setRegModalStatus} from "../../../store/actions";
