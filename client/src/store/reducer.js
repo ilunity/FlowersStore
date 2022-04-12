@@ -1,4 +1,13 @@
-import {SET_USER, DELETE_USER, SET_AUTH, SET_ITEMS, SET_FILTERS, ADD_FILTER, DELETE_FILTER} from "./actions";
+import {
+    SET_USER,
+    DELETE_USER,
+    SET_AUTH,
+    SET_ITEMS,
+    SET_FILTERS,
+    ADD_FILTER,
+    DELETE_FILTER,
+    SET_REG_MODAL_STATUS, SET_LOGIN_MODAL_STATUS
+} from "./actions";
 import {combineReducers} from "redux";
 import {FETCH_ITEMS} from "./asyncActions";
 
@@ -65,9 +74,30 @@ const filtersReducer = (
     }
 };
 
+const modalsReducer = (
+    state = {
+        registration: false,
+        login: false,
+    },
+    action
+) => {
+    switch (action.type) {
+        case SET_REG_MODAL_STATUS:
+            return Object.assign({}, state, {
+                registration: action.payload,
+            });
+        case SET_LOGIN_MODAL_STATUS:
+            return Object.assign({}, state, {
+                login: action.payload,
+            });
+        default:
+            return state;
+    }
+};
 
 const rootReducer = combineReducers({
     items: itemsReducer,
+    activeModals: modalsReducer,
     filters: filtersReducer,
     isAuth: authReducer,
     user: userReducer,

@@ -33,7 +33,11 @@ export {store};
 //             }
 //         ],
 //     },
+//     activeModals: {
+//         registration: false,
+//         login: false,
+//     },
 //     filters: [2, 5, 8],
-//     idAuth: false,
+//     isAuth: false,
 //     user: {},
-// }
+// };
