@@ -1,4 +1,3 @@
-import React from 'react';
 
 const InteractionButton = ({type= 'button', value, className,  onClick}) => {
   return (
