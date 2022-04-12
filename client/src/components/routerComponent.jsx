@@ -1,6 +1,6 @@
 import {Navigate, Routes, Route} from "react-router-dom";
 import React from 'react';
-import {paths, routes} from "../utils/routes";
+import {routes} from "../utils/routes";
 import '../scss/style.scss';
 
 function RouterComponent(props) {
