@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../scss/components/modal/modal.scss';
+import '../../scss/components/modal.scss';
 
 function Modal({isActive, hideModal, children}) {
     const onWindowClick = () => {
