@@ -61,10 +61,12 @@ const filtersReducer = (
         case SET_FILTERS:
             return action.payload;
         case ADD_FILTER:
-            return [
-                ...state,
-                action.payload
-            ];
+            if (!state.includes(action.payload)) {
+                return [
+                    ...state,
+                    action.payload
+                ];
+            }
         case DELETE_FILTER:
             return state.filter((filter) => {
                 return filter !== action.payload;

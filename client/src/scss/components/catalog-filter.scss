@@ -1,0 +1,56 @@
+@import "../variables";
+
+.catalog-filter {
+  max-width: 180px;
+
+  &__title {
+    font-size: 16px;
+    font-weight: 300;
+    color: $black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    img {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $dark-grey;
+    }
+  }
+  &__list {
+    margin-bottom: 10px;
+  }
+  &__item {
+    font-size: 13px;
+    font-weight: 300;
+    color: $lilac;
+
+    margin-bottom: 7px;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+
+      margin-right: 10px;
+    }
+    &_active {
+      font-weight: 700;
+      &::before {
+        background: url("../../img/common/checkmark.svg") center no-repeat;
+      }
+    }
+  }
+}

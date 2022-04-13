@@ -1,9 +1,11 @@
 import React from 'react';
+import {CatalogFilter} from "../components/common/catalogFilter/catalogFilter";
 
-function Catalog(props) {
+
+function Catalog() {
     return (
-        <div>
-            Catalog
+        <div className={'page'}>
+            <CatalogFilter/>
         </div>
     )
 }

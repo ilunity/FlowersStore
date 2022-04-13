@@ -2,7 +2,7 @@ import React from 'react';
 
 function Order(props) {
     return (
-        <div>
+        <div className={'page'}>
             Order
         </div>
     )
