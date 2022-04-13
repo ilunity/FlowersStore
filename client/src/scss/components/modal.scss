@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../variables';
 
 .modal {
   width: 100vw;
@@ -22,7 +22,7 @@
     z-index: 5;
 
     max-height: 90%;
-    min-width: 50%;
+    min-width: 40%;
     padding: 70px 50px 100px;
     background-color: $white;
     border: 1px solid $lilac;
