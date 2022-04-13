@@ -5,7 +5,7 @@ function Item(props) {
     const {id} = useParams();
 
     return (
-        <div>
+        <div className={'page'}>
             {`Item: ${id}`}
         </div>
     )
