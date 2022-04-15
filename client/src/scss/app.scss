@@ -1,17 +1,21 @@
-@import "libs/normalize";
+@import "./libs/normalize";
 @import "variables";
-@import "components/header";
+@import "./components/header";
+@import "./components/home";
 body {
-  background: $bg_color;
-  height: 100vh;
+  background: #FFFFFF;
+  padding-top: 260px;
   line-height: 1;
   font-size: 16px;
   color: black;
   font-family: 'Roboto';
 }
+#root {
+  height: 100%;
+}
 .wrapper {
-  min-height: 100vh;
-  //overflow-x: hidden;
+  min-height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -21,7 +25,6 @@ body {
   padding: 0px 15px;
   box-sizing: content-box;
 }
-
-.page {
-  padding: 0 5vw;
+.main {
+  flex: 1 1 auto;
 }

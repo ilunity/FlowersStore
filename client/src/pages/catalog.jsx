@@ -1,13 +1,11 @@
 import React from 'react';
-import {CatalogFilter} from "../components/common/catalogFilter/catalogFilter";
 
-
-function Catalog() {
+const Catalog = () => {
     return (
-        <div className={'page'}>
-            <CatalogFilter/>
-        </div>
-    )
-}
+        <main className='main'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consequatur, nesciunt consequuntur iusto dolor porro animi dicta mollitia nihil autem ipsum laborum voluptatum! Rem aliquam tenetur neque minus dolor commodi.
+        </main>
+    );
+};
 
-export {Catalog};
+export default Catalog;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Order(props) {
+const Order = () => {
     return (
-        <div className={'page'}>
+        <main className='main'>
             Order
-        </div>
-    )
-}
+        </main>
+    );
+};
 
-export {Order};
+export default Order;
