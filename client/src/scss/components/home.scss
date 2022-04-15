@@ -2,11 +2,11 @@
 .about {
   justify-content: space-between;
   display: flex;
+  margin-bottom: 115px;
   &__item {
     flex: 1 1 33.33%;
   }
 }
-
 .banner {
   margin-bottom: 45px;
   display: flex;
@@ -18,7 +18,6 @@
     cursor: pointer;
   }
 }
-
 .catalog {
   height: 100%;
   display: flex;
@@ -31,20 +30,4 @@
     cursor: pointer;
     flex: 1 1 50%;
   }
-}
-
-.home {
-  &__about {}
-
-  &__banner {}
-}
-
-.main {
-  &__home {}
-}
-
-.stand {
-  &__catalog {}
-
-  &__discount {}
 }
