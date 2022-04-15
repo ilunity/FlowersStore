@@ -1,5 +1,4 @@
 import React from 'react';
-import arrowRight from '../../../img/header/icons/arrowRight.svg'
 const Dropdown = () => {
   const MenuItems = [
     {
