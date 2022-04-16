@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux";
 import {getAuthStatus} from "./store/asyncActions";
 import Header from "./components/common/header/Header";
 import {Modals} from "./components/modals/Modals";
+import Footer from "./components/common/footer/Footer";
 
 function App() {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
             <BrowserRouter>
                 <RouterComponent/>
             </BrowserRouter>
+            <Footer/>
         </div>
     );
 }
