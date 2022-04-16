@@ -1,10 +1,9 @@
 import React from 'react';
-import '../../../scss/components/buttons.scss'
-
+import '../../../scss/components/buttonTemplates.scss';
 const InteractionButton = ({value, className, onClick}) => {
     return (
         <button
-            className={`interaction-btn btn ${className}`}
+            className={`interaction-btn ${className}`}
             onClick={onClick}
         >
             {value}

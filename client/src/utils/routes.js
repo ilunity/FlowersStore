@@ -1,9 +1,8 @@
-import {Basket} from "../pages/basket";
-import {Home} from "../pages/home";
-import {Item} from "../pages/item";
-import {Catalog} from "../pages/catalog";
-import {Order} from "../pages/order";
-
+import Basket from "../pages/Basket"
+import Item from "../pages/Item"
+import Catalog from "../pages/Catalog"
+import Order from "../pages/Order"
+import Home from "../pages/Home"
 const paths = {
     HOME: "/",
     ITEM: "/item/:id",

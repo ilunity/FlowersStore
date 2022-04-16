@@ -17,12 +17,10 @@ function App() {
     return (
         <div className="wrapper">
             <Header/>
-            <main>
-                <Modals/>
-                <BrowserRouter>
-                    <RouterComponent/>
-                </BrowserRouter>
-            </main>
+            <Modals/>
+            <BrowserRouter>
+                <RouterComponent/>
+            </BrowserRouter>
         </div>
     );
 }

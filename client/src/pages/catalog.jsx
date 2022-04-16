@@ -1,13 +1,13 @@
 import React from 'react';
-import {CatalogFilter} from "../components/common/catalogFilter/catalogFilter";
+import {ItemsWrapper} from "../components/common/itemCard/itemsWrapper";
 
 
-function Catalog() {
+const Catalog = () => {
     return (
-        <div className={'page'}>
-            <CatalogFilter/>
-        </div>
-    )
-}
+        <main className='main'>
+            <ItemsWrapper/>
+        </main>
+    );
+};
 
-export {Catalog};
+export default Catalog;

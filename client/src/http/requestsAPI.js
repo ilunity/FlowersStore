@@ -61,7 +61,7 @@ const sendRequest = async ( url,
 
 
 const setParametersToUrl = (url, parameters) => {
-    url += '/';
+    url += '?';
     Object.entries(parameters).forEach((parameter) => {
         url += `${parameter[0]}=${parameter[1]}&`
     })
