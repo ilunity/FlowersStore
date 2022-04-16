@@ -1,5 +1,8 @@
 import React from 'react';
+import Slider from '';
 import {photo, present, video, boxes, baskets, gifts, catolog, roses} from "../img/home/index";
+import { ItemsWrapper } from '../components/common/itemCard/itemsWrapper';
+import SliderBox from '../components/common/slider/Slider';
 const Home = () => {
     return (
         <main className='main'>
@@ -43,6 +46,8 @@ const Home = () => {
                             <img src = {present} alt="" />
                         </div>
                     </div>
+                    <Slider/>
+                    <SliderBox/>
                 </div>
             </div>
         </main>

@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
 
-    grid-auto-rows: 360px;
+    grid-auto-rows: 400px;
     gap: 20px 15px;
   }
 }
@@ -40,7 +40,7 @@
     position: relative;
 
     background-color: white;
-    border: 1px solid $lilac;
+
     & img {
       width: auto;
       height: auto;
@@ -59,8 +59,12 @@
     flex: 1 0 auto;
   }
   &__name {
+    color: $black;
     margin-right: 20px;
     font-weight: 300;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
   }
   &__price {
     //width: 100px;

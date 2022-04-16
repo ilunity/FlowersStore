@@ -4,7 +4,7 @@ import {getItems} from "../../../http/itemsAPI";
 import {ItemCard} from "./itemCard";
 
 
-function ItemsWrapper({limit = 12, page = 1, setPage, filters = []}) {
+function ItemsWrapper({limit = 12, page = 1, setPage, filters = [], helperClass = ""}) {
     const [items, setItems] = useState([]);
 
     const loadItems = async () => {
@@ -15,11 +15,10 @@ function ItemsWrapper({limit = 12, page = 1, setPage, filters = []}) {
     useEffect(async () => {
         await loadItems();
     }, []);
-
+    console.log(items);
     return (
-        <div className={'items-wrapper'}>
-            Предметы
-            <ul className={'items-wrapper__list'}>
+        <div className={`${helperClass} items-wrapper`}>
+            <ul className={`${helperClass} items-wrapper__list`}>
                 {
                     items.map((item) => {
                         return (

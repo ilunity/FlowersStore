@@ -35,7 +35,13 @@
     margin-right: 188px;
   }
 }
-
+.footer__map {
+  & img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
 .nav {
   height: 100%;
   &__item {
