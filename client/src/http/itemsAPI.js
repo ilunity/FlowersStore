@@ -1,4 +1,4 @@
-import {ITEM_URL} from "./consts";
+import {ITEM_URL, STATIC_URL} from "./consts";
 import {REQUEST_METHODS, sendRequest, setParametersToUrl} from "./requestsAPI";
 
 //todo Обработка ошибок
@@ -7,17 +7,18 @@ const getItems = async (limit, page, categoriesId) => {
     const url = setParametersToUrl(`${ITEM_URL}/get`, parameters);
 
 
-    if (!categoriesId) {
-        const items = await sendRequest(url);
-        return items;
+    if (!categoriesId.length) {
+        const items = await sendRequest(url, {});
+        return {items};
     }
 
-    const categoriesIdJSON = JSON.stringify({categoriesId});
-    const items = await sendRequest(url, {
+    const categories = JSON.stringify({categoriesId});
+    const countedItems = await sendRequest(url, {
         method: REQUEST_METHODS.POST,
-        body: categoriesIdJSON,
+        body: categories,
     });
-    return items;
+
+    return {items: countedItems.rows, count: countedItems.count};
 };
 
 const getItem = (id) => {
@@ -26,4 +27,10 @@ const getItem = (id) => {
     return item;
 };
 
-export {getItems, getItem};
+const getImg = (imgName) => {
+    const url = `${STATIC_URL}/${imgName}`;
+    const img = sendRequest(url, {});
+    return img;
+};
+
+export {getItems, getItem, getImg};
