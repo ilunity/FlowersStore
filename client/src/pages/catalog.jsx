@@ -1,9 +1,11 @@
 import React from 'react';
+import {ItemsWrapper} from "../components/common/itemCard/itemsWrapper";
+
 
 const Catalog = () => {
     return (
         <main className='main'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consequatur, nesciunt consequuntur iusto dolor porro animi dicta mollitia nihil autem ipsum laborum voluptatum! Rem aliquam tenetur neque minus dolor commodi.
+            <ItemsWrapper/>
         </main>
     );
 };
