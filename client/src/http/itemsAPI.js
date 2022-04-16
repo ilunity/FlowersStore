@@ -8,8 +8,8 @@ const getItems = async (limit, page, categoriesId) => {
 
 
     if (!categoriesId.length) {
-        const items = await sendRequest(url, {});
-        return {items};
+        const countedItems = await sendRequest(url, {});
+        return {items: countedItems.rows, count: countedItems.count};
     }
 
     const categories = JSON.stringify({categoriesId});
