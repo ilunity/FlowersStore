@@ -8,14 +8,13 @@ const Footer = () => {
           <img src={map} alt="map" />
         </div>
       </div>
-      
       <div className="footer__info info-footer">
         <div className="info-footer__containder container">
           <div className="info-footer__body">
             <div className="info-footer__menu-footer menu-footer">
-              <div className="menu-footer__logo">
+              <a className="menu-footer__logo">
                 <img src={logo} alt="logo-white" />
-              </div>
+              </a>
               <div className="menu-footer__list">
                 <div className="menu-footer__column">
                   <div className="menu-footer__label">ИНФОРМАЦИЯ</div>
