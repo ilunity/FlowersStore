@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import {ItemCard} from "../itemCard/itemCard";
+import {ItemCard} from "../itemCard/ItemCard";
 import SampleNextArrow from './SampleNextArrow';
 import SamplePrevArrow from './SamplePrevArrow';
 import { getItems } from '../../../http/itemsAPI';

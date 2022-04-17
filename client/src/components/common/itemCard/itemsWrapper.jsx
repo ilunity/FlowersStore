@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../../../scss/components/item-card.scss'
 import {getItems} from "../../../http/itemsAPI";
-import {ItemCard} from "./itemCard";
+import {ItemCard} from "./ItemCard";
 
 
 function ItemsWrapper({limit = 12, page = 1, setPage, filters = [], helperClass = ""}) {

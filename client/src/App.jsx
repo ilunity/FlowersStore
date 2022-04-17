@@ -1,6 +1,6 @@
 import {BrowserRouter} from "react-router-dom";
 import './scss/app.scss';
-import {RouterComponent} from "./components/routerComponent";
+import {RouterComponent} from "./components/RrouterComponent";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {getAuthStatus} from "./store/asyncActions";
@@ -20,10 +20,9 @@ function App() {
         <div className="wrapper">
             <Header/>
             <Modals/>
-            {/* <BrowserRouter>
+            <BrowserRouter>
                 <RouterComponent/>
-            </BrowserRouter> */}
-            <Basket/>
+            </BrowserRouter>
             <Footer/>
         </div>
     );

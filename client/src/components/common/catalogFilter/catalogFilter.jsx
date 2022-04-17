@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../../../scss/components/catalog-filter.scss';
-import {FilterGroup} from "./filterGroup";
+import {FilterGroup} from "./FilterGroup";
 import {getGroupedCategories} from "../../../http/categoryGroupsAPI";
 
 
