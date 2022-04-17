@@ -2,10 +2,10 @@ import {REQUEST_METHODS, sendRequest} from "./requestsAPI";
 import {BASKET_URL} from "./consts";
 
 //todo Обработка ошибок
-const addToBasket = async (itemId) => {
+const addToBasket = async (itemId, count) => {
     const url = BASKET_URL + '/add_item';
 
-    const bodyJSON = JSON.stringify({itemId});
+    const bodyJSON = JSON.stringify({itemId, count});
     await sendRequest(url, {
         method: REQUEST_METHODS.POST,
         body: bodyJSON,
@@ -21,4 +21,26 @@ const getAll = async () => {
     return items;
 };
 
-export {addToBasket, getAll};
+const deleteFromBasket = async (itemId) => {
+    const url = BASKET_URL + '/delete_item';
+
+    const bodyJSON = JSON.stringify({itemId});
+    await sendRequest(url, {
+        method: REQUEST_METHODS.POST,
+        body: bodyJSON,
+        isAttachToken: true,
+    });
+};
+
+const setItemCount = async (itemId, count) => {
+    const url = BASKET_URL + '/set_count';
+
+    const bodyJSON = JSON.stringify({itemId, count});
+    await sendRequest(url, {
+        method: REQUEST_METHODS.POST,
+        body: bodyJSON,
+        isAttachToken: true,
+    });
+};
+
+export {addToBasket, getAll, deleteFromBasket, setItemCount};

@@ -1,6 +1,5 @@
 import React from 'react';
-import {photo, present, video, boxes, baskets, gifts, catolog, roses} from "../img/home/index";
-import { ItemsWrapper } from '../components/common/itemCard/itemsWrapper';
+import {photo, present, video, boxes, baskets, gifts, catalog, roses} from "../img/home/index";
 import SliderBox from '../components/common/slider/Slider';
 const Home = () => {
     return (
@@ -10,7 +9,7 @@ const Home = () => {
                     <div className="home__banner banner">
                         <div className="banner__column">
                             <div className="banner__discount">
-                                <img src={catolog} alt="" />
+                                <img src={catalog} alt="" />
                             </div>
                         </div>
                         <div className="banner__column">
