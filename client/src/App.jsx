@@ -7,6 +7,7 @@ import {getAuthStatus} from "./store/asyncActions";
 import Header from "./components/common/header/Header";
 import {Modals} from "./components/modals/Modals";
 import Footer from "./components/common/footer/Footer";
+import Basket from "./pages/Basket";
 
 function App() {
     const dispatch = useDispatch();
@@ -19,9 +20,10 @@ function App() {
         <div className="wrapper">
             <Header/>
             <Modals/>
-            <BrowserRouter>
+            {/* <BrowserRouter>
                 <RouterComponent/>
-            </BrowserRouter>
+            </BrowserRouter> */}
+            <Basket/>
             <Footer/>
         </div>
     );
