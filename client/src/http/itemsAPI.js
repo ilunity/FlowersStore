@@ -21,6 +21,14 @@ const getItems = async (limit, page, categoriesId) => {
     return {items: countedItems.rows, count: countedItems.count};
 };
 
+const getAll = async () => {
+    const url = `${ITEM_URL}/get`;
+
+    const items = await sendRequest(url, {});
+    console.log(items);
+    return items;
+};
+
 const getItem = (id) => {
     const url = `${ITEM_URL}/get/${id}`;
     const item = sendRequest(url);
@@ -33,4 +41,4 @@ const getImg = (imgName) => {
     return img;
 };
 
-export {getItems, getItem, getImg};
+export {getItems, getItem, getImg, getAll};

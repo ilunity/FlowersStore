@@ -1,5 +1,7 @@
 import React from 'react';
-import {photo, present, video, boxes, baskets, gifts, catolog, roses} from "../img/home/index";
+import {photo, present, video, boxes, baskets, gifts, catalog, roses} from "../img/home/index";
+
+
 const Home = () => {
     return (
         <main className='main'>
@@ -8,7 +10,7 @@ const Home = () => {
                     <div className="home__banner banner">
                         <div className="banner__column">
                             <div className="banner__discount">
-                                <img src={catolog} alt="" />
+                                <img src={catalog} alt="" />
                             </div>
                         </div>
                         <div className="banner__column">
