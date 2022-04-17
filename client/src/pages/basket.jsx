@@ -1,6 +1,6 @@
 import React from 'react';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
-
+import SliderBox from '../components/common/slider/SliderBox';
 const Basket = () => {
     return (
         <main className='main'>
@@ -24,20 +24,25 @@ const Basket = () => {
                                     <div className="item-basket__delet-icon"></div>
                                     <div className="item-basket__like-icon"></div>
                                 </div>
-                                <div className="list-block__item">2</div>
-                                <div className="list-block__item">3</div>
-                                <div className="list-block__item">4</div>
+                                <div className="list-block__item item-basket">2</div>
+                                <div className="list-block__item item-basket">3</div>
+                                <div className="list-block__item item-basket">4</div>
+                                {/* <div className="list-block__item item-basket">5</div>
+                                <div className="list-block__item item-basket">5</div>
+                                <div className="list-block__item item-basket">5</div>
+                                <div className="list-block__item item-basket">5</div> */}
                             </div>
                         </div>
                         <div className="basket__price-block price-block">
                             <div className="price-block__title">Ваш заказ</div>
                             <div className="price-block__general">
                                 <div className="price-block__general-text">Всего</div>
-                                <div className="price-block__general-sum"></div>
+                                <div className="price-block__general-sum">2143</div>
                             </div>
                             <InteractionButton value={"Оформить заказ"}/>
                         </div>
                     </div>
+                    <SliderBox/>
                 </div>
             </div>
         </main>
