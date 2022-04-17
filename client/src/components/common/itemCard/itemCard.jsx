@@ -13,7 +13,7 @@ function ItemCard({item: {id, name, price, count, img: imgName}}) {
     };
 
     return (
-        <li className={'item-card'}>
+        <div className={'item-card'}>
             <div className="item-card__image-wrapper">
                 <img
                     src={img}
@@ -33,7 +33,7 @@ function ItemCard({item: {id, name, price, count, img: imgName}}) {
                 onClick={addToBasketHandler}
                 value={'Заказать'}
             />
-        </li>
+        </div>
     )
 }
 

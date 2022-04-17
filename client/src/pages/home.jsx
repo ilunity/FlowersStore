@@ -1,6 +1,6 @@
 import React from 'react';
 import {photo, present, video, boxes, baskets, gifts, catalog, roses} from "../img/home/index";
-import SliderBox from '../components/common/slider/Slider';
+import SliderBox from '../components/common/slider/SliderBox';
 const Home = () => {
     return (
         <main className='main'>

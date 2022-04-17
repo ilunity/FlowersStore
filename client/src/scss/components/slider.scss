@@ -1,14 +1,17 @@
 @import "../variables.scss";
 .slider {
+  // border: 1px solid red;
+  height: 100%;
   width: 100%;
   position: relative;
+  margin-bottom: 140px;
   &__litle {
     text-align: center;
     color: $black;
     font-weight: 700;
     font-size: 48px;
     line-height: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
   }
 
   &__switch {
@@ -22,12 +25,25 @@
   &__switch_arrow-left {
     position: absolute;
     right: 85px;
-    top: 0;
+    top: -120px;
   }
 
   &__switch_arrow-right {
     position: absolute;
     right: 125px;
-    top: 0;
+    top: -120px;
+  }
+}
+.slick{
+  &-slider {
+    height: 450px;
+    & div{
+      margin: 0px 7.5px;
+    }
+  }
+    
+  &-list {
+    height: 100%;
+    margin: 0px -7.5px;
   }
 }

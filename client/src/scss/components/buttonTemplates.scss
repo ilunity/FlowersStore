@@ -2,7 +2,8 @@
 @import "../libs/normalize";
 .interaction-btn {
   min-height: 63px;
-  width: 220px;
+  max-width: 220px;
+  width: 100%;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.15);
   border-radius: 7px;
   font-size: 16px;

@@ -15,10 +15,10 @@ function ItemsWrapper({limit = 12, page = 1, setPage, filters = [], helperClass 
     useEffect(async () => {
         await loadItems();
     }, []);
-    console.log(items);
+
     return (
         <div className={`${helperClass} items-wrapper`}>
-            <ul className={`${helperClass} items-wrapper__list`}>
+            <div className={`${helperClass} items-wrapper__list`}>
                 {
                     items.map((item) => {
                         return (
@@ -29,7 +29,7 @@ function ItemsWrapper({limit = 12, page = 1, setPage, filters = [], helperClass 
                         );
                     })
                 }
-            </ul>
+            </div>
         </div>
     )
 }
