@@ -14,6 +14,13 @@ const Basket = () => {
         price: 9900,
         updatedAt: "2022-04-13T13:50:12.241Z",
     }]);
+
+    const removeItemBasket = async (elem) => {
+        cartContents.filter(item => item.id != elem.id);
+        await deleteFromBasket(elem.id);
+        setCartContents(cartContents);
+    }
+
     const getCartContents = async () => {
         const result = await getAll();
         if (result != undefined) {
@@ -24,6 +31,7 @@ const Basket = () => {
     useEffect(async () => {
         await getCartContents();
     }, []);
+
     return (
         <main className='main'>
             <div className="'main__basket basket">
@@ -47,6 +55,7 @@ const Basket = () => {
                                                 count={item.count} 
                                                 price={item.price} 
                                                 key={item.id}
+                                                removeItemBasket = {removeItemBasket}
                                             />
                                         )
                                     })
