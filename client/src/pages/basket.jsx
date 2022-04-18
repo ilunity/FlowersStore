@@ -1,40 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
-import { getAll } from '../http/basketAPI';
+import { deleteFromBasket, getAll } from '../http/basketAPI';
+import { setItemBaske } from '../store/actions';
 
 const Basket = () => {
     const dispatch = useDispatch();
-    const basketItems = useSelector(store => store.basket);
-    // const [cartContents, setCartContents] = useState([{
-    //     count: 3,
-    //     createdAt: "2022-04-13T13:50:12.241Z",
-    //     id: 1,
-    //     img: "6bd38e09-560c-49ba-948c-9506ce1d38d0.jpg",
-    //     name: "101 красная роза",
-    //     price: 9900,
-    //     updatedAt: "2022-04-13T13:50:12.241Z",
-    // }]);
-
-    // const removeItemBasket = async (elem) => {
-    //     cartContents.filter(item => item.id != elem.id);
-    //     await deleteFromBasket(elem.id);
-    //     setCartContents(cartContents);
-    // }
+    
 
     // const getCartContents = async () => {
     //     const result = await getAll();
     //     if (result != undefined) {
-    //         setCartContents(result);
+    //         dispatch(setItemBaske(result));
     //     }
-    //     console.log(result);
     // };
     // useEffect(async () => {
     //     await getCartContents();
     // }, []);
-
+    // const basketItems = useSelector(store => store.basket);
+    
     return (
         <main className='main'>
             <div className="'main__basket basket">
@@ -60,7 +46,7 @@ const Basket = () => {
                                                 count={item.count} 
                                                 price={item.price} 
                                                 key={item.id}
-                                                // removeItemBasket = {removeItemBasket}
+                                                item = {item}
                                             />
                                         )
                                     })
