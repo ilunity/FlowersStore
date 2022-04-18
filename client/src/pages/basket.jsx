@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
 import { getAll } from '../http/basketAPI';
 
 const Basket = () => {
-    const [cartContents, setCartContents] = useState([{
-        count: 3,
-        createdAt: "2022-04-13T13:50:12.241Z",
-        id: 1,
-        img: "6bd38e09-560c-49ba-948c-9506ce1d38d0.jpg",
-        name: "101 красная роза",
-        price: 9900,
-        updatedAt: "2022-04-13T13:50:12.241Z",
-    }]);
+    const dispatch = useDispatch();
+    const basketItems = useSelector(store => store.basket);
+    // const [cartContents, setCartContents] = useState([{
+    //     count: 3,
+    //     createdAt: "2022-04-13T13:50:12.241Z",
+    //     id: 1,
+    //     img: "6bd38e09-560c-49ba-948c-9506ce1d38d0.jpg",
+    //     name: "101 красная роза",
+    //     price: 9900,
+    //     updatedAt: "2022-04-13T13:50:12.241Z",
+    // }]);
 
-    const removeItemBasket = async (elem) => {
-        cartContents.filter(item => item.id != elem.id);
-        await deleteFromBasket(elem.id);
-        setCartContents(cartContents);
-    }
+    // const removeItemBasket = async (elem) => {
+    //     cartContents.filter(item => item.id != elem.id);
+    //     await deleteFromBasket(elem.id);
+    //     setCartContents(cartContents);
+    // }
 
-    const getCartContents = async () => {
-        const result = await getAll();
-        if (result != undefined) {
-            setCartContents(result);
-        }
-        console.log(result);
-    };
-    useEffect(async () => {
-        await getCartContents();
-    }, []);
+    // const getCartContents = async () => {
+    //     const result = await getAll();
+    //     if (result != undefined) {
+    //         setCartContents(result);
+    //     }
+    //     console.log(result);
+    // };
+    // useEffect(async () => {
+    //     await getCartContents();
+    // }, []);
 
     return (
         <main className='main'>
@@ -45,9 +48,11 @@ const Basket = () => {
                                 <div className="column-names__item column-names__item-num">Кол-во</div>
                                 <div className="column-names__item column-names__item-general">Итог</div>
                             </div>
-                            <div className="list-block__items">
+                            {
+                                basketItems.length > 0 ?
+                                <div className="list-block__items">
                                 {
-                                    cartContents.map((item) => {
+                                    basketItems.map((item) => {
                                         return (
                                             <ItemBasket
                                                 img={item.img} 
@@ -55,12 +60,15 @@ const Basket = () => {
                                                 count={item.count} 
                                                 price={item.price} 
                                                 key={item.id}
-                                                removeItemBasket = {removeItemBasket}
+                                                // removeItemBasket = {removeItemBasket}
                                             />
                                         )
                                     })
                                 }
-                            </div>
+                                </div>
+                                :
+                                <div>Корзина пуста</div>
+                            }
                         </div>
                         <div className="basket__price-block price-block">
                             <div className="price-block__title">Ваш заказ</div>

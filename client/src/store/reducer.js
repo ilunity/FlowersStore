@@ -110,9 +110,8 @@ const basketReducer = (
             return [...state, action.payload];
         case DEL_ITEM_BASKET:
             return state.filter((item) => item.id !== action.payload);
-        // case SET_ITEM_BASKET:
-
-        //     break;
+        case SET_ITEM_BASKET:
+            return []
     
         default:
             return state;

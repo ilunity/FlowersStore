@@ -1,7 +1,7 @@
 import React from 'react';
 import { STATIC_URL } from '../../http/consts';
 import deleteIcon from '../../img/basket/delete.svg';
-const ItemBasket = ({img:imgName, name, count, price, removeItemBasket}) => {
+const ItemBasket = ({img:imgName, name, count, price}) => {
   const img = `${STATIC_URL}/${imgName}`;
   return (
     <div className="list-block__item item-basket">
@@ -12,7 +12,7 @@ const ItemBasket = ({img:imgName, name, count, price, removeItemBasket}) => {
         <div className="item-basket__price">{price}</div>
         <div className="item-basket__counter">{count}</div>
         <div className="item-basket__total">{price*count}</div>
-        <div onClick={() => removeItemBasket(item)} className="item-basket__delete-icon">
+        <div  className="item-basket__delete-icon">
           <img src={deleteIcon}  alt="delete" />
         </div>
     </div>

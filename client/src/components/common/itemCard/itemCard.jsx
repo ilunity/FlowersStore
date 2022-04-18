@@ -3,13 +3,17 @@ import '../../../scss/components/item-card.scss';
 import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
+import { useDispatch } from 'react-redux';
+import { addItemBasket } from '../../../store/actions';
 
 function ItemCard({item, item: {id, name, price, count, img: imgName}}) {
-    const img = `${STATIC_URL}/${imgName}`;
+    const dispatch = useDispatch();
 
+    const img = `${STATIC_URL}/${imgName}`;
+    
     const addToBasketHandler = async (item) => {
-        await addToBasket(item, 1);
-        console.log(item);
+        dispatch(addItemBasket(item));
+        await addToBasket(item, item.count);
         //todo Добавить проверку на успешкое добавление
     };
     return (
