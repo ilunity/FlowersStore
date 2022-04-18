@@ -101,10 +101,20 @@
 }
 
 .list-block {
-  &__column-names {}
-
-  &__item {}
-
+  display: flex;
+  flex-direction: column;
+  &__no-items {
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 120px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 18px;
+    border-radius: 20px;
+    background-color: rgb(245, 245, 245);
+  }
   &__items {
     height: 100%;
     overflow-y: scroll;

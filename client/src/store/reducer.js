@@ -116,6 +116,7 @@ const basketReducer = (
             return state;
     }
 }
+
 const rootReducer = combineReducers({
     items: itemsReducer,
     activeModals: modalsReducer,

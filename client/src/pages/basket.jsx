@@ -3,23 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
-import { deleteFromBasket, getAll } from '../http/basketAPI';
+import {getAll} from '../http/basketAPI';
 import { setItemBaske } from '../store/actions';
 
 const Basket = () => {
     const dispatch = useDispatch();
-    
+    const basketItems = useSelector(store => store.basket);
+    //todo: довести до ума получение всех элементов корзины
+    const getCartContents = async () => {
+        const result = await getAll();
+        if (result != undefined) {
+            dispatch(setItemBaske(result));
+        }
+    };
 
-    // const getCartContents = async () => {
-    //     const result = await getAll();
-    //     if (result != undefined) {
-    //         dispatch(setItemBaske(result));
-    //     }
-    // };
-    // useEffect(async () => {
-    //     await getCartContents();
-    // }, []);
-    // const basketItems = useSelector(store => store.basket);
+    useEffect(async () => {
+        await getCartContents();
+    }, []);
     
     return (
         <main className='main'>
@@ -53,7 +53,7 @@ const Basket = () => {
                                 }
                                 </div>
                                 :
-                                <div>Корзина пуста</div>
+                                <div className='list-block__no-items'>Корзина пуста</div>
                             }
                         </div>
                         <div className="basket__price-block price-block">

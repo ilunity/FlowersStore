@@ -6,12 +6,14 @@ import deleteIcon from '../../img/basket/delete.svg';
 import { delItemBasket } from '../../store/actions';
 const ItemBasket = ({img:imgName, name, count, price, item}) => {
   const img = `${STATIC_URL}/${imgName}`;
+
   const dispatch = useDispatch();
 
   const removeItemBasket = async (item) => {
       await deleteFromBasket(item.id);
       dispatch(delItemBasket(item.id));
   }
+  
   return (
     <div className="list-block__item item-basket">
         <div className="item-basket__img">
