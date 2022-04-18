@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
+import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
+import { getAll } from '../http/basketAPI';
+
 const Basket = () => {
+    const [cartContents, setCartContents] = useState([{
+        count: 3,
+        createdAt: "2022-04-13T13:50:12.241Z",
+        id: 1,
+        img: "6bd38e09-560c-49ba-948c-9506ce1d38d0.jpg",
+        name: "101 красная роза",
+        price: 9900,
+        updatedAt: "2022-04-13T13:50:12.241Z",
+    }]);
+    const getCartContents = async () => {
+        const result = await getAll();
+        if (result != undefined) {
+            setCartContents(result);
+        }
+        console.log(result);
+    };
+    useEffect(async () => {
+        await getCartContents();
+    }, []);
     return (
         <main className='main'>
             <div className="'main__basket basket">
@@ -10,27 +32,25 @@ const Basket = () => {
                     <div className="basket__body">
                         <div className="basket__list-block list-block">
                             <div className="list-block__column-names column-names">
-                                <div className="column-names__item">Название</div>
-                                <div className="column-names__item">Цена за шт.</div>
-                                <div className="column-names__item">Кол-во</div>
-                                <div className="column-names__item">Итог</div>
+                                <div className="column-names__item column-names__item-name">Название</div>
+                                <div className="column-names__item column-names__item-price">Цена за шт.</div>
+                                <div className="column-names__item column-names__item-num">Кол-во</div>
+                                <div className="column-names__item column-names__item-general">Итог</div>
                             </div>
                             <div className="list-block__items">
-                                <div className="list-block__item item-basket">
-                                    <div className="item-basket__img"></div>
-                                    <div className="item-basket__name"></div>
-                                    <div className="item-basket__cunter"></div>
-                                    <div className="item-basket__price"></div>
-                                    <div className="item-basket__delet-icon"></div>
-                                    <div className="item-basket__like-icon"></div>
-                                </div>
-                                <div className="list-block__item item-basket">2</div>
-                                <div className="list-block__item item-basket">3</div>
-                                <div className="list-block__item item-basket">4</div>
-                                {/* <div className="list-block__item item-basket">5</div>
-                                <div className="list-block__item item-basket">5</div>
-                                <div className="list-block__item item-basket">5</div>
-                                <div className="list-block__item item-basket">5</div> */}
+                                {
+                                    cartContents.map((item) => {
+                                        return (
+                                            <ItemBasket
+                                                img={item.img} 
+                                                name={item.name} 
+                                                count={item.count} 
+                                                price={item.price} 
+                                                key={item.id}
+                                            />
+                                        )
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="basket__price-block price-block">

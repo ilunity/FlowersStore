@@ -18,9 +18,9 @@ const getAll = async () => {
     const items = await sendRequest(url, {
         isAttachToken: true,
     });
+    console.log(items);
     return items;
 };
-
 const deleteFromBasket = async (itemId) => {
     const url = BASKET_URL + '/delete_item';
 

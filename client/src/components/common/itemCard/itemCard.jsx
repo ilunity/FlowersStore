@@ -4,14 +4,14 @@ import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
 
-function ItemCard({item: {id, name, price, count, img: imgName}}) {
+function ItemCard({item, item: {id, name, price, count, img: imgName}}) {
     const img = `${STATIC_URL}/${imgName}`;
 
-    const addToBasketHandler = async () => {
-        // await addToBasket(id);
+    const addToBasketHandler = async (item) => {
+        await addToBasket(item, 1);
+        console.log(item);
         //todo Добавить проверку на успешкое добавление
     };
-
     return (
         <div className={'item-card'}>
             <div className="item-card__image-wrapper">
@@ -30,7 +30,7 @@ function ItemCard({item: {id, name, price, count, img: imgName}}) {
                 </div>
             </div>
             <InteractionButton
-                onClick={addToBasketHandler}
+                onClick={() => addToBasketHandler(item)}
                 value={'Заказать'}
             />
         </div>
