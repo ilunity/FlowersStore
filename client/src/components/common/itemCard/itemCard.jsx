@@ -3,22 +3,25 @@ import '../../../scss/components/item-card.scss';
 import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
+import { useDispatch } from 'react-redux';
+import { addItemBasket } from '../../../store/actions';
 
 function ItemCard({item, item: {id, name, price, count, img: imgName}}) {
-    const img = `${STATIC_URL}/${imgName}`;
+    const dispatch = useDispatch();
 
+    const img = `${STATIC_URL}/${imgName}`;
+    
     const addToBasketHandler = async (item) => {
-        await addToBasket(item, 1);
-        console.log(item);
-        //todo Добавить проверку на успешкое добавление
+        dispatch(addItemBasket(item));
+        await addToBasket(item, count);
     };
     return (
-        <div className={'item-card'}>
+        <div className='item-card'>
             <div className="item-card__image-wrapper">
                 <img
                     src={img}
-                    className={'item-card__image'}
-                    alt={'Изображение товара'}
+                    className='item-card__image'
+                    alt='Изображение товара'
                 />
             </div>
             <div className="item-card__description">

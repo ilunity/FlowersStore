@@ -48,7 +48,7 @@
   justify-content:space-around;
   position: relative;
   align-items: center;
-  padding: 0px 55px;
+  padding: 0px 65px;
   &__counter {
     margin-left: 53px;
     min-height: 42px;
@@ -101,10 +101,20 @@
 }
 
 .list-block {
-  &__column-names {}
-
-  &__item {}
-
+  display: flex;
+  flex-direction: column;
+  &__no-items {
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 120px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 18px;
+    border-radius: 20px;
+    background-color: rgb(245, 245, 245);
+  }
   &__items {
     height: 100%;
     overflow-y: scroll;
@@ -115,7 +125,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 31px 60px;
+  padding: 31px 65px;
   border: 1px solid $lilac;
   height: 450px;
   margin-top: 30px;

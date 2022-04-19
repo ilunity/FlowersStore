@@ -6,7 +6,11 @@ import {
     SET_FILTERS,
     ADD_FILTER,
     DELETE_FILTER,
-    SET_REG_MODAL_STATUS, SET_LOGIN_MODAL_STATUS
+    SET_REG_MODAL_STATUS,
+    SET_LOGIN_MODAL_STATUS,
+    SET_ITEM_BASKET,
+    DEL_ITEM_BASKET,
+    ADD_ITEM_BASKET,
 } from "./actions";
 import {combineReducers} from "redux";
 import {FETCH_ITEMS} from "./asyncActions";
@@ -97,12 +101,29 @@ const modalsReducer = (
     }
 };
 
+const basketReducer = (
+    state = [],
+    action
+) => {
+    switch (action.type) {
+        case ADD_ITEM_BASKET:
+            return [...state, action.payload];
+        case DEL_ITEM_BASKET:
+            return state.filter(item => item.id !== action.payload);
+        case SET_ITEM_BASKET:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const rootReducer = combineReducers({
     items: itemsReducer,
     activeModals: modalsReducer,
     filters: filtersReducer,
     isAuth: authReducer,
     user: userReducer,
+    basket: basketReducer,
 });
 
 export {rootReducer};

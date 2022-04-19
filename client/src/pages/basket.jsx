@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
-import { getAll } from '../http/basketAPI';
+import {getAll} from '../http/basketAPI';
+import { setItemBaske } from '../store/actions';
 
 const Basket = () => {
-    const [cartContents, setCartContents] = useState([{
-        count: 3,
-        createdAt: "2022-04-13T13:50:12.241Z",
-        id: 1,
-        img: "6bd38e09-560c-49ba-948c-9506ce1d38d0.jpg",
-        name: "101 красная роза",
-        price: 9900,
-        updatedAt: "2022-04-13T13:50:12.241Z",
-    }]);
+    const dispatch = useDispatch();
+    const basketItems = useSelector(store => store.basket);
+    //todo: довести до ума получение всех элементов корзины
     const getCartContents = async () => {
         const result = await getAll();
         if (result != undefined) {
-            setCartContents(result);
+            dispatch(setItemBaske(result));
         }
-        console.log(result);
     };
+
     useEffect(async () => {
         await getCartContents();
     }, []);
+    
     return (
         <main className='main'>
             <div className="'main__basket basket">
@@ -37,9 +34,11 @@ const Basket = () => {
                                 <div className="column-names__item column-names__item-num">Кол-во</div>
                                 <div className="column-names__item column-names__item-general">Итог</div>
                             </div>
-                            <div className="list-block__items">
+                            {
+                                basketItems.length > 0 ?
+                                <div className="list-block__items">
                                 {
-                                    cartContents.map((item) => {
+                                    basketItems.map((item) => {
                                         return (
                                             <ItemBasket
                                                 img={item.img} 
@@ -47,11 +46,15 @@ const Basket = () => {
                                                 count={item.count} 
                                                 price={item.price} 
                                                 key={item.id}
+                                                item = {item}
                                             />
                                         )
                                     })
                                 }
-                            </div>
+                                </div>
+                                :
+                                <div className='list-block__no-items'>Корзина пуста</div>
+                            }
                         </div>
                         <div className="basket__price-block price-block">
                             <div className="price-block__title">Ваш заказ</div>
