@@ -4,13 +4,14 @@ import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
 import BasketButton from './BasketButton';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
+import { exitUser } from '../../../store/asyncActions';
 
 
 const Header = () => {
     const dispatch = useDispatch();
-
+    const isAuth = useSelector(store => store.isAuth)
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
@@ -31,22 +32,28 @@ const Header = () => {
                             <img src={phone} alt="phone" className="contacts__icon"/>
                             <div className='contacts__text'>Контакты</div>
                         </div>
-                        <div className="upper-menu__authorization authorization">
-                            <img src={user} alt="userIcon"/>
-                            <div
-                                className="authorization__login"
-                                onClick={showLoginModal}
-                            >
-                                Вход
+                        {isAuth ?
+                            <div onClick={() => dispatch(exitUser())} className="authorization__exit">
+                                Выйти
                             </div>
-                            <span style={{color: '#956D84', marginRight: '5px', marginLeft: '5px'}}>|</span>
-                            <div
-                                className="authorization__registration"
-                                onClick={showRegModal}
-                            >
-                                Регистрация
+                            :
+                            <div className="upper-menu__authorization authorization">
+                                <img src={user} alt="userIcon"/>
+                                <div
+                                    className="authorization__login"
+                                    onClick={showLoginModal}
+                                >
+                                    Вход
+                                </div>
+                                <span style={{color: '#956D84', marginRight: '5px', marginLeft: '5px'}}>|</span>
+                                <div
+                                    className="authorization__registration"
+                                    onClick={showRegModal}
+                                >
+                                    Регистрация
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
