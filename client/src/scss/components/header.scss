@@ -207,41 +207,27 @@
     display: flex;
   }
   &__item {
-    flex: 1 1 16.66%;
     color: black;
     font-weight: 700;
     font-size: 16px;
-    line-height: 18px;
     user-select: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-    &:first-child {
-      flex: 1 1 25%;
-    }
-    &:last-child {
-      width: 110px;
-    }
-    // &:not(:last-child) {
-    //   padding-right: 15px;
-    //   border: 1px solid black;
-    // }
     &:hover {
       color: $lilac;
     }
     &_info {
       position: relative;
+      padding-right: 20px;
       &.active {
         color: $lilac;
       }
     }
-    &_info > :not(:last-child){
-      margin-right:8px;
-    }
   }
 }
 .arrow-dropdown {
+  position: absolute;
+  right: 3px;
+  top: 6px;
   transition: all 0.4s ease;
   &.active {
     transform: rotate(-180deg);

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {arrowDown, arrowUp, arrowRight} from '../../../img/common/index';
+import {arrowDropdown} from '../../../img/common/index';
 import Dropdown from './Dropdown';
 
 
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <li className={isVisible ? 'nav-bar__item nav-bar__item_info active' : 'nav-bar__item nav-bar__item_info'}
                     onClick={() => setIsVisible(!isVisible)}>
                     <a className='nav-bar__link'>Информация</a>
-                    <img className={isVisible ? 'arrow-dropdown active' : 'arrow-dropdown'} src={arrowUp} alt="arrowUp"/>
+                    <img className={isVisible ? 'arrow-dropdown active' : 'arrow-dropdown'} src={arrowDropdown} alt="arrowUp"/>
                     <Dropdown className = {isVisible ? 'dropdown active' : 'dropdown'}/>
                 </li>
             </ul>
