@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../../../scss/components/catalog-filter.scss';
-import {FilterItem} from "./filterItem";
+import {FilterItem} from "./FilterItem";
 import {arrowDownTight, arrowUpTight} from '../../../img/common/index';
 
 

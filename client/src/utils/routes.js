@@ -28,7 +28,7 @@ const routes = [
         path: paths.ORDER,
         component: Order,
     },
-
+    
     // HOME must be the last (default page)
     {
         path: paths.HOME,

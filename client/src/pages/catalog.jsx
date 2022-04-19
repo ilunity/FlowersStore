@@ -1,5 +1,5 @@
 import React from 'react';
-import {ItemsWrapper} from "../components/common/itemCard/itemsWrapper";
+import {ItemsWrapper} from "../components/common/itemCard/ItemsWrapper";
 
 
 const Catalog = () => {

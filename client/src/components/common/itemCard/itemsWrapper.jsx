@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import '../../../scss/components/item-card.scss'
 import {getItems} from "../../../http/itemsAPI";
-import {ItemCard} from "./itemCard";
+import {ItemCard} from "./ItemCard";
 
 
-function ItemsWrapper({limit = 12, page = 1, setPage, filters = []}) {
+function ItemsWrapper({limit = 12, page = 1, setPage, filters = [], helperClass = ""}) {
     const [items, setItems] = useState([]);
 
     const loadItems = async () => {
@@ -17,9 +17,8 @@ function ItemsWrapper({limit = 12, page = 1, setPage, filters = []}) {
     }, []);
 
     return (
-        <div className={'items-wrapper'}>
-            Предметы
-            <ul className={'items-wrapper__list'}>
+        <div className={`${helperClass} items-wrapper`}>
+            <div className={`${helperClass} items-wrapper__list`}>
                 {
                     items.map((item) => {
                         return (
@@ -30,7 +29,7 @@ function ItemsWrapper({limit = 12, page = 1, setPage, filters = []}) {
                         );
                     })
                 }
-            </ul>
+            </div>
         </div>
     )
 }
