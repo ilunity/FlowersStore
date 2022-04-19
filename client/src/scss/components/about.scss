@@ -1,0 +1,169 @@
+@import "../variables";
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 91px;
+  color: $black;
+  font-weight: 250;
+  font-size: 16px;
+  line-height: 30px;
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 113px;
+    color: $black;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 35px;
+  }
+}
+
+.benefits {
+
+  &__tltle {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 35px;
+    color: $lilac;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+}
+
+.cental-text {
+
+  &__list {
+    & li {
+      font-size: 25px;
+      margin-left: 30px;
+      list-style:disc;
+      color: $lilac;
+      & span {
+        font-size: 16px;
+        color: $black;
+      }
+    }
+  }
+}
+
+.lower-gallery {
+  margin-bottom: 95px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__img {
+    max-width: 580px;
+    max-height: 580px;
+    display: flex;
+    justify-content: space-between;
+
+  }
+  &__lilac-roses {
+    
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__list {
+    & li {
+      font-size: 25px;
+      margin-left: 30px;
+      list-style:disc;
+      color: $lilac;
+      & span {
+        font-size: 16px;
+        color: $black;
+      }
+    }
+  }
+
+  &__pink-roses {
+    margin-right: 19px;
+    
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__red-roses {
+    margin-bottom: 25px;
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    max-width: 802px;
+    margin-right: 20px;
+  }
+}
+
+
+.upper-gallery {
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__img {
+    max-width: 580px;
+    max-height: 580px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__roses {
+    margin-right: 19px;
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    max-width: 820px;
+    margin-left: 20px;
+  }
+
+  &__tulips {
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__vase {
+    margin-bottom: 25px;
+    & img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;;
+      object-fit: cover;
+    }
+  }
+}
