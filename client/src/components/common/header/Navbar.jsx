@@ -27,8 +27,8 @@ const Navbar = () => {
                 <li className={isVisible ? 'nav-bar__item nav-bar__item_info active' : 'nav-bar__item nav-bar__item_info'}
                     onClick={() => setIsVisible(!isVisible)}>
                     <a className='nav-bar__link'>Информация</a>
-                    {isVisible ? <img src={arrowUp} alt="arrowUp"/> : <img src={arrowDown} alt="arrowDown"/>}
-                    {isVisible && <Dropdown/>}
+                    <img className={isVisible ? 'arrow-dropdown active' : 'arrow-dropdown'} src={arrowUp} alt="arrowUp"/>
+                    <Dropdown className = {isVisible ? 'dropdown active' : 'dropdown'}/>
                 </li>
             </ul>
         </nav>

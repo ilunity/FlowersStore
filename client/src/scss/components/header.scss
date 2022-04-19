@@ -241,6 +241,12 @@
     }
   }
 }
+.arrow-dropdown {
+  transition: all 0.4s ease;
+  &.active {
+    transform: rotate(-180deg);
+  }
+}
 .socialmedia {
   display: flex;
   margin-bottom: 19px;
@@ -255,7 +261,16 @@
 .dropdown {
   position: absolute;
   right: 0;
-  top: 45px;
+  top: 20px;
+  transition: all 0.4s ease;
+  visibility: hidden;
+  opacity: 0;
+  &.active {
+    visibility:visible;
+    right: 0;
+    top: 45px;
+    opacity: 1;
+  }
   &__list {
     width: 240px;
     display: flex;
