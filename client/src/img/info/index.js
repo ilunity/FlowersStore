@@ -11,4 +11,8 @@ import mc from './mc.svg';
 import pc from './pc.svg';
 import visaIcon from './visaIcon.svg';
 import yandex from './yandex.svg';
-export {privateBank, lilacRoses, pinkRoses, redRoses, roses, tulips, vase, pc, mc, visaIcon, yandex}
+
+import clock from './clock.svg';
+import location from './location.svg';
+import tel from './tel.svg';
+export {privateBank, lilacRoses, pinkRoses, redRoses, roses, tulips, vase, pc, mc, visaIcon, yandex, clock, location, tel}

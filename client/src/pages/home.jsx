@@ -33,14 +33,14 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="home__about about">
-                        <div className="about__item">
+                    <div className="home__about about-home">
+                        <div className="about-home__item">
                             <img src={photo} alt="" />
                         </div>
-                        <div className="about__item">
+                        <div className="about-home__item">
                             <img src={video} alt="" />
                         </div>
-                        <div className="about__item">
+                        <div className="about-home__item">
                             <img src = {present} alt="" />
                         </div>
                     </div>
