@@ -1,10 +1,5 @@
 import React from 'react';
-import vase from '../../img/info/vase.jpg';
-import tulips from '../../img/info/tulips.jpg';
-import roses from '../../img/info/roses.jpg';
-import lilacRoses from '../../img/info/lilacRoses.jpg';
-import redRoses from '../../img/info/redRoses.jpg';
-import pinkRoses from '../../img/info/pinkRoses.jpg';
+import {pinkRoses, redRoses, lilacRoses, roses, tulips, vase} from '../../img/info/index';
 const About = () => {
   return (
     <main className='main'>

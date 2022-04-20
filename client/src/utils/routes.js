@@ -15,7 +15,7 @@ const paths = {
     ORDER: "/order",
     ABOUT: "/about",
     СONTACTS: "/contacts",
-    PAYMENT_DELIVERY: "/payment_delivery,"
+    PAYMENT_DELIVERY: "/payment_delivery",
 };
 
 const routes = [
