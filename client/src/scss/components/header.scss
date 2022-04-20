@@ -1,9 +1,21 @@
 @import '../variables';
 .authorization {
+  &__exit {
+    color: $white;
+    transition: all 0.1s ease-in-out;
+    margin-left: 350px;
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    &:hover {
+      color: $lilac;
+    }
+  }
   &__login {
     color: $white;
     margin-left: 10px;
-    transition: all 3ms ease-in-out;
+    transition: all 0.1s ease-in-out;
   }
   &__login:hover {
     color: $lilac;
@@ -11,7 +23,7 @@
 
   &__registration {
     color: #FFFFFF;
-    transition: all 3ms ease-in-out;
+    transition: all 0.1s ease-in-out;
   }
   &__registration:hover {
     color: $lilac;
@@ -19,20 +31,21 @@
 }
 
 .contacts {
-  
   &__icon {
     position: absolute;
     left: 0;
     top: 0;
   }
-
   &__text {
     padding-left: 25px;
     color: #FFFFFF;
-    transition: all 3ms ease-in-out;
-  }
-  &__text:hover {
-    color: $lilac;
+    transition: all 0.1s ease-in-out;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    &:hover {
+      color: $lilac;
+    }
   }
 }
 
@@ -102,12 +115,15 @@
   }
 
   &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
     color: #FFFFFF;
     padding-left: 30px;
-    transition: all 3ms ease-in-out;
-  }
-  &__text:hover {
-    color: $lilac;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      color: $lilac;
+    }
   }
 }
 
@@ -191,33 +207,30 @@
     display: flex;
   }
   &__item {
-    flex: 1 1 16.66%;
     color: black;
     font-weight: 700;
     font-size: 16px;
-    line-height: 18px;
     user-select: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    &:first-child {
-      flex: 1 1 25%;
-    }
-    &:not(:last-child) {
-      padding-right: 15px;
-    }
     &:hover {
       color: $lilac;
     }
     &_info {
       position: relative;
+      padding-right: 20px;
       &.active {
         color: $lilac;
       }
     }
-    &_info > :not(:last-child){
-      margin-right:8px;
-    }
+  }
+}
+.arrow-dropdown {
+  position: absolute;
+  right: 3px;
+  top: 6px;
+  transition: all 0.4s ease;
+  &.active {
+    transform: rotate(-180deg);
   }
 }
 .socialmedia {
@@ -234,7 +247,16 @@
 .dropdown {
   position: absolute;
   right: 0;
-  top: 45px;
+  top: 20px;
+  transition: all 0.4s ease;
+  visibility: hidden;
+  opacity: 0;
+  &.active {
+    visibility:visible;
+    right: 0;
+    top: 45px;
+    opacity: 1;
+  }
   &__list {
     width: 240px;
     display: flex;

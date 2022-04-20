@@ -7,7 +7,7 @@ import {getAll} from '../http/basketAPI';
 import { setItemBasket } from '../store/actions';
 
 const Basket = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const basketItems = useSelector(store => store.basket);
     //todo: довести до ума получение всех элементов корзины
     // const getCartContents = async () => {

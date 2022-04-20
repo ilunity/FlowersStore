@@ -1,6 +1,6 @@
 import {BrowserRouter} from "react-router-dom";
 import './scss/app.scss';
-import {RouterComponent} from "./components/RrouterComponent";
+import {RouterComponent} from "./components/RouterComponent";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {getAuthStatus} from "./store/asyncActions";
@@ -15,7 +15,7 @@ function App() {
     useEffect(() => {
         dispatch(getAuthStatus());
     }, []);
-
+    
     return (
         <div className="wrapper">
             <Header/>
