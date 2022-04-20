@@ -6,14 +6,15 @@ import {STATIC_URL} from "../../../http/consts";
 import { useDispatch } from 'react-redux';
 import { addItemBasket } from '../../../store/actions';
 
-function ItemCard({item, item: {id, name, price, count, img: imgName}}) {
+function ItemCard({item}) {
+    const {id, name, price, count, img: imgName} = item;
     const dispatch = useDispatch();
 
     const img = `${STATIC_URL}/${imgName}`;
     
-    const addToBasketHandler = async (item) => {
+    const addToBasketHandler = async () => {
         dispatch(addItemBasket(item));
-        await addToBasket(item.id, 1);
+        await addToBasket(id, 1);
     };
     return (
         <div className='item-card'>
@@ -33,7 +34,7 @@ function ItemCard({item, item: {id, name, price, count, img: imgName}}) {
                 </div>
             </div>
             <InteractionButton
-                onClick={() => addToBasketHandler(item)}
+                onClick={addToBasketHandler}
                 value={'Заказать'}
             />
         </div>
