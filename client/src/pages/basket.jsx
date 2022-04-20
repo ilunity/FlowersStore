@@ -4,22 +4,22 @@ import InteractionButton from '../components/common/buttonTemplates/InteractionB
 import ItemBasket from '../components/common/ItemBasket';
 import SliderBox from '../components/common/slider/SliderBox';
 import {getAll} from '../http/basketAPI';
-import { setItemBaske } from '../store/actions';
+import { setItemBasket } from '../store/actions';
 
 const Basket = () => {
     const dispatch = useDispatch();
     const basketItems = useSelector(store => store.basket);
     //todo: довести до ума получение всех элементов корзины
-    const getCartContents = async () => {
-        const result = await getAll();
-        if (result != undefined) {
-            dispatch(setItemBaske(result));
-        }
-    };
+    // const getCartContents = async () => {
+    //     const result = await getAll();
+    //     if (result != undefined) {
+    //         dispatch(setItemBasket(result));
+    //     }
+    // };
 
-    useEffect(async () => {
-        await getCartContents();
-    }, []);
+    // useEffect(async () => {
+    //     await getCartContents();
+    // }, []);
     
     return (
         <main className='main'>
@@ -60,7 +60,7 @@ const Basket = () => {
                             <div className="price-block__title">Ваш заказ</div>
                             <div className="price-block__general">
                                 <div className="price-block__general-text">Всего</div>
-                                <div className="price-block__general-sum">2143</div>
+                                <div className="price-block__general-sum">{}</div>
                             </div>
                             <InteractionButton value={"Оформить заказ"}/>
                         </div>

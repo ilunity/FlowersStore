@@ -13,7 +13,6 @@ const ItemBasket = ({img:imgName, name, count, price, item}) => {
       await deleteFromBasket(item.id);
       dispatch(delItemBasket(item.id));
   }
-  
   return (
     <div className="list-block__item item-basket">
         <div className="item-basket__img">

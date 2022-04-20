@@ -41,7 +41,7 @@ const DEL_ITEM_BASKET = "DEL_ITEM_BASKET";
 const SET_ITEM_BASKET = "SET_ITEM_BASKET";
 const addItemBasket = createAction(ADD_ITEM_BASKET);
 const delItemBasket = createAction(DEL_ITEM_BASKET);
-const setItemBaske = createAction(SET_ITEM_BASKET);
+const setItemBasket = createAction(SET_ITEM_BASKET);
 
 export {
     SET_USER,
@@ -71,5 +71,5 @@ export {
     SET_ITEM_BASKET,
     addItemBasket,
     delItemBasket,
-    setItemBaske
+    setItemBasket
 };
