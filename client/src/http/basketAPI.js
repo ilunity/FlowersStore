@@ -5,10 +5,10 @@ import {BASKET_URL} from "./consts";
 const addToBasket = async (itemId, count) => {
     const url = BASKET_URL + '/add_item';
 
-    const bodyJSON = JSON.stringify({itemId, count});
+    const body = {itemId, count};
     await sendRequest(url, {
         method: REQUEST_METHODS.POST,
-        body: bodyJSON,
+        body,
         isAttachToken: true,
     });
 };
@@ -24,10 +24,10 @@ const getAll = async () => {
 const deleteFromBasket = async (itemId) => {
     const url = BASKET_URL + '/delete_item';
 
-    const bodyJSON = JSON.stringify({itemId});
+    const body = {itemId};
     await sendRequest(url, {
         method: REQUEST_METHODS.POST,
-        body: bodyJSON,
+        body,
         isAttachToken: true,
     });
 };
@@ -35,10 +35,10 @@ const deleteFromBasket = async (itemId) => {
 const setItemCount = async (itemId, count) => {
     const url = BASKET_URL + '/set_count';
 
-    const bodyJSON = JSON.stringify({itemId, count});
+    const body = {itemId, count};
     await sendRequest(url, {
         method: REQUEST_METHODS.POST,
-        body: bodyJSON,
+        body,
         isAttachToken: true,
     });
 };
