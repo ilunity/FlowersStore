@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromBasket } from '../../http/basketAPI';
 import { STATIC_URL } from '../../http/consts';
 import deleteIcon from '../../img/basket/delete.svg';
-import { delItemBasket } from '../../store/actions';
+import { deleteItemBasket } from '../../store/actions';
 const ItemBasket = ({img:imgName, name, count, price, item}) => {
   const img = `${STATIC_URL}/${imgName}`;
 
@@ -11,7 +11,7 @@ const ItemBasket = ({img:imgName, name, count, price, item}) => {
 
   const removeItemBasket = async (item) => {
       await deleteFromBasket(item.id);
-      dispatch(delItemBasket(item.id));
+      dispatch(deleteItemBasket(item.id));
   }
   return (
     <div className="list-block__item item-basket">
