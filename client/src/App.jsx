@@ -15,15 +15,14 @@ function App() {
     useEffect(() => {
         dispatch(getAuthStatus());
     }, []);
-    
+
     return (
         <div className="wrapper">
             <Header/>
             <Modals/>
-            {/* <BrowserRouter>
+            <BrowserRouter>
                 <RouterComponent/>
-            </BrowserRouter> */}
-            <Basket/>
+            </BrowserRouter>
             <Footer/>
         </div>
     );
