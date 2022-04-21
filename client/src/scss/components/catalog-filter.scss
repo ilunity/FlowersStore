@@ -1,10 +1,11 @@
 @import "../variables";
 
 .catalog-filter {
-  max-width: 180px;
+  min-width: 240px;
+  margin-right: 100px;
 
   &__title {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 300;
     color: $black;
 
@@ -27,7 +28,7 @@
     margin-bottom: 10px;
   }
   &__item {
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 300;
     color: $lilac;
 

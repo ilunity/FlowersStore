@@ -1,7 +1,9 @@
 @import '../variables';
 
 .items-wrapper {
-  width: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   &__list {
     display: grid;
@@ -11,6 +13,10 @@
 
     grid-auto-rows: 400px;
     gap: 20px 15px;
+  }
+  &__no-items {
+    font-size: 28px;
+    font-weight: 300;
   }
 }
 
@@ -68,5 +74,34 @@
     white-space: nowrap;
     font-weight: 700;
     color: $lilac;
+  }
+}
+
+.pagination-widget {
+  align-self: center;
+  margin-top: 30px;
+
+  &__button {
+    width: 45px;
+    height: 45px;
+
+    font-size: 20px;
+    color: $dark-grey;
+    background-color: inherit;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: $lilac;
+      opacity: 100%;
+      color: $white;
+    }
+    &_current {
+      background-color: $lilac;
+      opacity: 50%;
+      color: $white;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../scss/components/item-card.scss';
+import '../../../scss/components/item-wrapper.scss';
 import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
