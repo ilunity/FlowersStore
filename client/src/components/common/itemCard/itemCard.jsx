@@ -3,18 +3,20 @@ import '../../../scss/components/item-wrapper.scss';
 import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemBasket } from '../../../store/actions';
 
 function ItemCard({item, className}) {
     const {id, name, price, count, img: imgName} = item;
     const dispatch = useDispatch();
-
+    const isAuth = useSelector(store => store.isAuth);
     const img = `${STATIC_URL}/${imgName}`;
     
     const addToBasketHandler = async () => {
-        dispatch(addItemBasket(item));
-        await addToBasket(id, 1);
+        if (isAuth) {
+            dispatch(addItemBasket(item));
+            await addToBasket(id, 1);
+        }
     };
     return (
         <div className={`${className} item-card`}>

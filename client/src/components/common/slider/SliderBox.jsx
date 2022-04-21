@@ -54,14 +54,14 @@ const SliderBox = ({title = "Популярные товары"}) => {
   };
   const [itemsSlider, setItemsSlider] = useState([]);
 
-    const loadItems = async () => {
-        const countedItems = await getItems(12, 1, 2);
-        setItemsSlider(countedItems.items);
-    };
+  const loadItems = async () => {
+      const countedItems = await getItems(12, 1, 2);
+      setItemsSlider(countedItems.items);
+  };
 
-    useEffect(async () => {
-        await loadItems();
-    }, []);
+  useEffect(async () => {
+      await loadItems();
+  }, []);
   return (
     <div className='slider'>
       <div className='slider__litle'>{title}</div>

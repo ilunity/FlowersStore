@@ -1,24 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
+import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
 import {getAll} from '../http/basketAPI';
-import { setItemBasket } from '../store/actions';
+import { setItemBasket, setLoadingCartItems } from '../store/actions';
 
 const Basket = () => {
     const dispatch = useDispatch();
-    const basketItems = useSelector(store => store.basket);
-    const isAuth = useSelector(store => store.isAuth)
-    const getCardContents = async () => {
-        const countedItems = await getAll();
-        dispatch(setItemBasket(countedItems.items));
 
+    const basketItems = useSelector(store => store.basket);
+    const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
+    const isAuth = useSelector(store => store.isAuth);
+
+    const getAllCartItems = async () => {
+        try {
+            const countedItems = await getAll();
+            dispatch(setItemBasket(countedItems.items));
+        } catch (err) {
+            console.error(err);
+        } finally {
+            dispatch(setLoadingCartItems(false));
+        }
     };
-    
-    useEffect(async () => {
-        if (isAuth) await getCardContents();
-    }, []);
+
+    useEffect(() => {
+        getAllCartItems();
+    }, [isAuth]);
 
     return (
         <main className='main'>
@@ -33,8 +42,9 @@ const Basket = () => {
                                 <div className="column-names__item column-names__item-num">Кол-во</div>
                                 <div className="column-names__item column-names__item-general">Итог</div>
                             </div>
+                            {isLoadingBasketItems && <Loader/>}
                             {
-                                basketItems.length > 0 ?
+                                basketItems.length?
                                 <div className="list-block__items">
                                 {
                                     basketItems.map((item) => {
@@ -51,6 +61,8 @@ const Basket = () => {
                                     })
                                 }
                                 </div>
+                                : 
+                                isLoadingBasketItems ? null
                                 :
                                 <div className='list-block__no-items'>Корзина пуста</div>
                             }

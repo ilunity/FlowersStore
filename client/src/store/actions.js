@@ -43,6 +43,8 @@ const addItemBasket = createAction(ADD_ITEM_BASKET);
 const deleteItemBasket = createAction(DELETE_ITEM_BASKET);
 const setItemBasket = createAction(SET_ITEM_BASKET);
 
+const SET_LOADING_CART_ITEMS = "SET_LOADING_CART_ITEMS";
+const setLoadingCartItems = createAction(SET_LOADING_CART_ITEMS);
 export {
     SET_USER,
     DELETE_USER,
@@ -71,5 +73,8 @@ export {
     SET_ITEM_BASKET,
     addItemBasket,
     deleteItemBasket,
-    setItemBasket
+    setItemBasket,
+
+    SET_LOADING_CART_ITEMS,
+    setLoadingCartItems,
 };
