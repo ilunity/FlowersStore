@@ -20,10 +20,9 @@ function App() {
         <div className="wrapper">
             <Header/>
             <Modals/>
-            {/* <BrowserRouter>
+            <BrowserRouter>
                 <RouterComponent/>
-            </BrowserRouter> */}
-            <Basket/>
+            </BrowserRouter>
             <Footer/>
         </div>
     );

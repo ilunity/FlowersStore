@@ -7,19 +7,17 @@ import {getAll} from '../http/basketAPI';
 import { setItemBasket } from '../store/actions';
 
 const Basket = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const basketItems = useSelector(store => store.basket);
-    //todo: довести до ума получение всех элементов корзины
-    // const getCartContents = async () => {
-    //     const result = await getAll();
-    //     if (result != undefined) {
-    //         dispatch(setItemBasket(result));
-    //     }
-    // };
 
-    // useEffect(async () => {
-    //     await getCartContents();
-    // }, []);
+    const getCardContents = async () => {
+        const countedItems = await getAll();
+        dispatch(setItemBasket(countedItems.items));
+    };
+
+    useEffect(async () => {
+        await getCardContents();
+    }, []);
     
     return (
         <main className='main'>
