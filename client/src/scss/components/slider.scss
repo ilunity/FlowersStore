@@ -1,6 +1,5 @@
 @import "../variables.scss";
 .slider {
-  // border: 1px solid red;
   height: 100%;
   width: 100%;
   position: relative;
@@ -12,6 +11,11 @@
     font-size: 48px;
     line-height: 18px;
     margin-bottom: 100px;
+    @media screen and (max-width: 518px) {
+      line-height: 28px;
+      font-size: 38px;
+      margin-bottom: 60px;
+    }
   }
 
   &__switch {
@@ -26,22 +30,41 @@
     position: absolute;
     right: 125px;
     top: -120px;
+    @media screen and (max-width: 950px) {
+      display: none;
+    }
   }
 
   &__switch_arrow-right {
     position: absolute;
     right: 85px;
     top: -120px;
-  }
-}
-.slick{
-  &-slider {
-    height: 450px;
-    margin: 0px 7.5px;
-  }
+    @media screen and (max-width: 950px) {
+      display: none;
+    }
     
-  &-list {
-    height: 100%;
-    margin: 0px -7.5px;
+  }
+  &__wrapper {
+    @media screen and (max-width: 1126px) {
+      padding-left: 40px;
+    }
+    @media screen and (max-width: 950px) {
+      padding-left: 20%;
+    }
+    @media screen and (max-width: 830px) {
+      padding-left: 15%;
+    }
+    @media screen and (max-width: 745px) {
+      padding-left: 30%;
+    }
+    @media screen and (max-width: 530px) {
+      padding-left: 20%;
+    }
+    @media screen and (max-width: 460px) {
+      padding-left: 15%;
+    }
+    @media screen and (max-width: 400px) {
+      padding-left: 5%;
+    }
   }
 }
