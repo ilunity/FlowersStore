@@ -13,8 +13,8 @@ const SliderBox = ({title = "Популярные товары"}) => {
     speed: 500,
     slidesToScroll: 2,
     slidesToShow: 5,
-    nextArrow: <SamplePrevArrow />,
-    prevArrow: <SampleNextArrow />
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
   };
   const [itemsSlider, setItemsSlider] = useState([]);
 

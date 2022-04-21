@@ -18,7 +18,7 @@ function ItemsWrapper({limit = 12, filters = [], helperClass = ""}) {
 
     useEffect(async () => {
         await loadItems();
-    }, [filters]);
+    }, [filters, currentPage]);
 
     //todo Добавить сообщение, если нет предметов
     return (

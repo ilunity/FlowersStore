@@ -20,7 +20,6 @@
   }
 }
 
-
 .item-card {
   width: 100%;
   height: 400px;
@@ -77,9 +76,13 @@
   }
 }
 
+
 .pagination-widget {
   align-self: center;
   margin-top: 30px;
+
+  display: flex;
+
 
   &__button {
     width: 45px;
@@ -93,15 +96,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
     &:hover {
       background-color: $lilac;
       opacity: 100%;
       color: $white;
     }
+
     &_current {
       background-color: $lilac;
       opacity: 50%;
       color: $white;
+    }
+  }
+  &__flip-button {
+    width: 45px;
+    height: 45px;
+    background-color: inherit;
+    opacity: 50%;
+
+    &:hover {
+      opacity: 100%;
+    }
+    &_previous {
+      margin-right: 8px;
+    }
+    &_next {
+      margin-left: 8px;
     }
   }
 }

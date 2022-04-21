@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../../scss/components/item-wrapper.scss';
 import {PaginationButton} from "./paginationButton";
 import {v4 as uniqueNum} from "uuid";
+import {FlipButton, BUTTON_TYPES} from "./flipButton";
 
 
 const generatePaginationButtons = (currentPage, pageCount, setPage) => {
@@ -120,11 +121,23 @@ const generatePaginationButtons = (currentPage, pageCount, setPage) => {
     return paginationButtons;
 };
 
-//todo Добавить кнопки изменения страниц
-function PaginationWidget({page, pageCount, setPage}) {
+//todo Возвращать страницу наверх при перелистывании
+function PaginationWidget({page, setPage, pageCount}) {
     return (
         <div className={'pagination-widget'}>
+            <FlipButton
+                type={BUTTON_TYPES.PREVIOUS}
+                page={page}
+                setPage={setPage}
+                pageCount={pageCount}
+            />
             {generatePaginationButtons(page, pageCount, setPage)}
+            <FlipButton
+                type={BUTTON_TYPES.NEXT}
+                page={page}
+                setPage={setPage}
+                pageCount={pageCount}
+            />
         </div>
     )
 }

@@ -2,7 +2,7 @@ import {REQUEST_METHODS, sendRequest} from "./requestsAPI";
 import {BASKET_URL} from "./consts";
 
 //todo Обработка ошибок
-const addToBasket = async (itemId, count) => {
+const addToBasket = async (itemId, count = 1) => {
     const url = BASKET_URL + '/add_item';
 
     const body = {itemId, count};
@@ -21,6 +21,7 @@ const getAll = async () => {
 
     return {items: countedItems.rows, count: countedItems.count};
 };
+
 const deleteFromBasket = async (itemId) => {
     const url = BASKET_URL + '/delete_item';
 
