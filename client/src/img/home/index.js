@@ -4,6 +4,7 @@ import video from "./video.jpg";
 import boxes from "./boxes.jpg";
 import baskets from "./baskets.jpg";
 import gifts from "./gifts.jpg";
-import catolog from "./catolog.jpg";
+import catalog from "./catalog.jpg";
 import roses from "./roses.jpg";
-export {photo, present, video, boxes, baskets, gifts, catolog, roses};
+
+export {photo, present, video, boxes, baskets, gifts, catalog, roses};

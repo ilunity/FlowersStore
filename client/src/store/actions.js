@@ -36,6 +36,13 @@ const setRegModalStatus = createAction(SET_REG_MODAL_STATUS);
 const setLoginModalStatus = createAction(SET_LOGIN_MODAL_STATUS);
 
 
+const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";
+const DELETE_ITEM_BASKET = "DELETE_ITEM_BASKET";
+const SET_ITEM_BASKET = "SET_ITEM_BASKET";
+const addItemBasket = createAction(ADD_ITEM_BASKET);
+const deleteItemBasket = createAction(DELETE_ITEM_BASKET);
+const setItemBasket = createAction(SET_ITEM_BASKET);
+
 export {
     SET_USER,
     DELETE_USER,
@@ -58,4 +65,11 @@ export {
     SET_LOGIN_MODAL_STATUS,
     setRegModalStatus,
     setLoginModalStatus,
+
+    ADD_ITEM_BASKET,
+    DELETE_ITEM_BASKET,
+    SET_ITEM_BASKET,
+    addItemBasket,
+    deleteItemBasket,
+    setItemBasket
 };

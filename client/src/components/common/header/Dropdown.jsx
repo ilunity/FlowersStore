@@ -1,26 +1,11 @@
 import React from 'react';
-const Dropdown = () => {
-  const MenuItems = [
-    {
-      title: 'О нас',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Доставка и оплата',
-      path: '',
-      cName: 'dropdown__link'
-    },
-    {
-      title: 'Контакты',
-      path: '',
-      cName: 'dropdown__link'
-    },
-  ];
+import { menuItems } from '../../../utils/consts';
+const Dropdown = ({className}) => {
+  
   return (
-    <div className='dropdown'>
+    <div className={className}>
       <ul className='dropdown__list'>
-        {MenuItems.map((item, index) => {
+        {menuItems.map((item, index) => {
           return (
             <li key={index} className='dropdown__item'>
               <a className={item.cName}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../scss/components/input-frame.scss';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uniqueNum } from 'uuid';
 
 
 function InputFrame({type, value, placeholder, setValue, className}) {
@@ -8,7 +8,7 @@ function InputFrame({type, value, placeholder, setValue, className}) {
         setValue(event.target.value);
     };
 
-    const uniqueId = uuidv4();
+    const uniqueId = uniqueNum();
 
     return (
         <div className={`input-frame ${className}`}>

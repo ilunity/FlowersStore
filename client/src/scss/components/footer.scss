@@ -1,1 +1,98 @@
 @import '../variables';
+
+.info-footer {
+  margin-top: 82px;
+  background: $black;
+  &__body {
+    padding: 32px 0px 38px 0px;
+  }
+}
+
+.menu-footer {
+  margin-bottom: 36px;
+  display: flex;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 25%;
+    padding: 0 47px;
+  }
+
+  &__label {
+    margin-bottom: 38px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &__list {
+    margin: 0 -94px;
+    width: 100%;
+    display: flex;
+    color: $white;
+  }
+
+  &__logo {
+    margin-right: 138px;
+  }
+}
+.footer__map {
+  & img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+.nav {
+  height: 100%;
+  &__item {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &__list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.copy {
+  padding-top: 23px;
+  border-top: 1px solid $lilac;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: $white;
+  }
+}
+.payment {
+  display: flex;
+  align-items: center;
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item:not(:last-child){
+    margin-right: 28px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: $white;
+    margin-right: 36px;
+  }
+}

@@ -19,7 +19,7 @@ function LoginForm({hideModal}) {
             email,
             password,
         });
-
+        
         dispatch(getAuthStatus());
     };
     
