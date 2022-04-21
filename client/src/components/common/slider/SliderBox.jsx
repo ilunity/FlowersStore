@@ -34,6 +34,7 @@ const SliderBox = ({title = "Популярные товары"}) => {
           {itemsSlider.map((item) => {
             return (
                 <ItemCard
+                    className={'slider__item'}
                     key={item.id}
                     item={item}
                 />
