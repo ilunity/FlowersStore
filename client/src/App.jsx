@@ -15,7 +15,7 @@ function App() {
     useEffect(() => {
         dispatch(getAuthStatus());
     }, []);
-    
+
     return (
         <div className="wrapper">
             <Header/>
