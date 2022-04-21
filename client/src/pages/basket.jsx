@@ -41,7 +41,7 @@ const Basket = () => {
                                             <ItemBasket
                                                 img={item.img} 
                                                 name={item.name} 
-                                                count={item.count} 
+                                                count={item.basketCount}
                                                 price={item.price} 
                                                 key={item.id}
                                                 item = {item}

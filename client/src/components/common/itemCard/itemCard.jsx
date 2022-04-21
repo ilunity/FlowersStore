@@ -14,7 +14,7 @@ function ItemCard({item}) {
     
     const addToBasketHandler = async () => {
         dispatch(addItemBasket(item));
-        await addToBasket(id, 1);
+        await addToBasket(id);
     };
     return (
         <div className='item-card'>
