@@ -30,7 +30,7 @@ function ItemCard({item}) {
                     {name}
                 </div>
                 <div className="item-card__price">
-                    {`${price} rub`}
+                    {price}<span style={{marginLeft: "5px"}}>&#8381;</span>
                 </div>
             </div>
             <InteractionButton
