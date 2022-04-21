@@ -15,11 +15,11 @@ const addToBasket = async (itemId, count) => {
 
 const getAll = async () => {
     const url = BASKET_URL + '/get_all';
-    const items = await sendRequest(url, {
+    const countedItems = await sendRequest(url, {
         isAttachToken: true,
     });
-    console.log(items);
-    return items;
+
+    return {items: countedItems.rows, count: countedItems.count};
 };
 const deleteFromBasket = async (itemId) => {
     const url = BASKET_URL + '/delete_item';

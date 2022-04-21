@@ -12,10 +12,10 @@ const getItems = async (limit, page, categoriesId) => {
         return {items: countedItems.rows, count: countedItems.count};
     }
 
-    const categories = JSON.stringify({categoriesId});
+    const body = {categories: categoriesId};
     const countedItems = await sendRequest(url, {
         method: REQUEST_METHODS.POST,
-        body: categories,
+        body,
     });
 
     return {items: countedItems.rows, count: countedItems.count};
