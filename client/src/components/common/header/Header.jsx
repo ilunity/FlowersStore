@@ -19,7 +19,10 @@ const Header = () => {
     const showLoginModal = () => {
         dispatch(setLoginModalStatus(true));
     };
-
+    const logOut = () => {
+        dispatch(exitUser());
+        location.reload();
+    }
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
@@ -34,10 +37,7 @@ const Header = () => {
                             <div className='contacts__text'>Контакты</div>
                         </div>
                         {isAuth ?
-                            <div onClick={() => {
-                                dispatch(exitUser());
-                                location.reload();
-                                }}
+                            <div onClick={logOut}
                                 className="authorization__exit">
                                 Выйти
                             </div>
