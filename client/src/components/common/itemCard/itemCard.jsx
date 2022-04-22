@@ -16,6 +16,7 @@ function ItemCard({item}) {
         dispatch(addItemBasket(item));
         await addToBasket(id);
     };
+
     return (
         <div className='item-card'>
             <div className="item-card__image-wrapper">
@@ -35,7 +36,7 @@ function ItemCard({item}) {
             </div>
             <InteractionButton
                 onClick={addToBasketHandler}
-                value={'Заказать'}
+                value={'В корзину'}
             />
         </div>
     )
