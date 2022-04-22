@@ -27,13 +27,13 @@ const Basket = () => {
         }
     };
 
-    useEffect(() => {
-        getAllCartItems();
+    useEffect(async () => {
+        await getAllCartItems();
     }, [isAuth]);
 
     return (
         <main className='main'>
-            <div className="'main__basket basket">
+            <div className="main__basket basket">
                 <div className="basket__container container">
                     <div className="basket__title title">Корзина</div>
                     <div className="basket__body">
@@ -52,10 +52,11 @@ const Basket = () => {
                                     basketItems.map((item) => {
                                         return (
                                             <ItemBasket
-                                                img={item.img} 
-                                                name={item.name} 
+                                                img={item.img}
+                                                name={item.name}
                                                 count={item.basketCount}
-                                                price={item.price} 
+                                                maxCount={item.count}
+                                                price={item.price}
                                                 key={item.id}
                                                 item = {item}
                                             />
