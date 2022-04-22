@@ -11,7 +11,6 @@ import {
     SET_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     ADD_ITEM_BASKET,
-    SET_LOADING_CART_ITEMS,
 } from "./actions";
 import {combineReducers} from "redux";
 import {FETCH_ITEMS} from "./asyncActions";
@@ -118,14 +117,6 @@ const basketReducer = (
     }
 }
 
-const loadingBasketReducer = (state = true, action) => {
-    switch (action.type) {
-        case SET_LOADING_CART_ITEMS:
-            return action.payload;
-        default:
-            return state;
-    }
-};
 
 const rootReducer = combineReducers({
     items: itemsReducer,
@@ -134,7 +125,6 @@ const rootReducer = combineReducers({
     isAuth: authReducer,
     user: userReducer,
     basket: basketReducer,
-    isLoadingBasketItems: loadingBasketReducer,
 });
 
 export {rootReducer};

@@ -5,14 +5,16 @@ import ItemBasket from '../components/common/ItemBasket';
 import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
 import {getAll} from '../http/basketAPI';
-import { setItemBasket, setLoadingCartItems } from '../store/actions';
+import {setItemBasket} from '../store/actions';
 
 const Basket = () => {
     const dispatch = useDispatch();
 
     const basketItems = useSelector(store => store.basket);
-    const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
     const isAuth = useSelector(store => store.isAuth);
+
+    const [isLoadingBasketItems, setIsLoadingBasketItems] = useState(true);
+
 
     const getAllCartItems = async () => {
         try {
@@ -21,7 +23,7 @@ const Basket = () => {
         } catch (err) {
             console.error(err);
         } finally {
-            dispatch(setLoadingCartItems(false));
+            setIsLoadingBasketItems(false);
         }
     };
 
@@ -44,7 +46,7 @@ const Basket = () => {
                             </div>
                             {isLoadingBasketItems && <Loader/>}
                             {
-                                basketItems.length?
+                                basketItems.length ?
                                 <div className="list-block__items">
                                 {
                                     basketItems.map((item) => {
