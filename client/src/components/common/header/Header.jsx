@@ -1,30 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
 import BasketButton from './BasketButton';
 import {useDispatch, useSelector} from "react-redux";
-import {setItemBasket, setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
+import {setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
-import { getAll } from '../../../http/basketAPI';
 
 
 const Header = () => {
     const dispatch = useDispatch();
-    const isAuth = useSelector(store => store.isAuth)
+    const isAuth = useSelector(store => store.isAuth);
+
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
     const showLoginModal = () => {
         dispatch(setLoginModalStatus(true));
     };
-    const getAllCartItems = async () => {
-        const countedItems = await getAll();
-        dispatch(setItemBasket(countedItems.items));
-    };
-    if (isAuth) {
-        getAllCartItems();
+    const logOut = () => {
+        dispatch(exitUser());
+        location.reload();
     }
     return (
         <header className='header'>
@@ -40,10 +37,7 @@ const Header = () => {
                             <div className='contacts__text'>Контакты</div>
                         </div>
                         {isAuth ?
-                            <div onClick={() => {
-                                dispatch(exitUser());
-                                location.reload();
-                                }} 
+                            <div onClick={logOut}
                                 className="authorization__exit">
                                 Выйти
                             </div>

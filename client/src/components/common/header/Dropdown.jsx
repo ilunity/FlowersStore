@@ -3,7 +3,7 @@ import { menuItems } from '../../../utils/consts';
 const Dropdown = ({className}) => {
   
   return (
-    <div className={className}>
+    <div className={className} >
       <ul className='dropdown__list'>
         {menuItems.map((item, index) => {
           return (

@@ -5,7 +5,7 @@ const PaymentAndDelivery = () => {
     <main className='main'>
       <div className="main__payment-delivery payment-delivery">
         <div className="payment-delivery__container container">
-          <div className="payment-delivery__title">Оплата и доставка</div>
+          <div className="payment-delivery__title title">Оплата и доставка</div>
           <div className="payment-delivery__general-info">
             <p>
               Flowers-Ukraine.com - это единая сеть партнеров, курьерская доставка цветов, что гарантирует доставку букетов и подарков по всей Украине вовремя и в надлежащем виде. Доставка цветов по украине осуществляется в удобное для Вас время.
@@ -42,19 +42,19 @@ const PaymentAndDelivery = () => {
           <div className="payment-delivery__payment-methods payment-methods">
             <div className="payment-methods__list">
               <div className="payment-methods__item">
-                <img src={privateBank} alt="" />
+                <img src={privateBank} alt="privateBank" />
               </div>
               <div className="payment-methods__item">
-                <img src={mc} alt="" />
+                <img src={mc} alt="masterCard" />
               </div>
               <div className="payment-methods__item">
-                <img src={pc} alt="" />
+                <img src={pc} alt="privateBank" />
               </div>
               <div className="payment-methods__item">
-                <img src={visaIcon} alt="" />
+                <img src={visaIcon} alt="visaIcon" />
               </div>
               <div className="payment-methods__item">
-                <img src={yandex} alt="" />
+                <img src={yandex} alt="yandexMoney" />
               </div>
             </div>
             <div className="payment-methods__text">

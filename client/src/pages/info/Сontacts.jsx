@@ -13,7 +13,7 @@ const Сontacts = () => {
     <main className='main'>
       <div className="main__contacts contacts">
         <div className="contacts__container container">
-          <div className="contacts__title">Контакты</div>
+          <div className="contacts__title title">Контакты</div>
           <div className="contacts__body">
             <div className="contacts__info info-contacts">
               <div className="info-contacts__title">Свяжитесь с нами</div>
