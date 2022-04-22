@@ -21,7 +21,8 @@
 }
 
 .item-card {
-  width: 240px;
+  width: 100%;
+  max-width: 265px;
   height: 400px;
   padding: 15px;
   border: 1px solid $lilac;

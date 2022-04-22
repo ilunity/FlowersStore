@@ -1,7 +1,6 @@
 @import "../variables";
 .basket {
   margin-top: 48px;
-  
   &__body {
     display: flex;
     height: 715px;
@@ -11,16 +10,6 @@
     margin-right: 28px;
     width: 100%;
     max-width: 979px;
-  }
-
-  &__title {
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 18px;
-    color: $black;
-    margin-bottom: 100px;
   }
 }
 
@@ -61,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   &__delete-icon {
@@ -88,6 +78,8 @@
   
 
   &__name {
+    max-width: 140px;
+    width: 100%;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
@@ -99,7 +91,26 @@
     line-height: 18px;
   }
 }
-
+.counter {
+  position: relative;
+  &__arrow{
+    cursor: pointer;
+    padding: 6px;
+    &:hover {
+      filter: brightness(85%);
+    }
+    &-add {
+      position: absolute;
+      right: 12px;
+      top: 5;
+    }
+    &-del {
+      position: absolute;
+      left: 12px;
+      top: 5;
+    }
+  }
+}
 .list-block {
   display: flex;
   flex-direction: column;
