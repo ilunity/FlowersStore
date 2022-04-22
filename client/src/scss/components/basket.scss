@@ -1,7 +1,6 @@
 @import "../variables";
 .basket {
   margin-top: 48px;
-  
   &__body {
     display: flex;
     height: 715px;
@@ -11,16 +10,6 @@
     margin-right: 28px;
     width: 100%;
     max-width: 979px;
-  }
-
-  &__title {
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 18px;
-    color: $black;
-    margin-bottom: 100px;
   }
 }
 

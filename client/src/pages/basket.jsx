@@ -35,7 +35,7 @@ const Basket = () => {
         <main className='main'>
             <div className="'main__basket basket">
                 <div className="basket__container container">
-                    <div className="basket__title">Корзина</div>
+                    <div className="basket__title title">Корзина</div>
                     <div className="basket__body">
                         <div className="basket__list-block list-block">
                             <div className="list-block__column-names column-names">
