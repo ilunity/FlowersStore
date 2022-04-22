@@ -14,8 +14,9 @@ function ItemCard({item}) {
     
     const addToBasketHandler = async () => {
         dispatch(addItemBasket(item));
-        await addToBasket(id, 1);
+        await addToBasket(id);
     };
+
     return (
         <div className='item-card'>
             <div className="item-card__image-wrapper">
@@ -35,7 +36,7 @@ function ItemCard({item}) {
             </div>
             <InteractionButton
                 onClick={addToBasketHandler}
-                value={'Заказать'}
+                value={'В корзину'}
             />
         </div>
     )

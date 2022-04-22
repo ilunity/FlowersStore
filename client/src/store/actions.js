@@ -71,5 +71,5 @@ export {
     SET_ITEM_BASKET,
     addItemBasket,
     deleteItemBasket,
-    setItemBasket
+    setItemBasket,
 };

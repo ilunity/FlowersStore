@@ -1,5 +1,6 @@
 @import "../variables";
 @import "../libs/normalize";
+
 .interaction-btn {
   min-height: 63px;
   max-width: 220px;
@@ -12,16 +13,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $lilac;
+  background: $lilac url("../../img/icons/img-for-btn.svg") right center no-repeat;
   color: #FFFFFF;
   transition: all 3ms ease-in-out;
+
   &:hover {
     filter: brightness(105%);
   }
+
   &:active {
     filter: brightness(125%);
   }
 }
+
 .communication-btn {
   border-radius: 50%;
   display: flex;
@@ -30,9 +34,11 @@
   background: $lilac;
   color: #FFFFFF;
   transition: all 3ms ease-in-out;
+
   &:hover {
     filter: brightness(105%);
   }
+
   &:active {
     filter: brightness(125%);
   }

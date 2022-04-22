@@ -5,7 +5,7 @@ const About = () => {
     <main className='main'>
       <div className="main__about about">
         <div className="about__container container">
-        <div className="about__title">Цветочный интернет магазин</div>
+        <div className="about__title title">Цветочный интернет магазин</div>
           <div className="about__upper-gallery upper-gallery">
             <div className="upper-gallery__img">
               <div className='upper-gallery__column'>

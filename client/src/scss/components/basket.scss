@@ -1,26 +1,18 @@
 @import "../variables";
+
 .basket {
   margin-top: 48px;
-  
+
   &__body {
     display: flex;
     height: 715px;
     margin-bottom: 148px;
   }
+
   &__list-block {
     margin-right: 28px;
     width: 100%;
     max-width: 979px;
-  }
-
-  &__title {
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 18px;
-    color: $black;
-    margin-bottom: 100px;
   }
 }
 
@@ -30,6 +22,7 @@
   justify-content: space-around;
   margin-bottom: 11px;
   padding: 0px 55px;
+
   &__item {
     color: #BDBDBD;
     font-weight: 500;
@@ -45,10 +38,11 @@
   margin-bottom: 15px;
   border: 1px solid $lilac;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
   align-items: center;
   padding: 0px 65px;
+
   &__counter {
     margin-left: 53px;
     min-height: 42px;
@@ -61,6 +55,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   &__delete-icon {
@@ -69,10 +64,12 @@
     top: 62px;
     cursor: pointer;
   }
+
   &__img {
     position: absolute;
     left: 5px;
     top: 5px;
+
     & img {
       max-width: 104px;
       width: 100%;
@@ -80,14 +77,17 @@
       object-fit: cover;
     }
   }
+
   &__total {
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
   }
-  
+
 
   &__name {
+    max-width: 140px;
+    width: 100%;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
@@ -100,9 +100,35 @@
   }
 }
 
+.counter {
+  position: relative;
+
+  &__arrow {
+    cursor: pointer;
+    padding: 6px;
+
+    &:hover {
+      filter: brightness(85%);
+    }
+
+    &-add {
+      position: absolute;
+      right: 12px;
+      top: 5px;
+    }
+
+    &-del {
+      position: absolute;
+      left: 12px;
+      top: 5px;
+    }
+  }
+}
+
 .list-block {
   display: flex;
   flex-direction: column;
+
   &__no-items {
     margin-top: 20px;
     align-items: center;
@@ -115,6 +141,7 @@
     border-radius: 20px;
     background-color: rgb(245, 245, 245);
   }
+
   &__items {
     height: 100%;
     overflow-y: scroll;
@@ -131,10 +158,11 @@
   margin-top: 30px;
   max-width: 360px;
   width: 100%;
+
   &__general {
     display: flex;
     width: 100%;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-bottom: auto;
   }
 

@@ -11,14 +11,18 @@ import { exitUser } from '../../../store/asyncActions';
 
 const Header = () => {
     const dispatch = useDispatch();
-    const isAuth = useSelector(store => store.isAuth)
+    const isAuth = useSelector(store => store.isAuth);
+
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
     const showLoginModal = () => {
         dispatch(setLoginModalStatus(true));
     };
-
+    const logOut = () => {
+        dispatch(exitUser());
+        location.reload();
+    }
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
@@ -33,7 +37,8 @@ const Header = () => {
                             <div className='contacts__text'>Контакты</div>
                         </div>
                         {isAuth ?
-                            <div onClick={() => dispatch(exitUser())} className="authorization__exit">
+                            <div onClick={logOut}
+                                className="authorization__exit">
                                 Выйти
                             </div>
                             :
