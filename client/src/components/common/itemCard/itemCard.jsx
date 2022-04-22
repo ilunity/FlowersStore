@@ -6,7 +6,7 @@ import {STATIC_URL} from "../../../http/consts";
 import { useDispatch } from 'react-redux';
 import { addItemBasket } from '../../../store/actions';
 
-function ItemCard({item}) {
+function ItemCard({item, className}) {
     const {id, name, price, count, img: imgName} = item;
     const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function ItemCard({item}) {
         await addToBasket(id, 1);
     };
     return (
-        <div className='item-card'>
+        <div className={`${className} item-card`}>
             <div className="item-card__image-wrapper">
                 <img
                     src={img}
@@ -30,7 +30,7 @@ function ItemCard({item}) {
                     {name}
                 </div>
                 <div className="item-card__price">
-                    {`${price} rub`}
+                    {price}<span style={{marginLeft: "5px"}}>&#8381;</span>
                 </div>
             </div>
             <InteractionButton

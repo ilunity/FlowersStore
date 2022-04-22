@@ -10,8 +10,8 @@ const ItemBasket = ({img:imgName, name, count, price, item}) => {
   const dispatch = useDispatch();
 
   const removeItemBasket = async (item) => {
-      await deleteFromBasket(item.id);
-      dispatch(deleteItemBasket(item.id));
+    dispatch(deleteItemBasket(item.id));
+    await deleteFromBasket(item.id);
   }
   return (
     <div className="list-block__item item-basket">

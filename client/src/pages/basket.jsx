@@ -9,16 +9,17 @@ import { setItemBasket } from '../store/actions';
 const Basket = () => {
     const dispatch = useDispatch();
     const basketItems = useSelector(store => store.basket);
-
+    const isAuth = useSelector(store => store.isAuth)
     const getCardContents = async () => {
         const countedItems = await getAll();
         dispatch(setItemBasket(countedItems.items));
-    };
 
-    useEffect(async () => {
-        await getCardContents();
-    }, []);
+    };
     
+    useEffect(async () => {
+        if (isAuth) await getCardContents();
+    }, []);
+
     return (
         <main className='main'>
             <div className="'main__basket basket">

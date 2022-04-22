@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
 import BasketButton from './BasketButton';
 import {useDispatch, useSelector} from "react-redux";
-import {setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
+import {setItemBasket, setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
+import { getAll } from '../../../http/basketAPI';
 
 
 const Header = () => {
@@ -18,7 +19,13 @@ const Header = () => {
     const showLoginModal = () => {
         dispatch(setLoginModalStatus(true));
     };
-
+    const getAllCartItems = async () => {
+        const countedItems = await getAll();
+        dispatch(setItemBasket(countedItems.items));
+    };
+    if (isAuth) {
+        getAllCartItems();
+    }
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
@@ -33,7 +40,11 @@ const Header = () => {
                             <div className='contacts__text'>Контакты</div>
                         </div>
                         {isAuth ?
-                            <div onClick={() => dispatch(exitUser())} className="authorization__exit">
+                            <div onClick={() => {
+                                dispatch(exitUser());
+                                location.reload();
+                                }} 
+                                className="authorization__exit">
                                 Выйти
                             </div>
                             :
