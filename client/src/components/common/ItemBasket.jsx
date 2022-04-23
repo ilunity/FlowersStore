@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {deleteFromBasket} from '../../http/basketAPI';
 import {STATIC_URL} from '../../http/consts';
@@ -9,14 +9,12 @@ import '../../scss/components/counter.scss';
 import Counter from '../common/Counter';
 
 const ItemBasket = ({item}) => {
-    const {img:imgName, name, count, maxCount, price} = item;
+    const {id, name, price, count:maxCount, img: imgName, basketCount} = item;
     const img = `${STATIC_URL}/${imgName}`;
 
-    const dispatch = useDispatch();
+    const [count, setCount] = useState(basketCount);
 
-    const changeCount = async () => {
-    //    todo Сделать изменение количества элементов в корзине
-    };
+    const dispatch = useDispatch();
 
     const removeItemBasket = async (item) => {
         dispatch(deleteItemBasket(item.id));
@@ -31,7 +29,10 @@ const ItemBasket = ({item}) => {
             <div className="item-basket__price">{price}</div>
             <Counter
                 className={'item-basket__counter'}
-                maxCount={count}
+                maxCount={maxCount}
+                count = {count}
+                setCount = {setCount}
+                id = {id}
             />
             <div className="item-basket__total">{price * count}</div>
             <div onClick={() => removeItemBasket(item)} className="item-basket__delete-icon">
