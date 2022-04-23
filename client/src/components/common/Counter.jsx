@@ -7,27 +7,29 @@ import { setItemCount } from '../../http/basketAPI';
 const Counter = ({count, setCount, maxCount, className = '', id}) => {
     const increaseCount = async (id, count) => {
         if (count < maxCount) {
-            setCount(count + 1)
-            await setItemCount(id, count);
+            setCount(count + 1);
+            const currentCount = count + 1;
+            // await setItemCount(id, currentCount);
         }
     }
     const decreaseCount = async (id, count) => {
         if (count > 1) {
-            setCount(count - 1)
-            await setItemCount(id, count);
+            setCount(count - 1);
+            const currentCount = count - 1
+            // await setItemCount(id, currentCount);
         }
     }
     return (
         <div className={`counter ${className}`}>
             <img
-                onClick={() => increaseCount(id, count)}
+                onClick={() => decreaseCount(id, count)}
                 className='counter__arrow counter__arrow-del'
                 src={removeCount}
                 alt="decreaseCount"
             />
             {count}
             <img
-                onClick={() => decreaseCount(id, count)}
+                onClick={() => increaseCount(id, count)}
                 className='counter__arrow counter__arrow-add'
                 src={addCount}
                 alt="increaseCount"
