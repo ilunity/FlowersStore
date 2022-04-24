@@ -11,6 +11,12 @@ import {
     SET_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     ADD_ITEM_BASKET,
+    INCREASE_BASKET_ITEM_COUNT,
+    DECREASE_BASKET_ITEM_COUNT,
+    INCREASE_SUM,
+    DECREASE_SUM,
+    SET_SUM,
+    SET_LOADING_BASKET,
 } from "./actions";
 import {combineReducers} from "redux";
 import {FETCH_ITEMS} from "./asyncActions";
@@ -107,18 +113,52 @@ const basketReducer = (
 ) => {
     switch (action.type) {
         case ADD_ITEM_BASKET:
-            const newItem = Object.assign({}, action.payload, {basketCount: 1});
+            const newItem = {...action.payload, basketCount: 1};
             return [...state, newItem];
         case DELETE_ITEM_BASKET:
             return state.filter(item => item.id !== action.payload);
         case SET_ITEM_BASKET:
             return action.payload;
+        case INCREASE_BASKET_ITEM_COUNT:
+            return state.map((item) => {
+                if (item.id === action.payload) {
+                    item.basketCount+=1
+                }
+                return item;
+            })
+        case DECREASE_BASKET_ITEM_COUNT:
+            return state.map((item) => {
+                if (item.id === action.payload) {
+                    item.basketCount-=1
+                }
+                return item;
+            })
         default:
             return state;
     }
 }
 
+const sumReducer = (state = 0, action) => {
+    switch (action.type) {
+        case INCREASE_SUM:
+            return state + action.payload;
+        case DECREASE_SUM:
+            return state - action.payload;
+        case SET_SUM:
+            return action.payload;
+        default:
+            return state;
+    }
+};
 
+const isLoadingBasketItemsReducer = (state = true, action) => {
+    switch (action.type) {
+        case SET_LOADING_BASKET:
+            return action.payload;
+        default:
+            return state;
+    }
+};
 const rootReducer = combineReducers({
     items: itemsReducer,
     activeModals: modalsReducer,
@@ -126,6 +166,8 @@ const rootReducer = combineReducers({
     isAuth: authReducer,
     user: userReducer,
     basket: basketReducer,
+    sum: sumReducer,
+    isLoadingBasketItems: isLoadingBasketItemsReducer
 });
 
 export {rootReducer};

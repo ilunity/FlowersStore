@@ -11,7 +11,7 @@ import Counter from "../Counter";
 
 function ItemPageCard({item}) {
     const dispatch = useDispatch();
-
+    
     const [basketCount, setBasketCount] = useState(1);
     const {id, name, price, count, img: imgName, description, item_infos: itemInfos} = item;
     const img = `${STATIC_URL}/${imgName}`;

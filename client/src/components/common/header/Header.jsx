@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
+import backet from '../../../img/header/icons/shopping-basket.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
-import BasketButton from './BasketButton';
 import {useDispatch, useSelector} from "react-redux";
-import {setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
+import {increaseSum, setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSum} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
+import { getAll } from '../../../http/basketAPI';
 
 
 const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
-
+    const sum = useSelector(store => store.sum);
+    const [sumLoading, setSumLoading] = useState(true);
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
@@ -23,6 +25,28 @@ const Header = () => {
         dispatch(exitUser());
         location.reload();
     }
+    const getAllCartItems = async () => {
+        try {
+            const countedItems = await getAll();
+            const items = countedItems.items;
+            if (items.length()) {
+                const sumItems = items.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
+                dispatch(setSum(sumItems));
+            }
+            else {
+                dispatch(setSum(0));
+            }
+        } catch (err) {
+            console.error(err);
+        } finally {
+            dispatch(setLoadingBasket(false));
+        }
+    };
+
+    useEffect(async () => {
+        await getAllCartItems();
+    }, [isAuth]);
+    
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
@@ -78,7 +102,10 @@ const Header = () => {
                                 <CommunicationButton className='socialmedia__item' iconURL={facebook}/>
                             </div>
                             <a href="tel:380678293030" className="contacts-purchases__phone">+38 (067) 829 30 30</a>
-                            <BasketButton/>
+                            <div className="contacts-purchases__basket">
+                                <img src={backet} style={{width:'32px', height:'32px'}} alt="backet" />
+                                <div className='contacts-purchases__sum'>{sum}<span style={{marginLeft:"10px"}}>&#8381;</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
