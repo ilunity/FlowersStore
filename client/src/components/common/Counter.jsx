@@ -4,28 +4,29 @@ import removeCount from '../../img/common/arrow-left-tight.svg';
 
 
 const Counter = ({count, setCount, maxCount, className = ''}) => {
-    const increaseCount = () => {
+    const increaseCount = (count) => {
         if (count < maxCount) {
-            setCount(count + 1)
+            setCount(count + 1);
         }
-    }
-    const decreaseCount = () => {
+    };
+    const decreaseCount = (count) => {
         if (count > 1) {
-            setCount(count - 1)
+            setCount(count - 1);
         }
-    }
+    };
+
     return (
         <div className={`counter ${className}`}>
             <img
-                onClick={decreaseCount}
+                onClick={() => decreaseCount(count)}
                 className='counter__arrow counter__arrow-del'
                 src={removeCount}
                 alt="decreaseCount"
             />
             {count}
             <img
+                onClick={() => increaseCount(count)}
                 className='counter__arrow counter__arrow-add'
-                onClick={increaseCount}
                 src={addCount}
                 alt="increaseCount"
             />

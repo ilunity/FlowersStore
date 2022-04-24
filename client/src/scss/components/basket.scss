@@ -100,31 +100,6 @@
   }
 }
 
-.counter {
-  position: relative;
-
-  &__arrow {
-    cursor: pointer;
-    padding: 6px;
-
-    &:hover {
-      filter: brightness(85%);
-    }
-
-    &-add {
-      position: absolute;
-      right: 12px;
-      top: 5px;
-    }
-
-    &-del {
-      position: absolute;
-      left: 12px;
-      top: 5px;
-    }
-  }
-}
-
 .list-block {
   display: flex;
   flex-direction: column;

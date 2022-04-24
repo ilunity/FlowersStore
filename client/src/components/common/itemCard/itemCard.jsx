@@ -3,18 +3,21 @@ import '../../../scss/components/item-wrapper.scss';
 import InteractionButton from "../buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemBasket } from '../../../store/actions';
 
 function ItemCard({item}) {
     const {id, name, price, count, img: imgName} = item;
+    const basketItems = useSelector(store => store.basket);
     const dispatch = useDispatch();
 
     const img = `${STATIC_URL}/${imgName}`;
     
     const addToBasketHandler = async () => {
-        dispatch(addItemBasket(item));
-        await addToBasket(id);
+        if (!basketItems.includes(item)) {
+            dispatch(addItemBasket(item));
+            await addToBasket(id);
+        }
     };
 
     return (

@@ -52,11 +52,6 @@ const Basket = () => {
                                     basketItems.map((item) => {
                                         return (
                                             <ItemBasket
-                                                img={item.img}
-                                                name={item.name}
-                                                count={item.basketCount}
-                                                maxCount={item.count}
-                                                price={item.price}
                                                 key={item.id}
                                                 item = {item}
                                             />
