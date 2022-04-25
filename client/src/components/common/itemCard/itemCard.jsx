@@ -8,15 +8,18 @@ import { addItemBasket, increaseSum } from '../../../store/actions';
 
 function ItemCard({item}) {
     const {id, name, price, count, img: imgName} = item;
+    
     const basketItems = useSelector(store => store.basket);
     const dispatch = useDispatch();
-
+    const isAuth = useSelector(store => store.isAuth);
     const img = `${STATIC_URL}/${imgName}`;
     
-    const addToBasketHandler = async (item) => {
-        if (!basketItems.includes(item)) {
+    const addToBasketHandler = async () => {
+        if (!basketItems.find((basketItem) => {
+            return basketItem.item.id === id;
+        }) && isAuth) {
             dispatch(addItemBasket(item));
-            await addToBasket(id, 1);
+            await addToBasket(id);
         }
     };
 

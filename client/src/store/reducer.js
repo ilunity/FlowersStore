@@ -113,25 +113,25 @@ const basketReducer = (
 ) => {
     switch (action.type) {
         case ADD_ITEM_BASKET:
-            const newItem = {...action.payload, basketCount: 1};
+            const newItem = Object.assign({}, {basketCount: 1, item: action.payload});
             return [...state, newItem];
         case DELETE_ITEM_BASKET:
-            return state.filter(item => item.id !== action.payload);
+            return state.filter(basketItem => basketItem.item.id !== action.payload);
         case SET_ITEM_BASKET:
             return action.payload;
         case INCREASE_BASKET_ITEM_COUNT:
-            return state.map((item) => {
-                if (item.id === action.payload) {
-                    item.basketCount+=1
+            return state.map((basketItem) => {
+                if (basketItem.item.id === action.payload) {
+                    basketItem.basketCount++;
                 }
-                return item;
+                return basketItem;
             })
         case DECREASE_BASKET_ITEM_COUNT:
-            return state.map((item) => {
-                if (item.id === action.payload) {
-                    item.basketCount-=1
+            return state.map((basketItem) => {
+                if (basketItem.item.id === action.payload) {
+                    basketItem.basketCount--;
                 }
-                return item;
+                return basketItem;
             })
         default:
             return state;
