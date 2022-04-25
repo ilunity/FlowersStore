@@ -1,6 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {arrowDropdown} from '../../../img/common/index';
 import Dropdown from './Dropdown';
+import {Link} from "react-router-dom";
+import {paths} from "../../../utils/routes";
 
 
 const Navbar = () => {
@@ -22,7 +24,12 @@ const Navbar = () => {
         <nav className='lower-menu__nav-bar nav-bar'>
             <ul className="nav-bar__list">
                 <li className='nav-bar__item'>
-                    <a className='nav-bar__link'>Каталог товаров</a>
+                    <Link
+                        className='nav-bar__link'
+                        to={paths.CATALOG}
+                    >
+                        Каталог товаров
+                    </Link>
                 </li>
                 <li className='nav-bar__item'>
                     <a className='nav-bar__link'>Форум</a>
@@ -36,7 +43,7 @@ const Navbar = () => {
                 <li className='nav-bar__item'>
                     <a className='nav-bar__link'>Новости</a>
                 </li>
-                <li 
+                <li
                     ref={wrapperRef}
                     className={isVisible ? 'nav-bar__item nav-bar__item_info active' : 'nav-bar__item nav-bar__item_info'}
                     onClick={() => setIsVisible(!isVisible)}

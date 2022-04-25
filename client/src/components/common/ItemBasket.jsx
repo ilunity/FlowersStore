@@ -8,10 +8,10 @@ import '../../scss/components/counter.scss';
 
 import Counter from '../common/Counter';
 
-const ItemBasket = ({item}) => {
+const ItemBasket = ({item, basketCount}) => {
     const dispatch = useDispatch();
 
-    const {id, name, price, count: maxCount, img: imgName, basketCount} = item;
+    const {id, name, price, count: maxCount, img: imgName} = item;
     const img = `${STATIC_URL}/${imgName}`;
 
 

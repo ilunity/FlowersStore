@@ -8,13 +8,15 @@ import { addItemBasket } from '../../../store/actions';
 
 function ItemCard({item}) {
     const {id, name, price, count, img: imgName} = item;
-    const basketItems = useSelector(store => store.basket);
+    const basket = useSelector(store => store.basket);
     const dispatch = useDispatch();
 
     const img = `${STATIC_URL}/${imgName}`;
     
     const addToBasketHandler = async () => {
-        if (!basketItems.includes(item)) {
+        if (!basket.find((basketItem) => {
+            return basketItem.item.id === id;
+        })) {
             dispatch(addItemBasket(item));
             await addToBasket(id);
         }

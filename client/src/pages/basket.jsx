@@ -10,7 +10,7 @@ import {setItemBasket} from '../store/actions';
 const Basket = () => {
     const dispatch = useDispatch();
 
-    const basketItems = useSelector(store => store.basket);
+    const basket = useSelector(store => store.basket);
     const isAuth = useSelector(store => store.isAuth);
 
     const [isLoadingBasketItems, setIsLoadingBasketItems] = useState(true);
@@ -46,14 +46,15 @@ const Basket = () => {
                             </div>
                             {isLoadingBasketItems && <Loader/>}
                             {
-                                basketItems.length ?
+                                basket.length ?
                                 <div className="list-block__items">
                                 {
-                                    basketItems.map((item) => {
+                                    basket.map((basketItem) => {
                                         return (
                                             <ItemBasket
-                                                key={item.id}
-                                                item = {item}
+                                                key={basketItem.item.id}
+                                                item = {basketItem.item}
+                                                basketCount={basketItem.basketCount}
                                             />
                                         )
                                     })

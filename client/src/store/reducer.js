@@ -107,10 +107,10 @@ const basketReducer = (
 ) => {
     switch (action.type) {
         case ADD_ITEM_BASKET:
-            const newItem = Object.assign({}, action.payload, {basketCount: 1});
+            const newItem = Object.assign({}, {basketCount: 1, item: action.payload});
             return [...state, newItem];
         case DELETE_ITEM_BASKET:
-            return state.filter(item => item.id !== action.payload);
+            return state.filter(basketItem => basketItem.item.id !== action.payload);
         case SET_ITEM_BASKET:
             return action.payload;
         default:
