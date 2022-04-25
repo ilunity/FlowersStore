@@ -60,11 +60,24 @@ const Header = () => {
                     <div className="upper-menu__body">
                         <div className="upper-menu__shipping-payment shipping-payment">
                             <img className='shipping-payment__icon' src={lorry} alt="lorry"/>
-                            <div className="shipping-payment__text">Доставка и оплата</div>
+                            <div className='shipping-payment__text'>
+                                <Link className='shipping-payment__link'
+                                    to={paths.PAYMENT_DELIVERY}
+                                >
+                                    Доставка и оплата
+                                </Link>
+                            </div>
                         </div>
                         <div className="upper-menu__contacts contacts">
                             <img src={phone} alt="phone" className="contacts__icon"/>
-                            <div className='contacts__text'>Контакты</div>
+                            <div className='contacts__text'>
+                                <Link 
+                                    className='contacts__link'
+                                    to={paths.СONTACTS}
+                                >
+                                    Контакты
+                                </Link>
+                            </div>
                         </div>
                         {isAuth ?
                             <div onClick={logOut}
