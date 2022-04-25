@@ -8,6 +8,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {increaseSum, setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSum} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
 import { getAll } from '../../../http/basketAPI';
+import { Link } from 'react-router-dom';
+import { paths } from '../../../utils/routes';
 
 
 const Header = () => {
@@ -93,7 +95,7 @@ const Header = () => {
             <div className="header__lower-menu lower-menu">
                 <div className="lower-menu__container container">
                     <div className="lower-menu__body">
-                        <a href="" className='lower-menu__logo'><img src={logo} alt="logo"/></a>
+                        <Link to={paths.HOME} className='lower-menu__logo'><img src={logo} alt="logo"/></Link>
                         <div className="lower-menu__navigation">
                             <SearchBar/>
                             <Navbar/>
@@ -107,7 +109,13 @@ const Header = () => {
                             </div>
                             <a href="tel:380678293030" className="contacts-purchases__phone">+38 (067) 829 30 30</a>
                             <div className="contacts-purchases__basket">
-                                <img src={backet} style={{width:'32px', height:'32px'}} alt="backet" />
+                                <Link
+                                    className='contacts-purchases__basket-link'
+                                    to={paths.BASKET}
+                                >
+                                    <img src={backet} style={{width:'32px', height:'32px'}} alt="backet" />
+                                </Link>
+                                
                                 <div className='contacts-purchases__sum'>{sum}<span style={{marginLeft:"10px"}}>&#8381;</span></div>
                             </div>
                         </div>
