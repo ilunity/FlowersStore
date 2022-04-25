@@ -30,8 +30,6 @@ const Header = () => {
             const countedItems = await getAll();
             const items = countedItems.items;
             dispatch(setItemBasket(items));
-            const sumItems = items.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
-            dispatch(setSum(sumItems));
         } catch (err) {
             console.error(err);
         } finally {
@@ -42,7 +40,16 @@ const Header = () => {
     useEffect(async () => {
         await getAllBasketItems();
     }, [isAuth]);
-    
+
+    useEffect(() => {
+        if (basketItems.length > 0) {
+            const sumItems = basketItems.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
+            dispatch(setSum(sumItems));
+        }
+        else {
+            dispatch(setSum(0));
+        }
+    }, [basketItems]);
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
