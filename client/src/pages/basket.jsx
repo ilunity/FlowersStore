@@ -4,38 +4,12 @@ import InteractionButton from '../components/common/buttonTemplates/InteractionB
 import ItemBasket from '../components/common/ItemBasket';
 import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
-import {getAll} from '../http/basketAPI';
-import {setItemBasket, setLoadingBasket, setSum} from '../store/actions';
 
 const Basket = () => {
     const basketItems = useSelector(store => store.basket);
     const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
-    const isAuth = useSelector(store => store.isAuth);
     const sum = useSelector(store => store.sum);
-    
-    const getAllCartItems = async () => {
-        try {
-            const countedItems = await getAll();
-            const items = countedItems.items;
-            if (items.length()) {
-                dispatch(setItemBasket(items));
-                const sumItems = items.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
-                dispatch(setSum(sumItems));
-            }
-            else {
-                dispatch(setSum(0));
-            }
-            
-        } catch (err) {
-            console.error(err);
-        } finally {
-            dispatch(setLoadingBasket(false));
-        }
-    };
-
-    useEffect(async () => {
-        await getAllCartItems();
-    }, [isAuth]);
+ 
     return (
         <main className='main'>
             <div className="main__basket basket">

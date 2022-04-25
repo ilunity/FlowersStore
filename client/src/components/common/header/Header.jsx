@@ -29,20 +29,16 @@ const Header = () => {
         try {
             const countedItems = await getAll();
             const items = countedItems.items;
-            if (items.length()) {
-                const sumItems = items.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
-                dispatch(setSum(sumItems));
-            }
-            else {
-                dispatch(setSum(0));
-            }
+            dispatch(setItemBasket(items));
+            const sumItems = items.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
+            dispatch(setSum(sumItems));
         } catch (err) {
             console.error(err);
         } finally {
             dispatch(setLoadingBasket(false));
         }
     };
-
+   
     useEffect(async () => {
         await getAllCartItems();
     }, [isAuth]);

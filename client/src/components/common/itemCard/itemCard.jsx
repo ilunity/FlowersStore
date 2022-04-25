@@ -16,7 +16,6 @@ function ItemCard({item}) {
     const addToBasketHandler = async (item) => {
         if (!basketItems.includes(item)) {
             dispatch(addItemBasket(item));
-            dispatch(increaseSum(item.price));
             await addToBasket(id, 1);
         }
     };
