@@ -9,7 +9,6 @@ const Basket = () => {
     const basketItems = useSelector(store => store.basket);
     const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
     const sum = useSelector(store => store.sum);
- 
     return (
         <main className='main'>
             <div className="main__basket basket">
@@ -28,11 +27,12 @@ const Basket = () => {
                                 basketItems.length ?
                                 <div className="list-block__items">
                                 {
-                                    basketItems.map((item) => {
+                                    basketItems.map((basketItem) => {
                                         return (
                                             <ItemBasket
-                                                key={item.id}
-                                                item = {item}
+                                                key={basketItem.item.id}
+                                                item = {basketItem.item}
+                                                basketCount={basketItem.basketCount}
                                             />
                                         )
                                     })

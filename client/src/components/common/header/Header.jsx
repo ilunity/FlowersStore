@@ -14,6 +14,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
     const sum = useSelector(store => store.sum);
+    const  basketItems = useSelector(store => store.basket);
     const [sumLoading, setSumLoading] = useState(true);
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
@@ -36,14 +37,14 @@ const Header = () => {
             dispatch(setLoadingBasket(false));
         }
     };
-   
-    useEffect(async () => {
-        await getAllBasketItems();
+    useEffect(() => {
+        getAllBasketItems();
     }, [isAuth]);
 
     useEffect(() => {
-        if (basketItems.length > 0) {
-            const sumItems = basketItems.reduce((previousValue, item) => previousValue + item.price * item.basketCount, 0);
+        if (basketItems.length) {
+            console.log(basketItems);
+            const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
             dispatch(setSum(sumItems));
         }
         else {
