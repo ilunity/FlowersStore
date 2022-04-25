@@ -206,6 +206,9 @@
     justify-content: space-between;
     display: flex;
   }
+  &__link {
+    color: inherit;
+  }
   &__item {
     color: black;
     font-weight: 700;
