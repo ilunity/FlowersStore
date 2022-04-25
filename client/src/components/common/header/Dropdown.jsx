@@ -1,20 +1,35 @@
 import React from 'react';
-import { menuItems } from '../../../utils/consts';
+import { Link } from 'react-router-dom';
+import { paths } from '../../../utils/routes';
 const Dropdown = ({className}) => {
-  
+  const menuItems = [
+    {
+      title: 'О нас',
+      path: paths.ABOUT,
+      cName: 'dropdown__link'
+    },
+    {
+      title: 'Доставка и оплата',
+      path: paths.PAYMENT_DELIVERY,
+      cName: 'dropdown__link'
+    },
+    {
+      title: 'Контакты',
+      path: paths.СONTACTS,
+      cName: 'dropdown__link'
+    },
+  ];
   return (
     <div className={className} >
-      <ul className='dropdown__list'>
+      <div className='dropdown__list'>
         {menuItems.map((item, index) => {
           return (
-            <li key={index} className='dropdown__item'>
-              <a className={item.cName}>
-                {item.title}
-              </a>
-            </li>
+            <Link to={item.path} key={index} className='dropdown__item'>
+              {item.title}
+            </Link>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
