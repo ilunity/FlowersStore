@@ -25,7 +25,7 @@ const Header = () => {
         dispatch(exitUser());
         location.reload();
     }
-    const getAllCartItems = async () => {
+    const getAllBasketItems = async () => {
         try {
             const countedItems = await getAll();
             const items = countedItems.items;
@@ -40,7 +40,7 @@ const Header = () => {
     };
    
     useEffect(async () => {
-        await getAllCartItems();
+        await getAllBasketItems();
     }, [isAuth]);
     
     return (
