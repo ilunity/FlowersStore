@@ -39,16 +39,14 @@ const setLoginModalStatus = createAction(SET_LOGIN_MODAL_STATUS);
 const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";
 const DELETE_ITEM_BASKET = "DELETE_ITEM_BASKET";
 const SET_ITEM_BASKET = "SET_ITEM_BASKET";
-const INCREASE_BASKET_ITEM_COUNT = "INCREASE_BASKET_ITEM_COUNT";
-const DECREASE_BASKET_ITEM_COUNT = "DECREASE_BASKET_ITEM_COUNT";
-const increaseBasketItemCount = createAction(INCREASE_BASKET_ITEM_COUNT);
-const decreaseBasketItemCount = createAction(DECREASE_BASKET_ITEM_COUNT);
+const SET_BASKET_ITEM_COUNT = "SET_BASKET_ITEM_COUNT";
+const setBasketItemCount = createAction(SET_BASKET_ITEM_COUNT);
 const addItemBasket = createAction(ADD_ITEM_BASKET);
 const deleteItemBasket = createAction(DELETE_ITEM_BASKET);
 const setItemBasket = createAction(SET_ITEM_BASKET);
 
-const SET_SUM = "SET_SUM";
-const setSum = createAction(SET_SUM);
+const SET_SUM_BASKET = "SET_SUM_BASKET";
+const setSumBasket = createAction(SET_SUM_BASKET);
 
 const SET_LOADING_BASKET = "SET_LOADING_BASKET";
 const setLoadingBasket = createAction(SET_LOADING_BASKET);
@@ -79,15 +77,13 @@ export {
     ADD_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     SET_ITEM_BASKET,
-    INCREASE_BASKET_ITEM_COUNT,
-    DECREASE_BASKET_ITEM_COUNT,
-    increaseBasketItemCount,
-    decreaseBasketItemCount,
+    SET_BASKET_ITEM_COUNT,
+    setBasketItemCount,
     addItemBasket,
     deleteItemBasket,
     setItemBasket,
-    SET_SUM,
-    setSum,
+    SET_SUM_BASKET,
+    setSumBasket,
 
     SET_LOADING_BASKET,
     setLoadingBasket,

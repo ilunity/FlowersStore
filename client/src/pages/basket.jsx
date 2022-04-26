@@ -6,9 +6,9 @@ import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
 
 const Basket = () => {
-    const basketItems = useSelector(store => store.basket);
-    const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
-    const sum = useSelector(store => store.sum);
+    const basketItems = useSelector(store => store.basket.basketItems);
+    const isLoadingBasketItems = useSelector(store => store.basket.isLoadingBasketItems);
+    const sum = useSelector(store => store.basket.totalPrice);
     return (
         <main className='main'>
             <div className="main__basket basket">

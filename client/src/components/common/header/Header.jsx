@@ -5,7 +5,7 @@ import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
 import {useDispatch, useSelector} from "react-redux";
-import {increaseSum, setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSum} from "../../../store/actions";
+import {setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSumBasket} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
 import { getAll } from '../../../http/basketAPI';
 import { Link } from 'react-router-dom';
@@ -15,9 +15,9 @@ import { paths } from '../../../utils/routes';
 const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
-    const sum = useSelector(store => store.sum);
-    const  basketItems = useSelector(store => store.basket);
-    const [sumLoading, setSumLoading] = useState(true);
+    const sum = useSelector(store => store.basket.totalPrice);
+    const basketItems = useSelector(store => store.basket.basketItems);
+    // const [sumLoading, setSumLoading] = useState(true);
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
@@ -47,10 +47,10 @@ const Header = () => {
         if (basketItems.length) {
             console.log(basketItems);
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
-            dispatch(setSum(sumItems));
+            dispatch(setSumBasket(sumItems));
         }
         else {
-            dispatch(setSum(0));
+            dispatch(setSumBasket(0));
         }
     }, [basketItems]);
     return (
