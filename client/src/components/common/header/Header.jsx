@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
-import backet from '../../../img/header/icons/shopping-basket.svg';
+import basket from '../../../img/header/icons/shopping-basket.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
@@ -126,7 +126,7 @@ const Header = () => {
                                     className='contacts-purchases__basket-link'
                                     to={paths.BASKET}
                                 >
-                                    <img src={backet} style={{width:'32px', height:'32px'}} alt="backet" />
+                                    <img src={basket} style={{width:'32px', height:'32px'}} alt="basket" />
                                 </Link>
                                 
                                 <div className='contacts-purchases__sum'>{sum}<span style={{marginLeft:"10px"}}>&#8381;</span></div>
