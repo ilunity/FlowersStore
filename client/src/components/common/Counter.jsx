@@ -9,13 +9,13 @@ const Counter = ({count, setCount, maxCount, className = '', id}) => {
     const dispatch = useDispatch();
     const increaseCount = () => {
         if (count < maxCount) {
-            setCount(count + 1, id);
+            setCount(count + 1);
             dispatch(increaseBasketItemCount(id));
         }
     };
     const decreaseCount = () => {
         if (count > 1) {
-            setCount(count - 1, id);
+            setCount(count - 1);
             dispatch(decreaseBasketItemCount(id));
         }
     };

@@ -16,7 +16,7 @@ const ItemBasket = ({item, basketCount}) => {
 
     
     const [currentCount, setCurrentCount] = useState(basketCount);
-    const setCount = async (value, id) => {
+    const setCount = async (value) => {
         setCurrentCount(value);
         await setItemCount(id, value);
     };
