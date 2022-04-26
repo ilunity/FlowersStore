@@ -11,6 +11,10 @@ import {
     SET_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     ADD_ITEM_BASKET,
+    INCREASE_BASKET_ITEM_COUNT,
+    DECREASE_BASKET_ITEM_COUNT,
+    SET_SUM,
+    SET_LOADING_BASKET,
 } from "./actions";
 import {combineReducers} from "redux";
 import {FETCH_ITEMS} from "./asyncActions";
@@ -113,12 +117,42 @@ const basketReducer = (
             return state.filter(basketItem => basketItem.item.id !== action.payload);
         case SET_ITEM_BASKET:
             return action.payload;
+        case INCREASE_BASKET_ITEM_COUNT:
+            return state.map((basketItem) => {
+                if (basketItem.item.id === action.payload) {
+                    basketItem.basketCount++;
+                }
+                return basketItem;
+            })
+        case DECREASE_BASKET_ITEM_COUNT:
+            return state.map((basketItem) => {
+                if (basketItem.item.id === action.payload) {
+                    basketItem.basketCount--;
+                }
+                return basketItem;
+            })
         default:
             return state;
     }
 }
 
+const sumReducer = (state = 0, action) => {
+    switch (action.type) {
+        case SET_SUM:
+            return action.payload;
+        default:
+            return state;
+    }
+};
 
+const isLoadingBasketItemsReducer = (state = true, action) => {
+    switch (action.type) {
+        case SET_LOADING_BASKET:
+            return action.payload;
+        default:
+            return state;
+    }
+};
 const rootReducer = combineReducers({
     items: itemsReducer,
     activeModals: modalsReducer,
@@ -126,6 +160,8 @@ const rootReducer = combineReducers({
     isAuth: authReducer,
     user: userReducer,
     basket: basketReducer,
+    sum: sumReducer,
+    isLoadingBasketItems: isLoadingBasketItemsReducer
 });
 
 export {rootReducer};

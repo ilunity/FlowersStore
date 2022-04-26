@@ -55,7 +55,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 
   &__delete-icon {
@@ -119,7 +118,7 @@
 
   &__items {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 

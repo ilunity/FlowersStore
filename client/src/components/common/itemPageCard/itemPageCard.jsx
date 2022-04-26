@@ -11,14 +11,19 @@ import Counter from "../Counter";
 
 function ItemPageCard({item}) {
     const dispatch = useDispatch();
-
+    
     const [basketCount, setBasketCount] = useState(1);
     const {id, name, price, count, img: imgName, description, item_infos: itemInfos} = item;
     const img = `${STATIC_URL}/${imgName}`;
-
+    const basketItems = useSelector(store => store.basket);
+    const isAuth = useSelector(store => store.isAuth);
     const addToBasketHandler = async () => {
-        dispatch(addItemBasket(item));
-        await addToBasket(id, basketCount);
+        if (!basketItems.find((basketItem) => {
+            return basketItem.item.id === id;
+        }) && isAuth) {
+            dispatch(addItemBasket(item));
+            await addToBasket(id);
+        }
     };
 
     return (

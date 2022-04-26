@@ -30,24 +30,7 @@
   }
 }
 
-.contacts {
-  &__icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  &__text {
-    padding-left: 25px;
-    color: #FFFFFF;
-    transition: all 0.1s ease-in-out;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-    &:hover {
-      color: $lilac;
-    }
-  }
-}
+
 
 .contacts-purchases {
   &__phone {
@@ -106,7 +89,27 @@
     max-width: 145px;
   }
 }
-
+.contacts {
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &__text {
+    padding-left: 25px;
+    color: #FFFFFF;
+    transition: all 0.1s ease-in-out;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  &__link {
+    color: inherit;
+    &:hover {
+      color: $lilac;
+    }
+  }
+}
 .shipping-payment {
   &__icon {
     position: absolute;
@@ -121,6 +124,9 @@
     color: #FFFFFF;
     padding-left: 30px;
     transition: all 0.1s ease-in-out;
+  }
+  &__link {
+    color: inherit;
     &:hover {
       color: $lilac;
     }
@@ -205,6 +211,9 @@
   &__list {
     justify-content: space-between;
     display: flex;
+  }
+  &__link {
+    color: inherit;
   }
   &__item {
     color: black;

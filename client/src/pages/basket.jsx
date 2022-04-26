@@ -4,33 +4,11 @@ import InteractionButton from '../components/common/buttonTemplates/InteractionB
 import ItemBasket from '../components/common/ItemBasket';
 import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
-import {getAll} from '../http/basketAPI';
-import {setItemBasket} from '../store/actions';
 
 const Basket = () => {
-    const dispatch = useDispatch();
-
-    const basket = useSelector(store => store.basket);
-    const isAuth = useSelector(store => store.isAuth);
-
-    const [isLoadingBasketItems, setIsLoadingBasketItems] = useState(true);
-
-
-    const getAllCartItems = async () => {
-        try {
-            const countedItems = await getAll();
-            dispatch(setItemBasket(countedItems.items));
-        } catch (err) {
-            console.error(err);
-        } finally {
-            setIsLoadingBasketItems(false);
-        }
-    };
-
-    useEffect(async () => {
-        await getAllCartItems();
-    }, [isAuth]);
-
+    const basketItems = useSelector(store => store.basket);
+    const isLoadingBasketItems = useSelector(store => store.isLoadingBasketItems);
+    const sum = useSelector(store => store.sum);
     return (
         <main className='main'>
             <div className="main__basket basket">
@@ -46,10 +24,10 @@ const Basket = () => {
                             </div>
                             {isLoadingBasketItems && <Loader/>}
                             {
-                                basket.length ?
+                                basketItems.length ?
                                 <div className="list-block__items">
                                 {
-                                    basket.map((basketItem) => {
+                                    basketItems.map((basketItem) => {
                                         return (
                                             <ItemBasket
                                                 key={basketItem.item.id}
@@ -70,7 +48,7 @@ const Basket = () => {
                             <div className="price-block__title">Ваш заказ</div>
                             <div className="price-block__general">
                                 <div className="price-block__general-text">Всего</div>
-                                <div className="price-block__general-sum">{}</div>
+                                <div className="price-block__general-sum">{sum} rub</div>
                             </div>
                             <InteractionButton value={"Оформить заказ"}/>
                         </div>
