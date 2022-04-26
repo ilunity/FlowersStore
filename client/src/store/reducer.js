@@ -11,8 +11,7 @@ import {
     SET_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     ADD_ITEM_BASKET,
-    INCREASE_BASKET_ITEM_COUNT,
-    DECREASE_BASKET_ITEM_COUNT,
+    SET_BASKET_ITEM_COUNT,
     SET_SUM_BASKET,
     SET_LOADING_BASKET,
 } from "./actions";
@@ -106,53 +105,39 @@ const modalsReducer = (
 };
 
 const basketReducer = (
-    state = [],
+    state = {
+        basketItems:[],
+        totalPrice: 0,
+        isLoadingBasketItems: true,
+    },
     action
 ) => {
     switch (action.type) {
         case ADD_ITEM_BASKET:
-            const newItem = Object.assign({}, {basketCount: 1, item: action.payload});
-            return [...state, newItem];
+            const newItem = {basketCount: 1, item: action.payload};
+            return {...state, basketItems: [...state.basketItems, newItem]};
         case DELETE_ITEM_BASKET:
-            return state.filter(basketItem => basketItem.item.id !== action.payload);
+            const newBasketItems = state.basketItems.filter(basketItem => basketItem.item.id !== action.payload);
+            return {...state, basketItems: newBasketItems};
         case SET_ITEM_BASKET:
-            return action.payload;
-        case INCREASE_BASKET_ITEM_COUNT:
-            return state.map((basketItem) => {
-                if (basketItem.item.id === action.payload) {
-                    basketItem.basketCount++;
+            return {...state, basketItems: action.payload};
+        case SET_SUM_BASKET:
+            return {...state, totalPrice: action.payload};
+        case SET_LOADING_BASKET:
+            return {...state, isLoadingBasketItems: action.payload};
+        case SET_BASKET_ITEM_COUNT:
+            const basketItems = state.basketItems.map((basketItem) => {
+                if (basketItem.item.id === action.payload.id) {
+                    basketItem.basketCount = action.payload.value;
                 }
                 return basketItem;
             })
-        case DECREASE_BASKET_ITEM_COUNT:
-            return state.map((basketItem) => {
-                if (basketItem.item.id === action.payload) {
-                    basketItem.basketCount--;
-                }
-                return basketItem;
-            })
+            return {...state, basketItems}
         default:
             return state;
     }
 }
 
-const sumReducer = (state = 0, action) => {
-    switch (action.type) {
-        case SET_SUM_BASKET:
-            return action.payload;
-        default:
-            return state;
-    }
-};
-
-const isLoadingBasketItemsReducer = (state = true, action) => {
-    switch (action.type) {
-        case SET_LOADING_BASKET:
-            return action.payload;
-        default:
-            return state;
-    }
-};
 const rootReducer = combineReducers({
     items: itemsReducer,
     activeModals: modalsReducer,
@@ -160,8 +145,6 @@ const rootReducer = combineReducers({
     isAuth: authReducer,
     user: userReducer,
     basket: basketReducer,
-    sum: sumReducer,
-    isLoadingBasketItems: isLoadingBasketItemsReducer
 });
 
 export {rootReducer};
