@@ -1,0 +1,22 @@
+@import "../variables";
+
+.counter {
+  min-height: 42px;
+  width: 94px;
+
+  font-size: 18px;
+  border: 1px solid $lilac;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &__arrow {
+    width: 21px;
+    cursor: pointer;
+    padding: 6px;
+    &:hover {
+      filter: brightness(85%);
+    }
+  }
+}

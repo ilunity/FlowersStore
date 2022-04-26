@@ -4,36 +4,14 @@ import InteractionButton from '../components/common/buttonTemplates/InteractionB
 import ItemBasket from '../components/common/ItemBasket';
 import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
-import {getAll} from '../http/basketAPI';
-import {setItemBasket} from '../store/actions';
 
 const Basket = () => {
-    const dispatch = useDispatch();
-
-    const basketItems = useSelector(store => store.basket);
-    const isAuth = useSelector(store => store.isAuth);
-
-    const [isLoadingBasketItems, setIsLoadingBasketItems] = useState(true);
-
-
-    const getAllCartItems = async () => {
-        try {
-            const countedItems = await getAll();
-            dispatch(setItemBasket(countedItems.items));
-        } catch (err) {
-            console.error(err);
-        } finally {
-            setIsLoadingBasketItems(false);
-        }
-    };
-
-    useEffect(() => {
-        getAllCartItems();
-    }, [isAuth]);
-
+    const basketItems = useSelector(store => store.basket.basketItems);
+    const isLoadingBasketItems = useSelector(store => store.basket.isLoadingBasketItems);
+    const sum = useSelector(store => store.basket.totalPrice);
     return (
         <main className='main'>
-            <div className="'main__basket basket">
+            <div className="main__basket basket">
                 <div className="basket__container container">
                     <div className="basket__title title">Корзина</div>
                     <div className="basket__body">
@@ -49,15 +27,12 @@ const Basket = () => {
                                 basketItems.length ?
                                 <div className="list-block__items">
                                 {
-                                    basketItems.map((item) => {
+                                    basketItems.map((basketItem) => {
                                         return (
                                             <ItemBasket
-                                                img={item.img} 
-                                                name={item.name} 
-                                                count={item.count} 
-                                                price={item.price} 
-                                                key={item.id}
-                                                item = {item}
+                                                key={basketItem.item.id}
+                                                item = {basketItem.item}
+                                                basketCount={basketItem.basketCount}
                                             />
                                         )
                                     })
@@ -73,7 +48,7 @@ const Basket = () => {
                             <div className="price-block__title">Ваш заказ</div>
                             <div className="price-block__general">
                                 <div className="price-block__general-text">Всего</div>
-                                <div className="price-block__general-sum">{}</div>
+                                <div className="price-block__general-sum">{sum} rub</div>
                             </div>
                             <InteractionButton value={"Оформить заказ"}/>
                         </div>

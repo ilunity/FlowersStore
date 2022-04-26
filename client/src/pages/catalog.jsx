@@ -9,12 +9,14 @@ const Catalog = () => {
     const filters = useSelector(state => state.filters);
 
     return (
-        <main className='main catalog-page'>
-            <div className="catalog-page__items">
-                <CatalogFilter/>
-                <ItemsWrapper
-                    filters={filters}
-                />
+        <main className='main'>
+            <div className="main__catalog catalog">
+                <div className={'catalog__items'}>
+                    <CatalogFilter/>
+                    <ItemsWrapper
+                        filters={filters}
+                    />
+                </div>
             </div>
         </main>
     );

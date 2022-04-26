@@ -29,15 +29,15 @@ const getAll = async () => {
     return items;
 };
 
-const getItem = (id) => {
-    const url = `${ITEM_URL}/get/${id}`;
-    const item = sendRequest(url);
+const getItem = async (itemId) => {
+    const url = `${ITEM_URL}/${itemId}`;
+    const item = await sendRequest(url, {});
     return item;
 };
 
-const getImg = (imgName) => {
+const getImg = async (imgName) => {
     const url = `${STATIC_URL}/${imgName}`;
-    const img = sendRequest(url, {});
+    const img = await sendRequest(url, {});
     return img;
 };
 

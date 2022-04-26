@@ -1,0 +1,87 @@
+@import "../variables";
+
+.item-page {
+  padding: 0 50px;
+  margin-top: 48px;
+  margin-bottom: 100px;
+}
+
+.item-page-card {
+  display: flex;
+  justify-content: space-between;
+
+  &__img-wrapper {
+    width: 580px;
+    background-color: $grey;
+
+    & img {
+      width: 100%;
+    }
+  }
+  &__description-panel {
+    width: 730px;
+
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 36px;
+    color: $black;
+
+    margin-bottom: 40px;
+  }
+  &__price {
+    font-weight: 700;
+    font-size: 36px;
+    color: $lilac;
+
+    margin-bottom: 60px;
+  }
+  &__order-panel {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  &__counter {
+    margin-right: 34px;
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+  }
+  &__description-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: $black;
+
+    margin-bottom: 25px;
+  }
+  &__description-text {
+    font-weight: 300;
+    font-size: 16px;
+    color: $dark-grey;
+  }
+}
+
+.item-card-infos {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 45px;
+
+  &__item {
+    display: flex;
+
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  &__title {
+    width: 150px;
+    color: $dark-grey;
+  }
+  &__description {
+    color: $black;
+  }
+  &__order-panel {
+
+  }
+}

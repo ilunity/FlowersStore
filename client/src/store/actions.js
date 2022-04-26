@@ -39,9 +39,17 @@ const setLoginModalStatus = createAction(SET_LOGIN_MODAL_STATUS);
 const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";
 const DELETE_ITEM_BASKET = "DELETE_ITEM_BASKET";
 const SET_ITEM_BASKET = "SET_ITEM_BASKET";
+const SET_BASKET_ITEM_COUNT = "SET_BASKET_ITEM_COUNT";
+const setBasketItemCount = createAction(SET_BASKET_ITEM_COUNT);
 const addItemBasket = createAction(ADD_ITEM_BASKET);
 const deleteItemBasket = createAction(DELETE_ITEM_BASKET);
 const setItemBasket = createAction(SET_ITEM_BASKET);
+
+const SET_SUM_BASKET = "SET_SUM_BASKET";
+const setSumBasket = createAction(SET_SUM_BASKET);
+
+const SET_LOADING_BASKET = "SET_LOADING_BASKET";
+const setLoadingBasket = createAction(SET_LOADING_BASKET);
 
 export {
     SET_USER,
@@ -69,7 +77,14 @@ export {
     ADD_ITEM_BASKET,
     DELETE_ITEM_BASKET,
     SET_ITEM_BASKET,
+    SET_BASKET_ITEM_COUNT,
+    setBasketItemCount,
     addItemBasket,
     deleteItemBasket,
     setItemBasket,
+    SET_SUM_BASKET,
+    setSumBasket,
+
+    SET_LOADING_BASKET,
+    setLoadingBasket,
 };

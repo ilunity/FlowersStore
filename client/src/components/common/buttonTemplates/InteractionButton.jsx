@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../../scss/components/buttonTemplates.scss';
+
+
 const InteractionButton = ({value, className = "", onClick}) => {
     return (
         <button

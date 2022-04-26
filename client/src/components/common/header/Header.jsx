@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
+import basket from '../../../img/header/icons/shopping-basket.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../buttonTemplates/CommunicationButton';
-import BasketButton from './BasketButton';
 import {useDispatch, useSelector} from "react-redux";
-import {setLoginModalStatus, setRegModalStatus} from "../../../store/actions";
+import {setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSumBasket} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
+import { getAll } from '../../../http/basketAPI';
+import { Link } from 'react-router-dom';
+import { paths } from '../../../utils/routes';
 
 
 const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
-
+    const sum = useSelector(store => store.basket.totalPrice);
+    const basketItems = useSelector(store => store.basket.basketItems);
+    // const [sumLoading, setSumLoading] = useState(true);
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
@@ -23,6 +28,31 @@ const Header = () => {
         dispatch(exitUser());
         location.reload();
     }
+    const getAllBasketItems = async () => {
+        try {
+            const countedItems = await getAll();
+            const items = countedItems.items;
+            dispatch(setItemBasket(items));
+        } catch (err) {
+            console.error(err);
+        } finally {
+            dispatch(setLoadingBasket(false));
+        }
+    };
+    useEffect(() => {
+        getAllBasketItems();
+    }, [isAuth]);
+
+    useEffect(() => {
+        if (basketItems.length) {
+            console.log(basketItems);
+            const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
+            dispatch(setSumBasket(sumItems));
+        }
+        else {
+            dispatch(setSumBasket(0));
+        }
+    }, [basketItems]);
     return (
         <header className='header'>
             <div className="header__upper-menu upper-menu">
@@ -30,11 +60,24 @@ const Header = () => {
                     <div className="upper-menu__body">
                         <div className="upper-menu__shipping-payment shipping-payment">
                             <img className='shipping-payment__icon' src={lorry} alt="lorry"/>
-                            <div className="shipping-payment__text">Доставка и оплата</div>
+                            <div className='shipping-payment__text'>
+                                <Link className='shipping-payment__link'
+                                    to={paths.PAYMENT_DELIVERY}
+                                >
+                                    Доставка и оплата
+                                </Link>
+                            </div>
                         </div>
                         <div className="upper-menu__contacts contacts">
                             <img src={phone} alt="phone" className="contacts__icon"/>
-                            <div className='contacts__text'>Контакты</div>
+                            <div className='contacts__text'>
+                                <Link 
+                                    className='contacts__link'
+                                    to={paths.СONTACTS}
+                                >
+                                    Контакты
+                                </Link>
+                            </div>
                         </div>
                         {isAuth ?
                             <div onClick={logOut}
@@ -65,7 +108,7 @@ const Header = () => {
             <div className="header__lower-menu lower-menu">
                 <div className="lower-menu__container container">
                     <div className="lower-menu__body">
-                        <a href="" className='lower-menu__logo'><img src={logo} alt="logo"/></a>
+                        <Link to={paths.HOME} className='lower-menu__logo'><img src={logo} alt="logo"/></Link>
                         <div className="lower-menu__navigation">
                             <SearchBar/>
                             <Navbar/>
@@ -78,7 +121,16 @@ const Header = () => {
                                 <CommunicationButton className='socialmedia__item' iconURL={facebook}/>
                             </div>
                             <a href="tel:380678293030" className="contacts-purchases__phone">+38 (067) 829 30 30</a>
-                            <BasketButton/>
+                            <div className="contacts-purchases__basket">
+                                <Link
+                                    className='contacts-purchases__basket-link'
+                                    to={paths.BASKET}
+                                >
+                                    <img src={basket} style={{width:'32px', height:'32px'}} alt="basket" />
+                                </Link>
+                                
+                                <div className='contacts-purchases__sum'>{sum}<span style={{marginLeft:"10px"}}>&#8381;</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>

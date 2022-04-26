@@ -13,20 +13,20 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="banner__column">
-                            <div className="banner__catalog catalog">
-                                <div className="catalog__row">
-                                    <div className="catalog__item">
+                            <div className="banner__catalog catalog-banner">
+                                <div className="catalog-banner__row">
+                                    <div className="catalog-banner__item">
                                         <img src={roses} alt="" />
                                     </div>
-                                    <div className="catalog__item">
+                                    <div className="catalog-banner__item">
                                         <img src={gifts} alt="" />
                                     </div>
                                 </div>
-                                <div className="catalog__row">
-                                    <div className="catalog__item">
+                                <div className="catalog-banner__row">
+                                    <div className="catalog-banner__item">
                                         <img src={baskets} alt="" />
                                     </div>
-                                    <div className="catalog__item">
+                                    <div className="catalog-banner__item">
                                         <img src={boxes} alt="" />
                                     </div>
                                 </div>
