@@ -13,8 +13,6 @@ import {
     ADD_ITEM_BASKET,
     INCREASE_BASKET_ITEM_COUNT,
     DECREASE_BASKET_ITEM_COUNT,
-    INCREASE_SUM,
-    DECREASE_SUM,
     SET_SUM,
     SET_LOADING_BASKET,
 } from "./actions";
@@ -140,10 +138,6 @@ const basketReducer = (
 
 const sumReducer = (state = 0, action) => {
     switch (action.type) {
-        case INCREASE_SUM:
-            return state + action.payload;
-        case DECREASE_SUM:
-            return state - action.payload;
         case SET_SUM:
             return action.payload;
         default:
