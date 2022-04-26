@@ -47,8 +47,8 @@ const addItemBasket = createAction(ADD_ITEM_BASKET);
 const deleteItemBasket = createAction(DELETE_ITEM_BASKET);
 const setItemBasket = createAction(SET_ITEM_BASKET);
 
-const SET_SUM = "SET_SUM";
-const setSum = createAction(SET_SUM);
+const SET_SUM_BASKET = "SET_SUM_BASKET";
+const setSumBasket = createAction(SET_SUM_BASKET);
 
 const SET_LOADING_BASKET = "SET_LOADING_BASKET";
 const setLoadingBasket = createAction(SET_LOADING_BASKET);
@@ -86,8 +86,8 @@ export {
     addItemBasket,
     deleteItemBasket,
     setItemBasket,
-    SET_SUM,
-    setSum,
+    SET_SUM_BASKET,
+    setSumBasket,
 
     SET_LOADING_BASKET,
     setLoadingBasket,

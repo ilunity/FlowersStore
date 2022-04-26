@@ -13,7 +13,7 @@ import {
     ADD_ITEM_BASKET,
     INCREASE_BASKET_ITEM_COUNT,
     DECREASE_BASKET_ITEM_COUNT,
-    SET_SUM,
+    SET_SUM_BASKET,
     SET_LOADING_BASKET,
 } from "./actions";
 import {combineReducers} from "redux";
@@ -138,7 +138,7 @@ const basketReducer = (
 
 const sumReducer = (state = 0, action) => {
     switch (action.type) {
-        case SET_SUM:
+        case SET_SUM_BASKET:
             return action.payload;
         default:
             return state;

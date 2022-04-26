@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {deleteFromBasket, setItemCount} from '../../http/basketAPI';
 import {STATIC_URL} from '../../http/consts';
 import deleteIcon from '../../img/basket/delete.svg';
-import {deleteItemBasket, setSum} from '../../store/actions';
+import {deleteItemBasket, setSumBasket} from '../../store/actions';
 import '../../scss/components/counter.scss';
 
 import Counter from '../common/Counter';
@@ -29,10 +29,10 @@ const ItemBasket = ({item, basketCount}) => {
     useEffect(() => {
         if (basketItems.length) {
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
-            dispatch(setSum(sumItems));
+            dispatch(setSumBasket(sumItems));
         }
         else {
-            dispatch(setSum(0));
+            dispatch(setSumBasket(0));
         }
     }, [currentCount]);
     return (
