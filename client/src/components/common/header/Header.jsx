@@ -15,9 +15,9 @@ import { paths } from '../../../utils/routes';
 const Header = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
-    const sum = useSelector(store => store.sum);
-    const  basketItems = useSelector(store => store.basket);
-    const [sumLoading, setSumLoading] = useState(true);
+    const sum = useSelector(store => store.basket.totalPrice);
+    const basketItems = useSelector(store => store.basket.basketItems);
+    // const [sumLoading, setSumLoading] = useState(true);
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };

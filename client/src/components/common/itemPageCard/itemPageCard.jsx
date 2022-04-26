@@ -14,9 +14,12 @@ function ItemPageCard({item}) {
     
     const [basketCount, setBasketCount] = useState(1);
     const {id, name, price, count, img: imgName, description, item_infos: itemInfos} = item;
+    
     const img = `${STATIC_URL}/${imgName}`;
-    const basketItems = useSelector(store => store.basket);
+
+    const basketItems = useSelector(store => store.basket.basketItems);
     const isAuth = useSelector(store => store.isAuth);
+
     const addToBasketHandler = async () => {
         if (!basketItems.find((basketItem) => {
             return basketItem.item.id === id;

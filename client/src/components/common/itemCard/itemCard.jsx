@@ -9,7 +9,7 @@ import { addItemBasket } from '../../../store/actions';
 function ItemCard({item}) {
     const {id, name, price, count, img: imgName} = item;
     
-    const basketItems = useSelector(store => store.basket);
+    const basketItems = useSelector(store => store.basket.basketItems);
     const dispatch = useDispatch();
     const isAuth = useSelector(store => store.isAuth);
     const img = `${STATIC_URL}/${imgName}`;
