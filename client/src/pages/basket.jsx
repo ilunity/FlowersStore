@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
 import ItemBasket from '../components/common/ItemBasket';
 import Loader from '../components/common/Loader';
 import SliderBox from '../components/common/slider/SliderBox';
+import { paths } from '../utils/routes';
 
 const Basket = () => {
     const basketItems = useSelector(store => store.basket.basketItems);
     const isLoadingBasketItems = useSelector(store => store.basket.isLoadingBasketItems);
     const sum = useSelector(store => store.basket.totalPrice);
+
+    const showErrorMessage = () => {
+        alert('корзина пуста');
+    }
     return (
         <main className='main'>
             <div className="main__basket basket">
@@ -50,7 +56,15 @@ const Basket = () => {
                                 <div className="price-block__general-text">Всего</div>
                                 <div className="price-block__general-sum">{sum} rub</div>
                             </div>
-                            <InteractionButton value={"Оформить заказ"}/>
+                            {
+                                basketItems.length ?
+                                <Link to={paths.ORDER} style={{display:'inline-block', width:'100%'}}>
+                                    <InteractionButton value={"Оформить заказ"}/>
+                                </Link>
+                                :
+                                <InteractionButton onClick={showErrorMessage} value={"Оформить заказ"}/>
+                            }
+                            
                         </div>
                     </div>
                     <SliderBox/>
