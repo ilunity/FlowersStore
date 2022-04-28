@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {box_green, liqpay, logo, Maestro, visa1, visa2, map, masterCard} from '../../../img/footer/index';
+import { paths } from '../../../utils/routes';
 import ModalWarningWindow from '../../modals/ModalWarningWindow';
 const Footer = () => {
   const [warningWindow, setWarningWindow] = useState(false);
@@ -9,7 +11,12 @@ const Footer = () => {
       setWarningWindow(false);
     }, 2000);
   }
-
+  const handlerScrollUp = () => {
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+      window.scrollBy(0, -50);
+      setTimeout(handlerScrollUp, 5);
+    }
+  }
   return (
     <footer className='footer'>
       {warningWindow && <ModalWarningWindow tilte = {'Страница в разработке'}/>}
@@ -30,9 +37,17 @@ const Footer = () => {
                   <div className="menu-footer__label">ИНФОРМАЦИЯ</div>
                   <nav className="menu-footer__nav nav">
                     <ul className="nav__list">
-                      <li className="nav__item">О НАС</li>
-                      <li className="nav__item">ДОСТАВКА И ОПЛАТА</li>
-                      <li className="nav__item">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</li>
+                      <li className="nav__item">
+                        <Link to = {paths.ABOUT} onClick = {handlerScrollUp} style={{color:'inherit'}}>
+                          О НАС
+                        </Link>
+                      </li>
+                      <li className="nav__item">
+                        <Link to = {paths.PAYMENT_DELIVERY} onClick = {handlerScrollUp} style={{color:'inherit'}}>
+                          ДОСТАВКА И ОПЛАТА
+                        </Link>
+                      </li>
+                      <li className="nav__item" onClick={showWarningWindow}>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</li>
                     </ul>
                   </nav>
                 </div>
