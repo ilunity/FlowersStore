@@ -1,0 +1,23 @@
+.warn-window {
+  height: 55px;
+  width: 280px;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(192, 192, 192);
+  padding-left: 30px;
+  border-radius: 10px;
+  &__img {
+    position: absolute;
+    left: 18px;
+    top: 9px;
+    width: 35px;
+    height: 35px;
+  }
+}
