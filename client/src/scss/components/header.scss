@@ -89,49 +89,7 @@
     max-width: 145px;
   }
 }
-.contacts {
-  &__icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  &__text {
-    padding-left: 25px;
-    color: #FFFFFF;
-    transition: all 0.1s ease-in-out;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-  }
-  &__link {
-    color: inherit;
-    &:hover {
-      color: $lilac;
-    }
-  }
-}
-.shipping-payment {
-  &__icon {
-    position: absolute;
-    left: 0;
-    top: -2px;
-  }
 
-  &__text {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-    color: #FFFFFF;
-    padding-left: 30px;
-    transition: all 0.1s ease-in-out;
-  }
-  &__link {
-    color: inherit;
-    &:hover {
-      color: $lilac;
-    }
-  }
-}
 
 .upper-menu {
   position: fixed;
@@ -251,39 +209,5 @@
   }
   &__item:not(:last-child) {
     margin-right: 13px;
-  }
-}
-.dropdown {
-  position: absolute;
-  right: 0;
-  top: 20px;
-  transition: all 0.4s ease;
-  visibility: hidden;
-  opacity: 0;
-  &.active {
-    visibility:visible;
-    right: 0;
-    top: 45px;
-    opacity: 1;
-  }
-  &__list {
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    background: #FFFFFF;
-    border: 1px solid #956D84;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  &__item {
-    color: black;
-    padding: 0px 14px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    min-height: 38px;
-  }
-  &__item:hover {
-    background: $lilac;
-    color: #FFFFFF;
   }
 }
