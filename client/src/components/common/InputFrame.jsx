@@ -11,7 +11,7 @@ function InputFrame({type, value, placeholder, setValue, className}) {
     const uniqueId = uniqueNum();
 
     return (
-        <div className={`input-frame ${className}`}>
+        <div className={`${className} input-frame`}>
             <input
                 id={uniqueId}
                 className={`input-frame__input`}
@@ -20,7 +20,7 @@ function InputFrame({type, value, placeholder, setValue, className}) {
                 onChange={onChange}
             />
             <label htmlFor={uniqueId} className={'input-frame__label'}>
-                {`${placeholder} *`}
+                {placeholder}
             </label>
         </div>
     )
