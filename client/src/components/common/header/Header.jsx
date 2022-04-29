@@ -46,7 +46,6 @@ const Header = () => {
 
     useEffect(() => {
         if (basketItems.length) {
-            console.log(basketItems);
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
             dispatch(setSumBasket(sumItems));
         }
