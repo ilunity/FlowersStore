@@ -1,10 +1,11 @@
 import React from 'react';
 import '../../../scss/components/item-wrapper.scss';
-import InteractionButton from "../buttonTemplates/InteractionButton";
+import InteractionButton from "../templates/buttonTemplates/InteractionButton";
 import {addToBasket} from "../../../http/basketAPI";
 import {STATIC_URL} from "../../../http/consts";
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemBasket } from '../../../store/actions';
+import RubleSign from '../templates/RubleSign';
 
 function ItemCard({item}) {
     const {id, name, price, count, img: imgName} = item;
@@ -37,7 +38,7 @@ function ItemCard({item}) {
                     {name}
                 </div>
                 <div className="item-card__price">
-                    {`${price} rub`}
+                    {price}<RubleSign marginLeft = {"3"}/>
                 </div>
             </div>
             <InteractionButton

@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {deleteFromBasket, setItemCount} from '../../http/basketAPI';
-import {STATIC_URL} from '../../http/consts';
-import deleteIcon from '../../img/basket/delete.svg';
-import {deleteItemBasket, setBasketItemCount, setSumBasket} from '../../store/actions';
-import '../../scss/components/counter.scss';
-import Counter from '../common/Counter';
-const ItemBasket = ({item, basketCount}) => {
+import {deleteFromBasket, setItemCount} from '../../../http/basketAPI';
+import deleteIcon from '../../../img/basket/delete.svg';
+import '../../../scss/components/counter.scss';
+import Counter from '../templates/Counter';
+import { deleteItemBasket, setSumBasket } from '../../../store/actions';
+import { STATIC_URL } from '../../../http/consts';
+
+const BasketItem = ({item, basketCount}) => {
     const dispatch = useDispatch();
     const basketItems = useSelector(store => store.basket.basketItems);
     const {id, name, price, count: maxCount, img: imgName} = item;
     const img = `${STATIC_URL}/${imgName}`;
 
-    
     const [currentCount, setCurrentCount] = useState(basketCount);
 
     const setCount = async (value) => {
@@ -35,6 +35,7 @@ const ItemBasket = ({item, basketCount}) => {
             dispatch(setSumBasket(0));
         }
     }, [currentCount]);
+
     return (
         <div className="list-block__item item-basket">
             <div className="item-basket__img">
@@ -56,4 +57,4 @@ const ItemBasket = ({item, basketCount}) => {
     );
 };
 
-export default ItemBasket;
+export default BasketItem;

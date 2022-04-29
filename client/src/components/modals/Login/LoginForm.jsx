@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import '../../../scss/components/modal.scss';
-import {InputFrame} from "../../common/InputFrame";
-import InteractionButton from "../../common/buttonTemplates/InteractionButton";
+import {InputFrame} from "../../common/templates/InputFrame";
+
 import {useDispatch} from "react-redux";
 import {loginUser} from "../../../http/userAPI";
 import {getAuthStatus} from "../../../store/asyncActions";
+import InteractionButton from '../../common/templates/buttonTemplates/InteractionButton';
 
 function LoginForm({hideModal}) {
     const dispatch = useDispatch();

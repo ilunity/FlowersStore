@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setLoginModalStatus} from "../../../store/actions";
 import {LoginForm} from "./LoginForm";
 
-function LoginModal(props) {
+function LoginModal() {
     const dispatch = useDispatch();
     const isActive = useSelector(state => state.activeModals.login);
 

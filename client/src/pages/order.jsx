@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
-import FinalPriceCard from '../components/common/FinalPriceCard';
-import { InputFrame } from '../components/common/InputFrame';
+import FinalPriceCard from '../components/common/orderContents/FinalPriceCard';
+import { InputFrame } from '../components/common/templates/InputFrame';
+import RubleSign from '../components/common/templates/RubleSign';
 
 const Order = () => {
     const [dropdownTime, setDropdownTime] = useState(false);
@@ -51,12 +51,12 @@ const Order = () => {
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Фотоотчет (+ 45 rub)
+                                                Фотоотчет (+ 45<RubleSign marginLeft={"2"}/>)
                                             </label>
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Добавить вазу (+ 500 rub)
+                                                Добавить вазу (+ 500<RubleSign marginLeft={"2"}/>)
                                             </label>
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />
@@ -71,7 +71,7 @@ const Order = () => {
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Полномасштабная открытка (+ 160 rub)
+                                                Полномасштабная открытка (+ 160<RubleSign marginLeft={"2"}/>)
                                             </label>
                                             <InputFrame className={"order-options__input"} placeholder={'Повод для открытки'}/>
                                             <InputFrame className={"order-options__input"} placeholder={'Текст открытки'}/>
