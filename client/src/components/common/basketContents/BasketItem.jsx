@@ -4,7 +4,7 @@ import {deleteFromBasket, setItemCount} from '../../../http/basketAPI';
 import deleteIcon from '../../../img/basket/delete.svg';
 import '../../../scss/components/counter.scss';
 import Counter from '../templates/Counter';
-import { deleteItemBasket, setSumBasket } from '../../../store/actions';
+import { deleteItemBasket, setBasketItemCount, setSumBasket } from '../../../store/actions';
 import { STATIC_URL } from '../../../http/consts';
 
 const BasketItem = ({item, basketCount}) => {
