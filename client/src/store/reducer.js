@@ -47,14 +47,9 @@ const itemsReducer = (
 ) => {
     switch (action.type) {
         case SET_ITEMS:
-            return {
-                isFetching: false,
-                payload: action.payload,
-            };
+            return {isFetching: false, payload: action.payload};
         case FETCH_ITEMS:
-            return Object.assign({}, state, {
-                isFetching: true,
-            });
+            return {...state, isFetching: true}
         default:
             return state;
     }
@@ -92,13 +87,9 @@ const modalsReducer = (
 ) => {
     switch (action.type) {
         case SET_REG_MODAL_STATUS:
-            return Object.assign({}, state, {
-                registration: action.payload,
-            });
+            return {...state, registration: action.payload};
         case SET_LOGIN_MODAL_STATUS:
-            return Object.assign({}, state, {
-                login: action.payload,
-            });
+            return {...state, login: action.payload};
         default:
             return state;
     }
