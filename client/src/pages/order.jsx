@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FinalPriceCard from '../components/common/orderContents/FinalPriceCard';
 import { InputFrame } from '../components/common/templates/InputFrame';
 import RubleSign from '../components/common/templates/RubleSign';
+import { setSumBasket } from '../store/actions';
 
 const bonuses = {
     vase: 500,
@@ -15,27 +16,27 @@ const checkboxes = {
     photoReport: 3
 }
 const Order = () => {
+    const dispatch = useDispatch();
     const [dropdownTime, setDropdownTime] = useState(false);
     const [isVase, setIsVase] = useState(false);
     const [isPhotoReport, setIsPhotoReport] = useState(false);
     const [isСard, setIsCard] = useState(false);
 
-    const totlaPrice = useSelector(store => store.basket.totalPrice);
-    const [sum, setSum] = useState(totlaPrice);
+    const sum = useSelector(store => store.basket.totalPrice);
 
     const handlerClickedCheckobox = (currentCheck) => {
         switch (currentCheck) {
             case checkboxes.vase:
                 setIsVase(!isVase);
-                setSum(!isVase ? sum + bonuses.vase : sum - bonuses.vase);
+                dispatch(setSumBasket(!isVase ? sum + bonuses.vase : sum - bonuses.vase));
                 break;
             case checkboxes.card:
                 setIsCard(!isСard);
-                setSum(!isСard ? sum + bonuses.card : sum - bonuses.card);
+                dispatch(setSumBasket(!isСard ? sum + bonuses.card : sum - bonuses.card));
                 break;
             case checkboxes.photoReport:
                 setIsPhotoReport(!isPhotoReport);
-                setSum(!isPhotoReport ? sum + bonuses.photoReport : sum - bonuses.photoReport);
+                dispatch(setSumBasket(!isPhotoReport ? sum + bonuses.photoReport : sum - bonuses.photoReport));
                 break;
             default:
                 break;
