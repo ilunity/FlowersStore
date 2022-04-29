@@ -168,6 +168,9 @@
     align-self: center;
     margin-top: 40px;
   }
+  &__list {
+    margin-bottom: 40px;
+  }
 }
 .general-sum {
   display: flex;
@@ -191,4 +194,30 @@
   font-size: 20px;
   line-height: 18px;
   margin-bottom: 43px;
+}
+.item-block{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  &__count{
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  &__name{
+    color: #BDBDBD;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  &__price{
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
 }

@@ -3,12 +3,27 @@ import { useSelector } from 'react-redux';
 import InteractionButton from '../templates/buttonTemplates/InteractionButton';
 import { InputFrame } from '../templates/InputFrame';
 import RubleSign from '../templates/RubleSign';
+import FinaliItemPrice from './FinaliItemPrice';
 
 const FinalPriceCard = ({sum}) => {
+  const basketItems = useSelector(store => store.basket.basketItems);
   return (
     <div className="order__total-price total-price">
         <div className="total-price__card card-price">
             <div className="card-price__title">Ваш заказ</div>
+            <div className="card-price__list">
+              {
+                basketItems.map((basketItem) => {
+                  return (<FinaliItemPrice 
+                          key={basketItem.item.id} 
+                          name = {basketItem.item.name} 
+                          count = {basketItem.basketCount} 
+                          price = {basketItem.item.price} 
+                          />)
+                })
+              }
+            </div>
+            
             <div className="total-price__general-sum general-sum">
                 <div className="general-sum__title">Всего</div>
                 <div className="general-sum__price">{sum}<RubleSign/></div>
