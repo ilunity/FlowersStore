@@ -87,12 +87,12 @@ const Order = () => {
                                             <label className="order-options__check check" onChange={() => handlerClickedCheckobox(checkboxes.photoReport)}>
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Фотоотчет (+ {bonuses.photoReport}<RubleSign marginLeft={"2"}/>)
+                                                Фотоотчет (+ {bonuses.photoReport} <RubleSign/>)
                                             </label>
                                             <label className="order-options__check check" onChange={() => handlerClickedCheckobox(checkboxes.vase)}>
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Добавить вазу (+ {bonuses.vase}<RubleSign marginLeft={"2"}/>)
+                                                Добавить вазу (+ {bonuses.vase} <RubleSign/>)
                                             </label>
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />

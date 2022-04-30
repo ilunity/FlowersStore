@@ -4,7 +4,7 @@ import {STATIC_URL} from "../../../http/consts";
 import InteractionButton from "../templates/buttonTemplates/InteractionButton";
 import {addItemBasket} from "../../../store/actions";
 import {addToBasket} from "../../../http/basketAPI";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ItemInfos} from "./itemInfos";
 import Counter from "../templates/Counter";
 
@@ -31,11 +31,13 @@ function ItemPageCard({item}) {
 
     return (
         <div className={'item-page-card'}>
-            <div className="item-page-card__img-wrapper">
-                <img
-                    src={img}
-                    alt="Фотография товара"
-                />
+            <div className="item-page-card__img">
+                <div className="item-page-card__img-wrapper">
+                    <img
+                        src={img}
+                        alt="Фотография товара"
+                    />
+                </div>
             </div>
             <div className="item-page-card__description-panel">
                 <div className="item-page-card__title">

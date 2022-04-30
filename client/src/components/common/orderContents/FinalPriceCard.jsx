@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import InteractionButton from '../templates/buttonTemplates/InteractionButton';
 import { InputFrame } from '../templates/InputFrame';
 import RubleSign from '../templates/RubleSign';
-import FinaliItemPrice from './FinaliItemPrice';
+import FinalItemPrice from './FinalItemPrice';
 
 const FinalPriceCard = ({sum}) => {
   const basketItems = useSelector(store => store.basket.basketItems);
@@ -14,7 +14,7 @@ const FinalPriceCard = ({sum}) => {
             <div className="card-price__list">
               {
                 basketItems.map((basketItem) => {
-                  return (<FinaliItemPrice 
+                  return (<FinalItemPrice
                           key={basketItem.item.id} 
                           name = {basketItem.item.name} 
                           count = {basketItem.basketCount} 

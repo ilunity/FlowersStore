@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
-const RubleSign = ({marginLeft = "10"}) => {
-  return (
-    <span style={{marginLeft: `${marginLeft}px`}}>&#8381;</span>
-  );
+const RubleSign = () => {
+    return (
+        <Fragment>
+            &#8381;
+        </Fragment>
+    );
 };
 
 export default RubleSign;

@@ -106,9 +106,8 @@ const Header = () => {
                                     to={paths.BASKET}
                                 >
                                     <img src={basket} style={{width:'32px', height:'32px'}} alt="basket" />
+                                    <div className='contacts-purchases__sum'>{sum} <RubleSign/></div>
                                 </Link>
-                                
-                                <div className='contacts-purchases__sum'>{sum}<RubleSign/></div>
                             </div>
                         </div>
                     </div>

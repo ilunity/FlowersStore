@@ -9,7 +9,7 @@ import PaymentDelivery from "../pages/info/PaymentDelivery";
 
 const paths = {
     HOME: "/",
-    ITEM: "/item/:id",
+    ITEM: "/item",
     CATALOG: "/catalog",
     BASKET: "/basket",
     ORDER: "/order",
@@ -20,7 +20,7 @@ const paths = {
 
 const routes = [
     {
-        path: paths.ITEM,
+        path: paths.ITEM + '/:id',
         component: Item,
     },
     {
