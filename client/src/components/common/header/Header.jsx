@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import {logo, facebook, instagram, telegram, whatsApp, lorry, phone, user} from '../../../img/header/index';
+import React, { useEffect } from 'react';
+import {logo, facebook, instagram, telegram, whatsApp, user} from '../../../img/header/index';
 import basket from '../../../img/header/icons/shopping-basket.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
-import CommunicationButton from '../buttonTemplates/CommunicationButton';
+import CommunicationButton from '../templates/buttonTemplates/CommunicationButton';
 import {useDispatch, useSelector} from "react-redux";
 import {setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSumBasket} from "../../../store/actions";
 import { exitUser } from '../../../store/asyncActions';
 import { getAll } from '../../../http/basketAPI';
 import { Link } from 'react-router-dom';
 import { paths } from '../../../utils/routes';
+import RubleSign from '../templates/RubleSign';
 
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
     const isAuth = useSelector(store => store.isAuth);
     const sum = useSelector(store => store.basket.totalPrice);
     const basketItems = useSelector(store => store.basket.basketItems);
-    // const [sumLoading, setSumLoading] = useState(true);
+
     const showRegModal = () => {
         dispatch(setRegModalStatus(true));
     };
@@ -45,7 +46,6 @@ const Header = () => {
 
     useEffect(() => {
         if (basketItems.length) {
-            console.log(basketItems);
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
             dispatch(setSumBasket(sumItems));
         }
@@ -108,7 +108,7 @@ const Header = () => {
                                     <img src={basket} style={{width:'32px', height:'32px'}} alt="basket" />
                                 </Link>
                                 
-                                <div className='contacts-purchases__sum'>{sum}<span style={{marginLeft:"10px"}}>&#8381;</span></div>
+                                <div className='contacts-purchases__sum'>{sum}<RubleSign/></div>
                             </div>
                         </div>
                     </div>

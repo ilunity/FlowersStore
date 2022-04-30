@@ -1,11 +1,47 @@
 import React, { useState } from 'react';
-import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
-import FinalPriceCard from '../components/common/FinalPriceCard';
-import { InputFrame } from '../components/common/InputFrame';
+import { useDispatch, useSelector } from 'react-redux';
+import FinalPriceCard from '../components/common/orderContents/FinalPriceCard';
+import { InputFrame } from '../components/common/templates/InputFrame';
+import RubleSign from '../components/common/templates/RubleSign';
+import { setSumBasket } from '../store/actions';
 
+const bonuses = {
+    vase: 500,
+    card: 160,
+    photoReport: 45
+}
+const checkboxes = {
+    vase: 1,
+    card: 2,
+    photoReport: 3
+}
 const Order = () => {
+    const dispatch = useDispatch();
     const [dropdownTime, setDropdownTime] = useState(false);
+    const [isVase, setIsVase] = useState(false);
+    const [isPhotoReport, setIsPhotoReport] = useState(false);
+    const [isСard, setIsCard] = useState(false);
 
+    const sum = useSelector(store => store.basket.totalPrice);
+
+    const handlerClickedCheckobox = (currentCheck) => {
+        switch (currentCheck) {
+            case checkboxes.vase:
+                setIsVase(!isVase);
+                dispatch(setSumBasket(!isVase ? sum + bonuses.vase : sum - bonuses.vase));
+                break;
+            case checkboxes.card:
+                setIsCard(!isСard);
+                dispatch(setSumBasket(!isСard ? sum + bonuses.card : sum - bonuses.card));
+                break;
+            case checkboxes.photoReport:
+                setIsPhotoReport(!isPhotoReport);
+                dispatch(setSumBasket(!isPhotoReport ? sum + bonuses.photoReport : sum - bonuses.photoReport));
+                break;
+            default:
+                break;
+        }
+    }
     return (
         <main className='main'>
             <div className="main__order order">
@@ -48,15 +84,15 @@ const Order = () => {
                                                 <span className='check__box'></span>
                                                 Доставка сюрпризом
                                             </label>
-                                            <label className="order-options__check check">
+                                            <label className="order-options__check check" onChange={() => handlerClickedCheckobox(checkboxes.photoReport)}>
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Фотоотчет (+ 45 rub)
+                                                Фотоотчет (+ {bonuses.photoReport}<RubleSign marginLeft={"2"}/>)
                                             </label>
-                                            <label className="order-options__check check">
+                                            <label className="order-options__check check" onChange={() => handlerClickedCheckobox(checkboxes.vase)}>
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Добавить вазу (+ 500 rub)
+                                                Добавить вазу (+ {bonuses.vase}<RubleSign marginLeft={"2"}/>)
                                             </label>
                                             <label className="order-options__check check">
                                                 <input type="checkbox" className='check__input' />
@@ -68,10 +104,10 @@ const Order = () => {
                                                 <span className='check__box'></span>
                                                 Визитка
                                             </label>
-                                            <label className="order-options__check check">
+                                            <label className="order-options__check check" onChange={() => handlerClickedCheckobox(checkboxes.card)}>
                                                 <input type="checkbox" className='check__input' />
                                                 <span className='check__box'></span>
-                                                Полномасштабная открытка (+ 160 rub)
+                                                Полномасштабная открытка (+ {bonuses.card}<RubleSign marginLeft={"2"}/>)
                                             </label>
                                             <InputFrame className={"order-options__input"} placeholder={'Повод для открытки'}/>
                                             <InputFrame className={"order-options__input"} placeholder={'Текст открытки'}/>
@@ -80,7 +116,7 @@ const Order = () => {
                                 </div>
                             </div>
                         </div>
-                        <FinalPriceCard/>
+                        <FinalPriceCard sum = {sum}/>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import InteractionButton from '../../components/common/buttonTemplates/InteractionButton';
-import { InputFrame } from '../../components/common/InputFrame';
+import InteractionButton from '../../components/common/templates/buttonTemplates/InteractionButton';
+import { InputFrame } from '../../components/common/templates/InputFrame';
 import {clock, location, tel} from '../../img/info/index';
 const Сontacts = () => {
   const [name, setName] = useState('');

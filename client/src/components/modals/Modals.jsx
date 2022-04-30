@@ -3,7 +3,7 @@ import {RegistrationModal} from "./Registration/RegistrationModal";
 import {LoginModal} from "./Login/LoginModal";
 
 
-function Modals(props) {
+function Modals() {
     return (
         <Fragment>
             <RegistrationModal/>

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import InteractionButton from '../components/common/buttonTemplates/InteractionButton';
-import ItemBasket from '../components/common/ItemBasket';
-import Loader from '../components/common/Loader';
+import InteractionButton from '../components/common/templates/buttonTemplates/InteractionButton';
+import Loader from '../components/common/templates/Loader';
+import RubleSign from '../components/common/templates/RubleSign';
 import SliderBox from '../components/common/slider/SliderBox';
 import { paths } from '../utils/routes';
+import BasketItem from '../components/common/basketContents/BasketItem';
 
 const Basket = () => {
     const basketItems = useSelector(store => store.basket.basketItems);
@@ -35,7 +36,7 @@ const Basket = () => {
                                 {
                                     basketItems.map((basketItem) => {
                                         return (
-                                            <ItemBasket
+                                            <BasketItem
                                                 key={basketItem.item.id}
                                                 item = {basketItem.item}
                                                 basketCount={basketItem.basketCount}
@@ -54,7 +55,7 @@ const Basket = () => {
                             <div className="price-block__title">Ваш заказ</div>
                             <div className="price-block__general">
                                 <div className="price-block__general-text">Всего</div>
-                                <div className="price-block__general-sum">{sum} rub</div>
+                                <div className="price-block__general-sum">{sum}<RubleSign/></div>
                             </div>
                             {
                                 basketItems.length ?

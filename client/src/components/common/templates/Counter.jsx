@@ -1,6 +1,6 @@
 import React from 'react';
-import addCount from '../../img/common/arrow-right-tight.svg';
-import removeCount from '../../img/common/arrow-left-tight.svg';
+import addCount from '../../../img/common/arrow-right-tight.svg';
+import removeCount from '../../../img/common/arrow-left-tight.svg';
 
 const Counter = ({count, setCount, maxCount, className = ''}) => {
     const increaseCount = () => {

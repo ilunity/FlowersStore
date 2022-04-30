@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import '../../../scss/components/item-page-card.scss';
 import {STATIC_URL} from "../../../http/consts";
-import InteractionButton from "../buttonTemplates/InteractionButton";
+import InteractionButton from "../templates/buttonTemplates/InteractionButton";
 import {addItemBasket} from "../../../store/actions";
 import {addToBasket} from "../../../http/basketAPI";
 import {useDispatch} from "react-redux";
 import {ItemInfos} from "./itemInfos";
-import Counter from "../Counter";
+import Counter from "../templates/Counter";
 
 
 function ItemPageCard({item}) {

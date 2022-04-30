@@ -6,6 +6,7 @@
   line-height: 18px;
   margin-left: 10px;
   margin-left: 26px;
+  cursor: pointer;
   &__input{
     position: absolute;
     -webkit-appearance: none;
@@ -15,12 +16,11 @@
       background-color: $lilac;
       background-image: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.625 7.125L1 4.5L0.125 5.375L3.625 8.875L11.125 1.375L10.25 0.5L3.625 7.125Z' fill='%23F3F3F3'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: center right;
     }
   }
   &__box {
     margin-left: -26px;
-    cursor: pointer;
     position: absolute;
     width: 18px;
     height: 18px;
@@ -67,6 +67,7 @@
     & input{
       min-height: 62px;
       width: 100%;
+      padding: 0px 35px;
     }
   }
 }
@@ -123,6 +124,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 18px;
+      padding: 0px 35px;
     }
   }
 }
@@ -136,15 +138,21 @@
   }
   &__btn {
     margin-top: 46px;
+    align-self: center;
   }
   &__bunus {
+    display: flex;
+    flex-direction: column;
     & input{
       min-height: 62px;
       width: 100%;
+      padding: 0px 35px;
     }
   }
 }
 .card-price{
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(149, 109, 132, .5);;
   padding: 40px 45px;
   margin-bottom: 17px;
@@ -154,9 +162,14 @@
     font-weight: 400;
     font-size: 36px;
     line-height: 18px;
+    align-self: center;
   }
   &__btn {
+    align-self: center;
     margin-top: 40px;
+  }
+  &__list {
+    margin-bottom: 40px;
   }
 }
 .general-sum {
@@ -181,4 +194,30 @@
   font-size: 20px;
   line-height: 18px;
   margin-bottom: 43px;
+}
+.item-block{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  &__count{
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  &__name{
+    color: #BDBDBD;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  &__price{
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+  }
 }

@@ -2,7 +2,7 @@ import {Navigate, Routes, Route} from "react-router-dom";
 import React from 'react';
 import {routes} from "../utils/routes";
 
-function RouterComponent(props) {
+function RouterComponent() {
     return (
         <Routes>
             {
