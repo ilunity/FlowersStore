@@ -1,4 +1,5 @@
 @import '../variables';
+
 .authorization {
   &__exit {
     color: $white;
@@ -8,15 +9,18 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
+
     &:hover {
       color: $lilac;
     }
   }
+
   &__login {
     color: $white;
     margin-left: 10px;
     transition: all 0.1s ease-in-out;
   }
+
   &__login:hover {
     color: $lilac;
   }
@@ -25,25 +29,31 @@
     color: #FFFFFF;
     transition: all 0.1s ease-in-out;
   }
+
   &__registration:hover {
     color: $lilac;
   }
 }
 
 
-
 .contacts-purchases {
   &__phone {
     color: inherit;
   }
+
   &__basket {
     margin-top: 22px;
+  }
+
+  &__basket-link {
     display: flex;
     align-items: center;
   }
-  &__basket img:hover{
+
+  &__basket img:hover {
     cursor: pointer;
   }
+
   &__sum {
     margin-left: 15px;
     color: #828282;
@@ -68,14 +78,17 @@
 .lower-menu {
   margin-top: 28px;
   padding-top: 50px;
+
   &__body {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
   }
+
   &__logo {
     max-width: 117px;
   }
+
   &__navigation {
     flex: 1;
     display: flex;
@@ -83,8 +96,9 @@
     box-sizing: content-box;
     max-width: 824px;
     padding: 0px 20px;
-    
+
   }
+
   &__contacts-purchases {
     max-width: 145px;
   }
@@ -96,37 +110,43 @@
   z-index: 4;
   width: 100%;
   background: $black;
-  
+
   &__contacts {
     position: relative;
     margin-left: 63px;
   }
+
   &__authorization {
     margin-left: 290px;
-    
+
   }
+
   &__shipping-payment {
     position: relative;
   }
+
   &__body {
     display: flex;
     min-height: 50px;
     align-items: center;
     justify-content: end;
   }
-  &__body *{
+
+  &__body * {
     display: flex;
     cursor: pointer;
     user-select: none;
   }
 }
+
 .categories {
-  margin-right:21px;
+  margin-right: 21px;
   width: 219px;
+
   &__input {
     min-height: 26px;
     background: inherit;
-    border-bottom:1px solid $lilac;
+    border-bottom: 1px solid $lilac;
     padding-bottom: 8px;
     padding-right: 25px;
   }
@@ -135,28 +155,32 @@
 .goods {
   position: relative;
   flex: 1;
+
   &__btn {
     background: inherit;
     position: absolute;
     right: 5px;
     top: 0;
   }
+
   &__btn:hover {
-    filter:brightness(125%);
+    filter: brightness(125%);
   }
 
   &__input {
     min-height: 26px;
     padding-bottom: 8px;
     padding-right: 25px;
-    border-bottom:1px solid $lilac;
+    border-bottom: 1px solid $lilac;
     background: inherit;
     width: 100%;
   }
 }
+
 .search {
   margin-bottom: 47px;
   display: flex;
+
   &__categories {
     background: inherit;
   }
@@ -165,48 +189,59 @@
     background: inherit;
   }
 }
+
 .nav-bar {
   &__list {
     justify-content: space-between;
     display: flex;
   }
+
   &__link {
     color: inherit;
   }
+
   &__item {
     color: black;
     font-weight: 700;
     font-size: 16px;
     user-select: none;
     cursor: pointer;
+
     &:hover {
       color: $lilac;
     }
+
     &_info {
       position: relative;
       padding-right: 20px;
+
       &.active {
         color: $lilac;
       }
     }
   }
 }
+
 .arrow-dropdown {
   position: absolute;
   right: 3px;
   top: 6px;
   transition: all 0.4s ease;
+
   &.active {
     transform: rotate(-180deg);
   }
 }
+
 .socialmedia {
   display: flex;
   margin-bottom: 19px;
+
   &__item {
     width: 27px;
     height: 27px;
   }
+
   &__item:not(:last-child) {
     margin-right: 13px;
   }
