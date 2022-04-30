@@ -6,11 +6,23 @@ const addToBasket = async (itemId, count = 1) => {
     const url = BASKET_URL + '/add_item';
 
     const body = {itemId, count};
-    await sendRequest(url, {
+
+    const onSuccess = () => {
+        return true;
+    };
+    const onError = () => {
+        return false;
+    };
+
+    const isSuccess = await sendRequest(url, {
         method: REQUEST_METHODS.POST,
         body,
         isAttachToken: true,
+        onSuccess,
+        onError,
     });
+
+    return isSuccess;
 };
 
 const getAll = async () => {
