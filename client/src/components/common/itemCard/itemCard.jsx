@@ -51,7 +51,7 @@ function ItemCard({item}) {
                     {name}
                 </div>
                 <div className="item-card__price">
-                    {price}<RubleSign marginLeft = {"3"}/>
+                    {price} <RubleSign/>
                 </div>
             </div>
             {
