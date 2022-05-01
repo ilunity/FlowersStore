@@ -18,7 +18,9 @@ function FilterGroup({categoryGroup: {name, categories}}) {
         <li className={'catalog-filter__group'}>
             <div
                 className="catalog-filter__title"
-                onClick={() => {setIsCollapsed(!isCollapsed)}}
+                onClick={() => {
+                    setIsCollapsed(!isCollapsed)
+                }}
             >
                 {name}
                 <img

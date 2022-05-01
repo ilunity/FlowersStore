@@ -1,9 +1,11 @@
 @import "../variables.scss";
+
 .slider {
   height: 100%;
   width: 100%;
   position: relative;
   margin-bottom: 140px;
+
   &__litle {
     text-align: center;
     color: $black;
@@ -20,6 +22,7 @@
 
   &__switch {
     transition: all 0.3s ease-in-out;
+
     &:hover {
       filter: brightness(125%);
       cursor: pointer;
@@ -42,8 +45,9 @@
     @media screen and (max-width: 950px) {
       display: none;
     }
-    
+
   }
+
   &__wrapper {
     @media screen and (max-width: 1126px) {
       padding-left: 40px;

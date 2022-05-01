@@ -11,6 +11,7 @@
 @import "./components/loader";
 @import "./components/order";
 @import "./components/modalWarningWindow";
+
 body {
   background: #FFFFFF;
   padding-top: 260px;
@@ -19,24 +20,29 @@ body {
   color: black;
   font-family: 'Roboto';
 }
+
 #root {
   height: 100%;
 }
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+
 .container {
   max-width: 1421px;
   margin: 0 auto;
   padding: 0px 15px;
   box-sizing: content-box;
 }
+
 .main {
   flex: 1 1 auto;
 }
+
 .title {
   text-align: center;
   color: $black;

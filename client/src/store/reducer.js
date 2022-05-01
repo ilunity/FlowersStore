@@ -97,7 +97,7 @@ const modalsReducer = (
 
 const basketReducer = (
     state = {
-        basketItems:[],
+        basketItems: [],
         totalPrice: 0,
         isLoadingBasketItems: true,
     },

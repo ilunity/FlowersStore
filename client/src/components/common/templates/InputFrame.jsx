@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../scss/components/input-frame.scss';
-import { v4 as uniqueNum } from 'uuid';
+import {v4 as uniqueNum} from 'uuid';
 
 function InputFrame({type, value, placeholder, setValue, className}) {
     const onChange = (event) => {

@@ -4,8 +4,8 @@ import {deleteFromBasket, setItemCount} from '../../../http/basketAPI';
 import deleteIcon from '../../../img/basket/delete.svg';
 import '../../../scss/components/counter.scss';
 import Counter from '../templates/Counter';
-import { deleteItemBasket, setBasketItemCount, setSumBasket } from '../../../store/actions';
-import { STATIC_URL } from '../../../http/consts';
+import {deleteItemBasket, setBasketItemCount, setSumBasket} from '../../../store/actions';
+import {STATIC_URL} from '../../../http/consts';
 
 const BasketItem = ({item, basketCount}) => {
     const dispatch = useDispatch();
@@ -30,8 +30,7 @@ const BasketItem = ({item, basketCount}) => {
         if (basketItems.length) {
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
             dispatch(setSumBasket(sumItems));
-        }
-        else {
+        } else {
             dispatch(setSumBasket(0));
         }
     }, [currentCount]);

@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 import InteractionButton from '../components/common/templates/buttonTemplates/InteractionButton';
 import Loader from '../components/common/templates/Loader';
 import RubleSign from '../components/common/templates/RubleSign';
 import SliderBox from '../components/common/slider/SliderBox';
-import { paths } from '../utils/routes';
+import {paths} from '../utils/routes';
 import BasketItem from '../components/common/basketContents/BasketItem';
 
 const Basket = () => {
@@ -32,23 +32,23 @@ const Basket = () => {
                             {isLoadingBasketItems && <Loader/>}
                             {
                                 basketItems.length ?
-                                <div className="list-block__items">
-                                {
-                                    basketItems.map((basketItem) => {
-                                        return (
-                                            <BasketItem
-                                                key={basketItem.item.id}
-                                                item = {basketItem.item}
-                                                basketCount={basketItem.basketCount}
-                                            />
-                                        )
-                                    })
-                                }
-                                </div>
-                                : 
-                                isLoadingBasketItems ? null
-                                :
-                                <div className='list-block__no-items'>Корзина пуста</div>
+                                    <div className="list-block__items">
+                                        {
+                                            basketItems.map((basketItem) => {
+                                                return (
+                                                    <BasketItem
+                                                        key={basketItem.item.id}
+                                                        item={basketItem.item}
+                                                        basketCount={basketItem.basketCount}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    :
+                                    isLoadingBasketItems ? null
+                                        :
+                                        <div className='list-block__no-items'>Корзина пуста</div>
                             }
                         </div>
                         <div className="basket__price-block price-block">
@@ -59,13 +59,13 @@ const Basket = () => {
                             </div>
                             {
                                 basketItems.length ?
-                                <Link to={paths.ORDER} style={{display:'inline-block', width:'100%'}}>
-                                    <InteractionButton value={"Оформить заказ"}/>
-                                </Link>
-                                :
-                                <InteractionButton onClick={showErrorMessage} value={"Оформить заказ"}/>
+                                    <Link to={paths.ORDER} style={{display: 'inline-block', width: '100%'}}>
+                                        <InteractionButton value={"Оформить заказ"}/>
+                                    </Link>
+                                    :
+                                    <InteractionButton onClick={showErrorMessage} value={"Оформить заказ"}/>
                             }
-                            
+
                         </div>
                     </div>
                     <SliderBox/>

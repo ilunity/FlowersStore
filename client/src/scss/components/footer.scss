@@ -3,6 +3,7 @@
 .info-footer {
   margin-top: 82px;
   background: $black;
+
   &__body {
     padding: 32px 0px 38px 0px;
   }
@@ -11,6 +12,7 @@
 .menu-footer {
   margin-bottom: 36px;
   display: flex;
+
   &__column {
     display: flex;
     flex-direction: column;
@@ -36,6 +38,7 @@
     margin-right: 138px;
   }
 }
+
 .footer__map {
   & img {
     max-width: 100%;
@@ -43,12 +46,15 @@
     height: auto;
   }
 }
+
 .nav {
   height: 100%;
+
   &__item {
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
+
     &:hover {
       cursor: pointer;
       text-decoration: underline;
@@ -62,6 +68,7 @@
     justify-content: space-between;
   }
 }
+
 .copy {
   padding-top: 23px;
   border-top: 1px solid $lilac;
@@ -76,15 +83,17 @@
     color: $white;
   }
 }
+
 .payment {
   display: flex;
   align-items: center;
+
   &__icons {
     display: flex;
     align-items: center;
   }
 
-  &__item:not(:last-child){
+  &__item:not(:last-child) {
     margin-right: 28px;
   }
 
