@@ -23,7 +23,7 @@ function FlipButton({type, page, setPage, pageCount}) {
 
     if (type === BUTTON_TYPES.PREVIOUS) {
         imgSrc = arrowLeft;
-        imgDescription ="Предыдущая страница";
+        imgDescription = "Предыдущая страница";
     } else if (type === BUTTON_TYPES.NEXT) {
         imgSrc = arrowRight;
         imgDescription = "Следующая страница";

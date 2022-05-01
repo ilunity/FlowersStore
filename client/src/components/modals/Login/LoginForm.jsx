@@ -20,10 +20,10 @@ function LoginForm({hideModal}) {
             email,
             password,
         });
-        
+
         dispatch(getAuthStatus());
     };
-    
+
     return (
         <form
             className="form-modal__form"

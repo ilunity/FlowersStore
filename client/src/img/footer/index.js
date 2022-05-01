@@ -6,4 +6,5 @@ import visa1 from "./visa1.svg";
 import visa2 from "./visa2.svg";
 import map from "./map.jpg";
 import masterCard from "./masterCard.svg";
+
 export {box_green, liqpay, logo, Maestro, visa1, visa2, map, masterCard};

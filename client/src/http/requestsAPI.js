@@ -32,14 +32,14 @@ const getRequestOptionsObject = ({method, body, isAttachToken}) => {
 }
 
 
-const sendRequest = async ( url,
-    {
-        method = REQUEST_METHODS.GET,
-        body,
-        isAttachToken = false,
-        onSuccess,
-        onError = console.log,
-    }
+const sendRequest = async (url,
+                           {
+                               method = REQUEST_METHODS.GET,
+                               body,
+                               isAttachToken = false,
+                               onSuccess,
+                               onError = console.log,
+                           }
 ) => {
     try {
         if (!Object.values(REQUEST_METHODS).includes(method)) throw new SyntaxError(`Несуществующий метод: ${method}`);

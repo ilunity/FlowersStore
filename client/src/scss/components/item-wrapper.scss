@@ -14,6 +14,7 @@
     grid-auto-rows: 400px;
     gap: 20px 15px;
   }
+
   &__no-items {
     font-size: 28px;
     font-weight: 300;
@@ -52,6 +53,7 @@
       object-fit: cover;
     }
   }
+
   &__description {
     width: 100%;
     display: flex;
@@ -61,6 +63,7 @@
     font-size: 15px;
     flex: 1 0 auto;
   }
+
   &__name {
     color: $black;
     margin-right: 20px;
@@ -69,6 +72,7 @@
     font-size: 18px;
     line-height: 18px;
   }
+
   &__price {
     //width: 100px;
     white-space: nowrap;
@@ -103,6 +107,7 @@
     &:last-child {
       margin-right: 0;
     }
+
     &:hover {
       background-color: $lilac;
       opacity: 100%;
@@ -115,6 +120,7 @@
       color: $white;
     }
   }
+
   &__flip-button {
     width: 45px;
     height: 45px;
@@ -124,9 +130,11 @@
     &:hover {
       opacity: 100%;
     }
+
     &_previous {
       margin-right: 8px;
     }
+
     &_next {
       margin-left: 8px;
     }

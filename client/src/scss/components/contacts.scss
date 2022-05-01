@@ -1,6 +1,8 @@
 @import "../variables";
+
 .contacts {
   color: $black;
+
   &__body {
     display: flex;
     justify-content: space-around;
@@ -9,6 +11,7 @@
 
 .form-contacts {
   max-width: 650px;
+
   &__body {
     margin-bottom: 84px;
   }
@@ -19,23 +22,28 @@
     line-height: 18px;
     margin-bottom: 50px;
   }
+
   &__item {
-    
+
     & input {
       max-width: 623px;
       width: 100%;
       min-height: 55px;
     }
+
     &:not(:last-child) {
       margin-bottom: 30px;
     }
+
     &-btn {
       margin-top: 50px;
     }
   }
 }
+
 .info-contacts {
   max-width: 480px;
+
   &__location {
     position: relative;
   }
@@ -57,7 +65,7 @@
     font-weight: 500;
     font-size: 36px;
     line-height: 18px;
-    
+
   }
 
   &__working-mode {
@@ -67,6 +75,7 @@
 
 .location {
   margin-bottom: 50px;
+
   &__icon {
     position: absolute;
     left: 0;
@@ -81,6 +90,7 @@
 .tel {
   display: inline-block;
   margin-bottom: 50px;
+
   &__icon {
     position: absolute;
     left: 0;

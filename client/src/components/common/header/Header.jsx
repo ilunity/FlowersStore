@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {logo, facebook, instagram, telegram, whatsApp, user} from '../../../img/header/index';
 import basket from '../../../img/header/icons/shopping-basket.svg';
 import Navbar from './navbar';
 import SearchBar from './SearchBar';
 import CommunicationButton from '../templates/buttonTemplates/CommunicationButton';
 import {useDispatch, useSelector} from "react-redux";
-import {setItemBasket, setLoadingBasket, setLoginModalStatus, setRegModalStatus, setSumBasket} from "../../../store/actions";
-import { exitUser } from '../../../store/asyncActions';
-import { getAll } from '../../../http/basketAPI';
-import { Link } from 'react-router-dom';
-import { paths } from '../../../utils/routes';
+import {
+    setItemBasket,
+    setLoadingBasket,
+    setLoginModalStatus,
+    setRegModalStatus,
+    setSumBasket
+} from "../../../store/actions";
+import {exitUser} from '../../../store/asyncActions';
+import {getAll} from '../../../http/basketAPI';
+import {Link} from 'react-router-dom';
+import {paths} from '../../../utils/routes';
 import RubleSign from '../templates/RubleSign';
 
 
@@ -48,8 +54,7 @@ const Header = () => {
         if (basketItems.length) {
             const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
             dispatch(setSumBasket(sumItems));
-        }
-        else {
+        } else {
             dispatch(setSumBasket(0));
         }
     }, [basketItems]);
@@ -60,7 +65,7 @@ const Header = () => {
                     <div className="upper-menu__body">
                         {isAuth ?
                             <div onClick={logOut}
-                                className="authorization__exit">
+                                 className="authorization__exit">
                                 Выйти
                             </div>
                             :
@@ -105,7 +110,7 @@ const Header = () => {
                                     className='contacts-purchases__basket-link'
                                     to={paths.BASKET}
                                 >
-                                    <img src={basket} style={{width:'32px', height:'32px'}} alt="basket" />
+                                    <img src={basket} style={{width: '32px', height: '32px'}} alt="basket"/>
                                     <div className='contacts-purchases__sum'>{sum} <RubleSign/></div>
                                 </Link>
                             </div>

@@ -8,22 +8,26 @@
   font-weight: 250;
   font-size: 16px;
   line-height: 30px;
+
   &__general-info {
     & p:not(:last-child) {
       margin-bottom: 35px;
     }
   }
+
   &__list {
     & li {
       font-size: 25px;
       margin-left: 30px;
-      list-style:disc;
+      list-style: disc;
       color: $lilac;
+
       & span {
         font-size: 16px;
         color: $black;
       }
     }
+
     margin-bottom: 35px;
   }
 }
@@ -43,6 +47,7 @@
   & p {
     margin-bottom: 47px;
   }
+
   &__titlte {
     text-align: center;
     color: $lilac;

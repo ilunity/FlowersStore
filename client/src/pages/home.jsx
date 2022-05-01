@@ -1,6 +1,7 @@
 import React from 'react';
 import {photo, present, video, boxes, baskets, gifts, catalog, roses} from "../img/home/index";
 import SliderBox from '../components/common/slider/SliderBox';
+
 const Home = () => {
     return (
         <main className='main'>
@@ -9,25 +10,25 @@ const Home = () => {
                     <div className="home__banner banner">
                         <div className="banner__column">
                             <div className="banner__discount">
-                                <img src={catalog} alt="" />
+                                <img src={catalog} alt=""/>
                             </div>
                         </div>
                         <div className="banner__column">
                             <div className="banner__catalog catalog-banner">
                                 <div className="catalog-banner__row">
                                     <div className="catalog-banner__item">
-                                        <img src={roses} alt="" />
+                                        <img src={roses} alt=""/>
                                     </div>
                                     <div className="catalog-banner__item">
-                                        <img src={gifts} alt="" />
+                                        <img src={gifts} alt=""/>
                                     </div>
                                 </div>
                                 <div className="catalog-banner__row">
                                     <div className="catalog-banner__item">
-                                        <img src={baskets} alt="" />
+                                        <img src={baskets} alt=""/>
                                     </div>
                                     <div className="catalog-banner__item">
-                                        <img src={boxes} alt="" />
+                                        <img src={boxes} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -35,13 +36,13 @@ const Home = () => {
                     </div>
                     <div className="home__about about-home">
                         <div className="about-home__item">
-                            <img src={photo} alt="" />
+                            <img src={photo} alt=""/>
                         </div>
                         <div className="about-home__item">
-                            <img src={video} alt="" />
+                            <img src={video} alt=""/>
                         </div>
                         <div className="about-home__item">
-                            <img src = {present} alt="" />
+                            <img src={present} alt=""/>
                         </div>
                     </div>
                     <SliderBox/>
