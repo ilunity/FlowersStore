@@ -1,30 +1,27 @@
-import {setAuth, setItems} from "./actions";
-import {checkAuth} from "../http/userAPI";
-import {setToken} from "../utils/cookiesAPI";
-import {getItems} from "../http/itemsAPI";
-
-const FETCH_ITEMS = "FETCH_ITEMS";
-
-const fetchItems = (limit, page, filters) => {
-    return async (dispatch) => {
-        dispatch({type: FETCH_ITEMS});
-        const items = await getItems(limit, page, filters);
-        dispatch(setItems(items));
-    };
-};
+import { checkAuth } from "../http/userAPI";
+import { setToken } from "../utils/cookiesAPI";
+import { setAuth } from "./reducers/authReducer";
 
 const getAuthStatus = () => {
-    return async (dispatch) => {
-        const isAuth = await checkAuth();
-        dispatch(setAuth(isAuth));
+    return async dispatch => {
+        try {
+            const isAuth = await checkAuth();
+            dispatch(setAuth(isAuth));
+        } catch (error) {
+            console.log(error);
+        }
     };
 };
 
 const exitUser = () => {
-    return async (dispatch) => {
-        setToken(null);
-        dispatch(setAuth(false));
+    return async dispatch => {
+        try {
+            setToken(null);
+            dispatch(setAuth(false));
+        } catch (error) {
+            console.log(error);
+        }
     };
 };
 
-export {FETCH_ITEMS, getAuthStatus, exitUser};
+export { getAuthStatus, exitUser };
