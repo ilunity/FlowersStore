@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSumBasket } from "../../../store/actions";
+import { setSumBasket } from "../../../store/reducers/basketReducer";
+
 
 const Option = ({ name, price }) => {
     const dispatch = useDispatch();

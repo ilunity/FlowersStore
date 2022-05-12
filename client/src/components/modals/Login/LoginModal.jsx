@@ -2,8 +2,9 @@ import React from 'react';
 import '../../../scss/components/modal.scss';
 import {Modal} from "../Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {setLoginModalStatus} from "../../../store/actions";
+
 import {LoginForm} from "./LoginForm";
+import { setLoginModalStatus } from '../../../store/reducers/modalsReducer';
 
 function LoginModal() {
     const dispatch = useDispatch();
