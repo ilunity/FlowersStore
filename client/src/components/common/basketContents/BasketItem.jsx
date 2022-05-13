@@ -4,15 +4,14 @@ import {deleteFromBasket, setItemCount} from '../../../http/basketAPI';
 import deleteIcon from '../../../img/basket/delete.svg';
 import '../../../scss/components/counter.scss';
 import Counter from '../templates/Counter';
-import {deleteItemBasket, setBasketItemCount, setSumBasket} from '../../../store/actions';
+
 import {STATIC_URL} from '../../../http/consts';
+import { deleteItemBasket, setBasketItemCount } from '../../../store/reducers/basketReducer';
 
 const BasketItem = ({item, basketCount}) => {
     const dispatch = useDispatch();
-    const basketItems = useSelector(store => store.basket.basketItems);
     const {id, name, price, count: maxCount, img: imgName} = item;
     const img = `${STATIC_URL}/${imgName}`;
-
     const [currentCount, setCurrentCount] = useState(basketCount);
 
     const setCount = async (value) => {
@@ -25,15 +24,6 @@ const BasketItem = ({item, basketCount}) => {
         dispatch(deleteItemBasket(item.id));
         await deleteFromBasket(item.id);
     }
-
-    useEffect(() => {
-        if (basketItems.length) {
-            const sumItems = basketItems.reduce((previousValue, basketItem) => previousValue + basketItem.item.price * basketItem.basketCount, 0);
-            dispatch(setSumBasket(sumItems));
-        } else {
-            dispatch(setSumBasket(0));
-        }
-    }, [currentCount]);
 
     return (
         <div className="list-block__item item-basket">

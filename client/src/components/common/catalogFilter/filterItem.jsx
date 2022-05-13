@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import '../../../scss/components/catalog-filter.scss';
 import {useDispatch, useSelector} from "react-redux";
-import {addFilter, deleteFilter} from "../../../store/actions";
+import { addFilter, deleteFilter } from '../../../store/reducers/filtersReducer';
+
 
 
 function FilterItem({category}) {
     const dispatch = useDispatch();
-    const chosenCategories = useSelector(store => store.filters);
+    const chosenCategories = useSelector(store => store.filters.filters);
 
     const [isActive, setIsActive] = useState(chosenCategories.includes(category.id));
 

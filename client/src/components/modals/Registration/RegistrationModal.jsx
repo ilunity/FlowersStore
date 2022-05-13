@@ -2,8 +2,9 @@ import React from 'react';
 import '../../../scss/components/modal.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {Modal} from "../Modal";
-import {setRegModalStatus} from "../../../store/actions";
+
 import {RegistrationForm} from "./RegistrationForm";
+import { setRegModalStatus } from '../../../store/reducers/modalsReducer';
 
 function RegistrationModal(props) {
     const dispatch = useDispatch();
