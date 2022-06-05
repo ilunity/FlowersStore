@@ -23,4 +23,4 @@ npm run dev
 ## Использованные технологии:
 - React
 - Redux (Redux Toolkit), Redux Thunk
-- SCSS
+- SCSS + БЭМ
