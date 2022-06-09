@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../../../scss/components/item-wrapper.scss';
 import {PaginationButton} from "./paginationButton";
 import {v4 as uniqueNum} from "uuid";
@@ -7,7 +7,6 @@ import {FlipButton, BUTTON_TYPES} from "./flipButton";
 
 const generatePaginationButtons = (currentPage, pageCount, setPage) => {
     let paginationButtons = [];
-
     if (pageCount <= 7) {
         for (let page = 1; page <= pageCount; page++) {
             if (page === currentPage) {
@@ -117,7 +116,6 @@ const generatePaginationButtons = (currentPage, pageCount, setPage) => {
             )
         }
     }
-
     return paginationButtons;
 };
 

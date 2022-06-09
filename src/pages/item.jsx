@@ -15,7 +15,9 @@ const Item = () => {
     return (
         <main className='main'>
             <div className={'main__item-page item-page'}>
-                {item && <ItemPageCard item={item}/>}
+                <div className="item-page__container container">
+                    {item && <ItemPageCard item={item}/>}
+                </div>
             </div>
         </main>
     )
