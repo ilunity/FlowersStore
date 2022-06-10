@@ -5,14 +5,8 @@
 ## Запуск
 
 1. Клонируйте этот репозиторий
-``
-git clone https://github.com/TheHix/FlowersStore.git
-``
-2. Зайдите в папку client
-``
-cd .\client\
-``
-4. Подгрузите зависимости 
+
+3. Подгрузите зависимости 
 ``
 npm install
 ``
