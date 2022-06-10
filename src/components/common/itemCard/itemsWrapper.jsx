@@ -15,7 +15,9 @@ function ItemsWrapper({limit = 12, filters = [], helperClass = ""}) {
         setPageCount(Math.ceil(countedItems.count / limit));
         setItems(countedItems.items);
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentPage])
     useEffect(async () => {
         await loadItems();
     }, [filters, currentPage]);
@@ -25,6 +27,7 @@ function ItemsWrapper({limit = 12, filters = [], helperClass = ""}) {
         <div className={`${helperClass} items-wrapper`}>
             <div className={`${helperClass} items-wrapper__list`}>
                 {items.map((item) => {
+                    console.log(item);
                     return (
                         <ItemCard
                             key={item.id}

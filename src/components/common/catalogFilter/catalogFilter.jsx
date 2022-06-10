@@ -11,7 +11,7 @@ function CatalogFilter() {
         setGroupedCategories(await getGroupedCategories());
     }, []);
 
-    // todo add loader
+    // todo add loaderl
     return (
         <ul className={'catalog-filter'}>
             {

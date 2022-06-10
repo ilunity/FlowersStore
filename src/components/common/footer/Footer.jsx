@@ -12,12 +12,6 @@ const Footer = () => {
             setWarningWindow(false);
         }, 2000);
     }
-    const handlerScrollUp = () => {
-        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-            window.scrollBy(0, -50);
-            setTimeout(handlerScrollUp, 5);
-        }
-    }
     return (
         <footer className='footer'>
             {warningWindow && <ModalWarningWindow tilte={'Страница в разработке'}/>}
@@ -39,18 +33,18 @@ const Footer = () => {
                                     <nav className="menu-footer__nav nav">
                                         <ul className="nav__list">
                                             <li className="nav__item">
-                                                <Link to={paths.ABOUT} onClick={handlerScrollUp}
+                                                <Link to={paths.ABOUT}
                                                       style={{color: 'inherit'}}>
                                                     О НАС
                                                 </Link>
                                             </li>
                                             <li className="nav__item">
-                                                <Link to={paths.PAYMENT_DELIVERY} onClick={handlerScrollUp}
+                                                <Link to={paths.PAYMENT_DELIVERY}
                                                       style={{color: 'inherit'}}>
                                                     ДОСТАВКА И ОПЛАТА
                                                 </Link>
                                             </li>
-                                            <li className="nav__item" onClick={showWarningWindow}>ПОЛИТИКА
+                                            <li className="nav__item">ПОЛИТИКА
                                                 КОНФИДЕНЦИАЛЬНОСТИ
                                             </li>
                                         </ul>

@@ -13,7 +13,7 @@ function FilterGroup({categoryGroup: {name, categories}}) {
             <FilterItem key={category.id} category={category}/>
         );
     });
-
+    console.log(categoriesList);
     return (
         <li className={'catalog-filter__group'}>
             <div

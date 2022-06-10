@@ -7,6 +7,7 @@ import {getAuthStatus} from "./store/asyncActions";
 import Header from "./components/common/header/Header";
 import {Modals} from "./components/modals/Modals";
 import Footer from "./components/common/footer/Footer";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 
 function App() {
@@ -17,13 +18,13 @@ function App() {
     }, []);
 
     return (
-        <div className="wrapper">
-            <BrowserRouter>
-                <Header/>
-                <Modals/>
+        <div className="wrapper">   
+            <Header/>
+            <Modals/>
+            <ScrollToTop>
                 <RouterComponent/>
-                <Footer/>
-            </BrowserRouter>
+            </ScrollToTop>
+            <Footer/>
         </div>
     );
 }

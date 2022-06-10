@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ItemInfos } from "./itemInfos";
 import Counter from "../templates/Counter";
 import { addItemBasket } from "../../../store/reducers/basketReducer";
+import SliderBox from "../slider/SliderBox";
 
 function ItemPageCard({ item }) {
     const dispatch = useDispatch();
@@ -41,6 +42,8 @@ function ItemPageCard({ item }) {
     };
 
     return (
+        <>
+        
         <div className={"item-page-card"}>
             <div className="item-page-card__img">
                 <div className="item-page-card__img-wrapper">
@@ -68,11 +71,14 @@ function ItemPageCard({ item }) {
                         Описание
                     </div>
                     <div className="item-page-card__description-text">
-                        {description}
+                        {description || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quas voluptates asperiores, quibusdam tempora sapiente! Cum dolor adipisci eum hic ipsa, voluptates dolorem nisi excepturi consectetur aliquid quis enim sit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quas voluptates asperiores, quibusdam tempora sapiente! Cum dolor adipisci eum hic ipsa, voluptates dolorem nisi excepturi consectetur aliquid quis enim sit."}
+                        
                     </div>
                 </div>
             </div>
         </div>
+        <SliderBox/>
+        </>
     );
 }
 
