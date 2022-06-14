@@ -178,12 +178,11 @@
 }
 
 .search {
+  align-self: center;
+  max-width: 600px;
+  width: 100%;
   margin-bottom: 47px;
   display: flex;
-
-  &__categories {
-    background: inherit;
-  }
 
   &__goods {
     background: inherit;
